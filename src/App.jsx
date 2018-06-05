@@ -78,6 +78,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <div className="App-header">
+          <h1>LifeLine</h1>
+        </div>
         <Lifeline events={this.state.events} />
       </div>
     );
