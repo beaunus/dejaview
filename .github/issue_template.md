@@ -1,6 +1,6 @@
 ## Business/User Value
 
-- Description here
+As Mel, I want to [action by user] so that [value or need met].
 
 ## Acceptance Criteria
 
