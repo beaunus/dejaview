@@ -33,6 +33,44 @@ class App extends Component {
             link:
               "https://www.nytimes.com/2018/06/04/opinion/roseanne-barr-apology.html"
           }
+        ],
+        "20180602": [
+          {
+            title:
+              "As Party Vote Inches Closer, Abe Seeks to Turn Page on Scandal Narrative",
+            text:
+              "Prime Minister Shinzo Abe's government sought on Monday to put behind it the worst of a suspected cronyism scandal that has clouded Abe's chances for re-election, as his finance minister said he'd give back a year's salary but would not quit.",
+            link:
+              "https://www.nytimes.com/reuters/2018/06/04/world/asia/04reuters-japan-politics.html"
+          }
+        ],
+        "20180601": [
+          {
+            title: "Kompany in Belgium's World Cup Squad Despite Injury",
+            text:
+              "Vincent Kompany was included in Belgium coach Roberto Martinez's 23-man World Cup squad on Monday despite picking up a groin injury during a friendly over the weekend.",
+            link:
+              "https://www.nytimes.com/aponline/2018/06/04/sports/soccer/ap-soc-wcup-belgium-squad.html"
+          }
+        ],
+        "20180531": [
+          {
+            title:
+              "Japan Airlines to Expand Budget Carrier's Fleet After 2020 Launch: Director",
+            text:
+              "Japan Airlines Co Ltd hopes to expand the fleet of a new low-cost carrier by two jets a year after it launches in mid-2020, a director of the airline said on Monday, as it takes on rival ANA Holdings Inc's budget arm Peach.",
+            link:
+              "https://www.nytimes.com/reuters/2018/06/04/business/04reuters-airlines-iata-japan-airlines.html"
+          }
+        ],
+        "20180530": [
+          {
+            title: "KLM CEO Says More Restructuring Needed at Air France",
+            text:
+              "More restructuring is needed at French flag carrier Air France, the head of Dutch sister airline KLM said on Monday.",
+            link:
+              "https://www.nytimes.com/2014/09/12/business/international/air-france-klm-restructuring-puts-new-focus-on-its-low-cost-airline.html"
+          }
         ]
       }
     };
