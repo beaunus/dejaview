@@ -5,7 +5,11 @@ function Lifeline(props) {
   return (
     <div className="lifeline">
       <p>From Lifeline</p>
-      <p>{props.title}</p>
+      {Object.keys(props.events)
+        .sort((a, b) => b > a)
+        .map((key, index) => {
+          return <div key={index}>{props.events[key][0].title}</div>;
+        })}
     </div>
   );
 }
