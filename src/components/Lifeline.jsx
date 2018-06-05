@@ -9,9 +9,9 @@ function Lifeline(props) {
           .sort((a, b) => b > a)
           .map((key, index) => {
             return (
-              <li className="headline">
-                <div>
-                  <div key={index}>
+              <li>
+                <div className="lifeline scale-in-center">
+                  <div className="headline" key={index}>
                     <a href={props.events[key][0].link} key={index}>
                       {props.events[key][0].title}
                     </a>
