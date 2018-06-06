@@ -67,6 +67,6 @@ app.use("/api/v1", isAuthenticated, api);
 
 app.use("/login", express.static(path.join(__dirname, "../login")));
 
-app.use(isAuthenticated, express.static(path.join(__dirname, "../public")));
+app.use(isAuthenticated, express.static(path.join(__dirname, "../build")));
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
