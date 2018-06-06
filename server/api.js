@@ -8,6 +8,8 @@ router.get("/:date", (req, res) => {
   const year = req.params.date.slice(0, 4);
   const month = req.params.date.slice(4, 6);
   const date = req.params.date.slice(6, 8);
+
+  // TODO: Don't mutate date
   const targetDate = new Date(`${year}-${month}-${date}`);
   const nextDate = new Date(targetDate.setDate(targetDate.getDate() + 1));
   const weekBeforeDate = new Date(targetDate.setDate(targetDate.getDate() - 7));
