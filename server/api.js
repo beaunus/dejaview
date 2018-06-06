@@ -1,3 +1,5 @@
+const moment = require("moment");
+
 const router = require("express").Router();
 const db = require("knex")({
   client: "pg",
@@ -9,10 +11,17 @@ router.get("/:date", (req, res) => {
   const month = req.params.date.slice(4, 6);
   const date = req.params.date.slice(6, 8);
 
-  // TODO: Don't mutate date
   const targetDate = new Date(`${year}-${month}-${date}`);
-  const nextDate = new Date(targetDate.setDate(targetDate.getDate() + 1));
-  const weekBeforeDate = new Date(targetDate.setDate(targetDate.getDate() - 7));
+  const nextDate = new Date(
+    moment(targetDate)
+      .add(1, "day")
+      .format("YYYY-MM-DD")
+  );
+  const weekBeforeDate = new Date(
+    moment(targetDate)
+      .subtract(6, "day")
+      .format("YYYY-MM-DD")
+  );
 
   const results = db("event")
     .select(
@@ -35,8 +44,6 @@ router.get("/:date", (req, res) => {
           result[dateString] = [];
         }
         result[dateString].push(event);
-        console.log(event);
-        console.log(dateString);
       }
       res.status(200).send(result);
     })
