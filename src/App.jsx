@@ -30,7 +30,7 @@ class App extends Component {
       <div className="App">
         <div className="header">Lifeline</div>
         <DatePicker changeDate={this.changeDate} />
-        <LabelFilter />
+        <LabelFilter labelName="New York Times" />
         <Lifeline events={this.state.events} />
       </div>
     );

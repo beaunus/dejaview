@@ -1,7 +1,7 @@
 import React from "react";
 
 function LabelFilter(props) {
-  return <div className="label-filter">New York Times</div>;
+  return <div className="label-filter">{props.labelName}</div>;
 }
 
 export default LabelFilter;
