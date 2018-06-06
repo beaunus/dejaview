@@ -13,12 +13,19 @@ class App extends Component {
     this.state = {
       events: data
     };
+    this.changeDate = this.changeDate.bind(this);
   }
+
+  changeDate(date) {
+    console.log(date);
+    this.setState({ events: data_old });
+  }
+
   render() {
     return (
       <div className="App">
         <div className="header">Lifeline</div>
-        <DatePicker />
+        <DatePicker changeDate={this.changeDate} />
         <Lifeline events={this.state.events} />
       </div>
     );

@@ -5,7 +5,13 @@ import moment from "moment";
 function DatePicker(props) {
   return (
     <div className="date-picker">
-      <input type="date" defaultValue={moment().format("YYYY-MM-DD")} />
+      <input
+        type="date"
+        defaultValue={moment().format("YYYY-MM-DD")}
+        onChange={e => {
+          props.changeDate(e.target.value);
+        }}
+      />
     </div>
   );
 }
