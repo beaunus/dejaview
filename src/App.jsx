@@ -6,6 +6,7 @@ import DatePicker from "./components/DatePicker.jsx";
 import data from "./data_now";
 // eslint-disable-next-line
 import data_old from "./data_old";
+import LabelFilter from "./components/LabelFilter";
 
 class App extends Component {
   constructor(props) {
@@ -17,8 +18,14 @@ class App extends Component {
   }
 
   changeDate(date) {
-    console.log(date);
-    this.setState({ events: data_old });
+    const strDate = date.replace(/-/g, "");
+    const nextDay = Number(strDate) - 1;
+    if (data[strDate] !== undefined && data[nextDay.toString()] !== undefined) {
+      const events = {};
+      events[strDate] = data[strDate];
+      events[nextDay.toString()] = data[nextDay.toString()];
+      this.setState({ events });
+    }
   }
 
   render() {
@@ -26,6 +33,7 @@ class App extends Component {
       <div className="App">
         <div className="header">Lifeline</div>
         <DatePicker changeDate={this.changeDate} />
+        <LabelFilter />
         <Lifeline events={this.state.events} />
       </div>
     );

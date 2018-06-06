@@ -63,5 +63,14 @@ module.exports = {
       link:
         "https://www.nytimes.com/reuters/2018/06/04/business/04reuters-airlines-iata-japan-airlines.html"
     }
+  ],
+  "20180530": [
+    {
+      title: "KLM CEO Says More Restructuring Needed at Air France",
+      text:
+        "More restructuring is needed at French flag carrier Air France, the head of Dutch sister airline KLM said on Monday.",
+      link:
+        "https://www.nytimes.com/2014/09/12/business/international/air-france-klm-restructuring-puts-new-focus-on-its-low-cost-airline.html"
+    }
   ]
 };
