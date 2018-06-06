@@ -1,5 +1,11 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
+# vscode settings and launches
+.vscode
+
+# environment variables
+.env
+
 # dependencies
 /node_modules
 
