@@ -1,5 +1,5 @@
 import React from "react";
-//import "./Lifeline.css";
+import "../styles/Lifeline.css";
 
 function Lifeline(props) {
   return (
