@@ -13,9 +13,9 @@
 ### Data
 
 ```js
-// Dictionary of events keyed by YYYMMDD string.
+// Dictionary of events keyed by YYYY-MM-DD string.
 {
-  "20180604" : [
+  "2018-06-04" : [
     {
       "title" : "The Headline",
       "text" : "So and so did an interesting thing...",
