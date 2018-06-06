@@ -14,9 +14,9 @@ router.get("/:date", (req, res) => {
   const nextDate = new Date(targetDate.setDate(targetDate.getDate() + 1));
   const weekBeforeDate = new Date(targetDate.setDate(targetDate.getDate() - 7));
 
-  const results = db("events")
+  const results = db("event")
     .select()
-    .whereBetween("datetime", [weekBeforeDate, nextDate])
+    .whereBetween("timestamp", [weekBeforeDate, nextDate])
     .then(result => {
       res.status(200).send(result);
     })
