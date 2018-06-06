@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Lifeline.css";
+import moment from "moment";
 
 function Lifeline(props) {
   return (
@@ -17,7 +18,7 @@ function Lifeline(props) {
                     </a>
                   </div>
                   <div key={index} className="pub-date">
-                    {key}
+                    {moment(key).format("MMMM D, YYYY")}
                   </div>
                   {props.events[key][0].text}
                 </div>
