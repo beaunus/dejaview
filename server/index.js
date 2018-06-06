@@ -15,6 +15,7 @@ app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+//TODO: remove secret
 app.use(
   session({
     secret: "code chrysalis banzai!",
