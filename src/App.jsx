@@ -2,10 +2,7 @@ import React, { Component } from "react";
 import "./styles/App.css";
 import Lifeline from "./components/Lifeline.jsx";
 import DatePicker from "./components/DatePicker.jsx";
-// eslint-disable-next-line
-import data from "./data_now";
-// eslint-disable-next-line
-import data_old from "./data_old";
+import data from "./data";
 import LabelFilter from "./components/LabelFilter";
 
 class App extends Component {
