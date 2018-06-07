@@ -39,8 +39,7 @@ passport.use(
     {
       clientID: process.env.FACEBOOK_APP_ID,
       clientSecret: process.env.FACEBOOK_APP_SECRET,
-      // TODO: How to not hardcode localhost
-      callbackURL: "http://localhost:3001/auth/facebook/callback"
+      callbackURL: process.env.FACEBOOK_APP_CALLBACK_URL
     },
     function(accessToken, refreshToken, profile, done) {
       done(null, profile);

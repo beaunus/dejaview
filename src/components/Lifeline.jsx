@@ -18,7 +18,7 @@ function Lifeline(props) {
                     </a>
                   </div>
                   <div key={index} className="pub-date">
-                    {moment(key).format("MMMM D, YYYY")}
+                    {moment(new Date(key)).format("MMMM D, YYYY")}
                   </div>
                   {props.events[key][0].text}
                 </div>

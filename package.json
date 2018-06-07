@@ -3,14 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
+    "devc": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "serve": "node -r dotenv/config server/index.js",
-    "dev": "nodemon -r dotenv/config server/index.js"
+    "devs": "nodemon -r dotenv/config server/index.js",
+    "start": "yarn build && yarn serve"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "cookie-parser": "^1.4.3",
     "express-session": "^1.15.6",
     "knex": "^0.14.6",
@@ -25,5 +27,6 @@
   },
   "devDependencies": {
     "nodemon": "^1.17.5"
-  }
+  },
+  "proxy": "http://localhost:3001"
 }
