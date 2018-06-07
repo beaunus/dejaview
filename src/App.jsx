@@ -10,34 +10,30 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedDate: undefined,
+      selectedDate: moment().format("YYYY-MM-DD"),
       events: {}
     };
     this.changeDate = this.changeDate.bind(this);
   }
 
   async componentDidMount() {
-    const selectedDate = moment().format("YYYY-MM-DD");
-    const events = (await axios.get(`/api/v1/${selectedDate}`)).data;
-
-    this.setState({ selectedDate, events });
+    const events = (await axios.get(`/api/v1/${this.state.selectedDate}`)).data;
+    this.setState({ events });
   }
 
-  changeDate(date) {
-    // const nextDay = Number(date) - 1;
-    // if (data[strDate] !== undefined && data[nextDay.toString()] !== undefined) {
-    //   const events = {};
-    //   events[date] = data[date];
-    //   events[nextDay.toString()] = data[nextDay.toString()];
-    //   this.setState({ selectedDate: date, events });
-    // }
+  async changeDate(selectedDate) {
+    const events = (await axios.get(`/api/v1/${selectedDate}`)).data;
+    this.setState({ selectedDate, events });
   }
 
   render() {
     return (
       <div className="App">
         <div className="header">Lifeline</div>
-        <DatePicker changeDate={this.changeDate} />
+        <DatePicker
+          selectedDate={this.state.selectedDate}
+          changeDate={this.changeDate}
+        />
         <LabelFilter labelName="New York Times" />
         <Lifeline events={this.state.events} />
       </div>
