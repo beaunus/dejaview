@@ -47,6 +47,8 @@ passport.use(
   )
 );
 
+// The following endpoints do not require authentication.
+
 app.get("/auth/facebook", passport.authenticate("facebook"));
 
 app.get(
@@ -57,14 +59,20 @@ app.get(
   })
 );
 
+app.use("/login", express.static(path.join(__dirname, "../login")));
+
+app.get("/privacy", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build/privacy.html"));
+});
+
+// The following endpoints require authentication.
+
 function isAuthenticated(req, res, next) {
   if (req.isAuthenticated()) return next();
   res.redirect("/login");
 }
 
 app.use("/api/v1", isAuthenticated, api);
-
-app.use("/login", express.static(path.join(__dirname, "../login")));
 
 app.use(isAuthenticated, express.static(path.join(__dirname, "../build")));
 
