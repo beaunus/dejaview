@@ -7,11 +7,7 @@ const db = require("knex")({
 });
 
 router.get("/:date", (req, res) => {
-  const year = req.params.date.slice(0, 4);
-  const month = req.params.date.slice(4, 6);
-  const date = req.params.date.slice(6, 8);
-
-  const targetDate = new Date(`${year}-${month}-${date}`);
+  const targetDate = new Date(req.params.date);
   const nextDate = new Date(
     moment(targetDate)
       .add(1, "day")
@@ -48,7 +44,7 @@ router.get("/:date", (req, res) => {
       res.status(200).send(result);
     })
     .catch(error => {
-      res.status(400).send("The date must be in YYYYMMDD format.");
+      res.status(400).send("The date must be in YYYY-MM-DD format.");
     });
 });
 
