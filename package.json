@@ -11,6 +11,7 @@
     "dev": "nodemon -r dotenv/config server/index.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "cookie-parser": "^1.4.3",
     "express-session": "^1.15.6",
     "knex": "^0.14.6",
@@ -25,5 +26,6 @@
   },
   "devDependencies": {
     "nodemon": "^1.17.5"
-  }
+  },
+  "proxy": "http://localhost:3001"
 }
