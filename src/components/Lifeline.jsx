@@ -7,7 +7,7 @@ function Lifeline(props) {
     <div className="lifeline">
       <ul>
         {Object.keys(props.events)
-          .sort((a, b) => b > a)
+          .sort((a, b) => moment(b) > moment(a))
           .map((key, index) => {
             return (
               <li key={"li_" + index}>
