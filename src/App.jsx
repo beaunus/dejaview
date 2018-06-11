@@ -17,13 +17,23 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const events = (await axios.get(`/api/v1/${this.state.selectedDate}`)).data;
-    this.setState({ events });
+    try {
+      const events = (await axios.get(
+        `/api/v1/${this.state.selectedDate}/?num=7`
+      )).data;
+      this.setState({ events });
+    } catch (error) {
+      console.log("Error getting initial State from API call.");
+    }
   }
 
   async changeDate(selectedDate) {
-    const events = (await axios.get(`/api/v1/${selectedDate}`)).data;
-    this.setState({ selectedDate, events });
+    try {
+      const events = (await axios.get(`/api/v1/${selectedDate}/?num=7`)).data;
+      this.setState({ selectedDate, events });
+    } catch (error) {
+      console.log("Error getting data from API call on date change.");
+    }
   }
 
   render() {
