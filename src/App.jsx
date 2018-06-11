@@ -17,12 +17,14 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const events = (await axios.get(`/api/v1/${this.state.selectedDate}`)).data;
+    const events = (await axios.get(
+      `/api/v1/${this.state.selectedDate}/?num=7`
+    )).data;
     this.setState({ events });
   }
 
   async changeDate(selectedDate) {
-    const events = (await axios.get(`/api/v1/${selectedDate}`)).data;
+    const events = (await axios.get(`/api/v1/${selectedDate}/?num=7`)).data;
     this.setState({ selectedDate, events });
   }
 
