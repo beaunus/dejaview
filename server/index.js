@@ -65,6 +65,10 @@ app.get("/privacy", (req, res) => {
   res.sendFile(path.join(__dirname, "../build/privacy.html"));
 });
 
+app.get("/about", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build/about.html"));
+});
+
 // The following endpoints require authentication.
 
 function isAuthenticated(req, res, next) {
