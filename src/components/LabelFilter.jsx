@@ -5,9 +5,9 @@ import "../styles/LabelFilter.css";
 function LabelFilter(props) {
   return (
     <div
-      className="label-filter"
+      className={`label-filter ${props.filtered ? "filtered-label" : ""}`}
       onClick={e => {
-        props.toggleLabel(props.labelName);
+        props.toggleLabel(props.labelName, e.target);
       }}
     >
       <img
@@ -15,7 +15,7 @@ function LabelFilter(props) {
         src={logoMap[props.labelName]}
         alt={props.labelName}
       />
-      <p>{props.labelName}</p>
+      <div>{props.labelName}</div>
     </div>
   );
 }
