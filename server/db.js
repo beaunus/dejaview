@@ -13,7 +13,6 @@ const db = require("knex")({
  */
 const normalizeDate = (date, granularity) => {
   const result = new Date(date);
-  result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
   switch (granularity) {
     case "weeks":
       const numDaysAwayFromSunday = date.getDay();
@@ -97,12 +96,7 @@ const getRawEvents = async (beginningDate, endingDate) => {
 const getIndexedEvents = (rawEvents, granularity) => {
   const indexedEvents = {};
   for (const event of rawEvents) {
-    const date = normalizeDate(
-      new Date(event.timestamp.toString().slice(0, 10)),
-      granularity
-    );
-
-    // TODO: Are we dealing with the timezone properly?
+    const date = normalizeDate(new Date(event.timestamp), granularity);
     const dateString = `${date.getFullYear()}-${date.getMonth() +
       1}-${date.getDate()}`;
     if (!indexedEvents.hasOwnProperty(dateString)) {
@@ -151,7 +145,7 @@ const getChampions = indexedEvents => {
 
 /**
  * Return an object of champion events for the period specified by the given endingDate, granularity, and numPeriodsBack.
- * @param {Date} endingDate
+ * @param {Date} date
  * @param {String} granularity
  * @param {Number} num
  */
