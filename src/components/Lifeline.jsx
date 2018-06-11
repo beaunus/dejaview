@@ -2,6 +2,11 @@ import React from "react";
 import "../styles/Lifeline.css";
 import moment from "moment";
 
+const logoMap = {
+  "New York Times": "/images/nyt.png",
+  Wikipedia: "/images/wikipedia.svg"
+};
+
 function Lifeline(props) {
   return (
     <div className="lifeline">
@@ -18,6 +23,11 @@ function Lifeline(props) {
                   {Object.keys(props.events[key]).map((subKey, index2) => {
                     return (
                       <div className="headline" key={"div_" + index}>
+                        <img
+                          className="label-logo"
+                          src={logoMap[subKey]}
+                          alt="New York Times Logo"
+                        />
                         {props.events[key][subKey][0].link.length > 0 ? (
                           <a
                             href={props.events[key][subKey][0].link}

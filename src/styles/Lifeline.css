@@ -48,14 +48,14 @@
 
 .headline {
   display: block;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .pub-date {
   display: block;
-  font-size: 1rem;
+  font-size: 1.3em;
   margin-bottom: 8px;
 }
 
@@ -132,4 +132,14 @@
     transform: scale(1);
     opacity: 1;
   }
+}
+
+.event-text {
+  font-size: 0.8em;
+  margin-top: 7px;
+}
+
+.label-logo {
+  height: 30px;
+  margin-right: 5px;
 }
