@@ -11,9 +11,11 @@ class App extends Component {
     super(props);
     this.state = {
       selectedDate: moment().format("YYYY-MM-DD"),
-      events: {}
+      events: {},
+      labels: {}
     };
     this.changeDate = this.changeDate.bind(this);
+    this.toggleLabel = this.toggleLabel.bind(this);
   }
 
   async componentDidMount() {
@@ -21,7 +23,17 @@ class App extends Component {
       const events = (await axios.get(
         `/api/v1/${this.state.selectedDate}/?num=7`
       )).data;
-      this.setState({ events });
+      const labels = {};
+      const dateKeys = Object.keys(events);
+      dateKeys.forEach(dateKey => {
+        const labelKeys = Object.keys(events[dateKey]);
+        labelKeys.forEach(labelKey => {
+          if (!labels.hasOwnProperty(labelKey)) {
+            labels[labelKey] = true;
+          }
+        });
+      });
+      this.setState({ events, labels });
     } catch (error) {
       console.log("Error getting initial State from API call.");
     }
@@ -30,10 +42,30 @@ class App extends Component {
   async changeDate(selectedDate) {
     try {
       const events = (await axios.get(`/api/v1/${selectedDate}/?num=7`)).data;
-      this.setState({ selectedDate, events });
+      const labels = {};
+      const dateKeys = Object.keys(events);
+      dateKeys.forEach(dateKey => {
+        const labelKeys = Object.keys(events[dateKey]);
+        labelKeys.forEach(labelKey => {
+          if (!labels.hasOwnProperty(labelKey)) {
+            labels[labelKey] = true;
+          }
+        });
+      });
+      this.setState({ selectedDate, events, labels });
     } catch (error) {
       console.log("Error getting data from API call on date change.");
     }
+  }
+
+  async toggleLabel(label) {
+    const labels = this.state.labels;
+    if (labels[label]) {
+      labels[label] = false;
+    } else {
+      labels[label] = true;
+    }
+    this.setState({ labels });
   }
 
   render() {
@@ -44,7 +76,17 @@ class App extends Component {
           selectedDate={this.state.selectedDate}
           changeDate={this.changeDate}
         />
-        <LabelFilter labelName="New York Times" />
+        <div className="filter-container">
+          {Object.keys(this.state.labels).map((label, index) => {
+            return (
+              <LabelFilter
+                key={index}
+                labelName={label}
+                toggleLabel={this.toggleLabel}
+              />
+            );
+          })}
+        </div>
         <Lifeline events={this.state.events} />
       </div>
     );

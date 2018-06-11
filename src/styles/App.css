@@ -14,7 +14,13 @@ h1 {
   font-size: 30px;
 }
 
-.label-filter {
-  padding: 10px;
-  margin-left: 45%;
+.filter-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.label-logo {
+  height: 30px;
+  margin-right: 5px;
 }

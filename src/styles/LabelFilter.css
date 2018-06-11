@@ -1,0 +1,8 @@
+.label-filter {
+  border-radius: 4%;
+  background-color: #eee;
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
