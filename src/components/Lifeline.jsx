@@ -1,11 +1,7 @@
 import React from "react";
 import "../styles/Lifeline.css";
 import moment from "moment";
-
-const logoMap = {
-  "New York Times": "/images/nyt.png",
-  Wikipedia: "/images/wikipedia.svg"
-};
+import logoMap from "./logoMap";
 
 function Lifeline(props) {
   return (
