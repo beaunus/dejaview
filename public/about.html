@@ -1,88 +1,136 @@
-<!-- <html> -->
+<html>
 
 <head>
-  <link rel="stylesheet" href="about.css" /> </head>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-  crossorigin="anonymous">
+  <style>
+    html {
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      font-size: 10pt;
+    }
 
-<body>
-  <h1>
-    Lifeline Team
-  </h1>
-  <section id="team-members">
-    <div class="team-member">
-      <div class="profile-picture">
-        <img src="./img/beau-picture.png">
-      </div>
-      <div class="team-member-name">
-        Beau Dobbin
-      </div>
-      <div class="contact-info">
-        <div class="contact-method">
-          <i class="fab fa-github"></i>
-          <a href="https://github.com/beaunus">beaunus</a>
+    h1 {
+      text-align: center;
+    }
+
+    .contact-info,
+    .description,
+    .team-member-name {
+      margin-top: 10px;
+    }
+
+    .description {
+      font-size: 90%;
+    }
+
+    .profile-picture img {
+      border-radius: 100px;
+      box-shadow: 2px 2px 10px rgb(165, 165, 165);
+      width: 200px;
+    }
+
+    #team-members {
+      display: flex;
+      flex-grow: 1;
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .team-member {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .team-member-name {
+      font-size: 125%;
+      font-weight: bold;
+    }
+  </style>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+
+  <body>
+    <h1>
+      Lifeline Team
+    </h1>
+    <section id="team-members">
+      <div class="team-member">
+        <div class="profile-picture">
+          <img src="./images/beau-picture.png">
         </div>
-        <div class="contact-method">
-          <i class="fab fa-linkedin"></i>
-          <a href="https://www.linkedin.com/in/beaunus/">beaunus</a>
+        <div class="team-member-name">
+          Beau Dobbin
+        </div>
+        <div class="contact-info">
+          <div class="contact-method">
+            <i class="fab fa-github"></i>
+            <a href="https://github.com/beaunus">beaunus</a>
+          </div>
+          <div class="contact-method">
+            <i class="fab fa-linkedin"></i>
+            <a href="https://www.linkedin.com/in/beaunus/">beaunus</a>
+          </div>
+        </div>
+        <div class="description">
+          Beau is a guy who does stuff in places. He likes to do fun stuff and then take a shower. Beau is a guy who does stuff in
+          places. He likes to do fun stuff and then take a shower. Beau is a guy who does stuff in places. He likes to do
+          fun stuff and then take a shower. Beau is a guy who does stuff in places. He likes to do fun stuff and then take
+          a shower. Beau is a guy who does stuff in places. He likes to do fun stuff and then take a shower.
         </div>
       </div>
-      <div class="description">
-        Beau is a guy who does stuff in places. He likes to do fun stuff and then take a shower. Beau is a guy who does stuff in
-        places. He likes to do fun stuff and then take a shower. Beau is a guy who does stuff in places. He likes to do fun
-        stuff and then take a shower. Beau is a guy who does stuff in places. He likes to do fun stuff and then take a shower.
-        Beau is a guy who does stuff in places. He likes to do fun stuff and then take a shower.
-      </div>
-    </div>
-    <div class="team-member">
-      <div class="profile-picture">
-        <img src="https://media.licdn.com/media-proxy/ext?w=400&h=400&f=n&hash=QTm1%2FBKUj%2BQm0uDfWhzwIjHWuOc%3D&ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R6rhRoOww4ysOCGpFu48UVSVofOAW__H3D0vsvTPyr2PNjYfLGhrFgXd28MlAQyaamlRA">
-      </div>
-      <div class="team-member-name">
-        Mike Donnelly
-      </div>
-      <div class="contact-info">
-        <div class="contact-method">
-          <i class="fab fa-github"></i>
-          <a href="https://github.com/SQLMD">SQLMD</a>
+      <div class="team-member">
+        <div class="profile-picture">
+          <img src="https://media.licdn.com/media-proxy/ext?w=400&h=400&f=n&hash=QTm1%2FBKUj%2BQm0uDfWhzwIjHWuOc%3D&ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R6rhRoOww4ysOCGpFu48UVSVofOAW__H3D0vsvTPyr2PNjYfLGhrFgXd28MlAQyaamlRA">
         </div>
-        <div class="contact-method">
-          <i class="fab fa-linkedin"></i>
-          <a href="https://www.linkedin.com/in/melsar93/">melsar93</a>
+        <div class="team-member-name">
+          Mike Donnelly
         </div>
-      </div>
-      <div class="description">
-        Mike is a guy who does stuff in fun places. He likes to do cool stuff and then make spaghetti. Mike is a guy who does stuff
-        in places. He likes to do cool stuff and then make spaghetti. Mike is a guy who does stuff in fun places. He likes
-        to do cool stuff and then make spaghetti. Mike is a guy who does stuff in fun places. He likes to do cool stuff and
-        then make spaghetti. Mike is a guy who does stuff in fun places. He likes to do cool stuff and then make spaghetti.
-      </div>
-    </div>
-    <div class="team-member">
-      <div class="profile-picture">
-        <img src="https://media.licdn.com/dms/image/C5603AQEEWksFh4Rcrw/profile-displayphoto-shrink_800_800/0?e=1534377600&v=beta&t=A4ijUEOU5tO-ixE8hkOMXB8yb7D8pCNrFHLOjKUqxmk">
-      </div>
-      <div class="team-member-name">
-        Xiaozhou Jia
-      </div>
-      <div class="contact-info">
-        <div class="contact-method">
-          <i class="fab fa-github"></i>
-          <a href="https://github.com/xzjia">xzjia</a>
+        <div class="contact-info">
+          <div class="contact-method">
+            <i class="fab fa-github"></i>
+            <a href="https://github.com/SQLMD">SQLMD</a>
+          </div>
+          <div class="contact-method">
+            <i class="fab fa-linkedin"></i>
+            <a href="https://www.linkedin.com/in/melsar93/">melsar93</a>
+          </div>
         </div>
-        <div class="contact-method">
-          <i class="fab fa-linkedin"></i>
-          <a href="https://www.linkedin.com/in/xzjia/">xzjia</a>
+        <div class="description">
+          Mike is a guy who does stuff in fun places. He likes to do cool stuff and then make spaghetti. Mike is a guy who does stuff
+          in places. He likes to do cool stuff and then make spaghetti. Mike is a guy who does stuff in fun places. He likes
+          to do cool stuff and then make spaghetti. Mike is a guy who does stuff in fun places. He likes to do cool stuff
+          and then make spaghetti. Mike is a guy who does stuff in fun places. He likes to do cool stuff and then make spaghetti.
         </div>
       </div>
-      <div class="description">
-        Jia is a guy who devs ops in fun places. He likes to write python scripts and blow up databases. Jia is a guy who devs ops
-        in places. He likes to write python scripts and blow up databases. Jia is a guy who devs ops in fun places. He likes
-        to write python scripts and blow up databases. Jia is a guy who devs ops in fun places. He likes to do cool stuff
-        and then make spaghetti. Jia is a guy who devs ops in fun places. He likes to write python scripts and blow up databases.
+      <div class="team-member">
+        <div class="profile-picture">
+          <img src="https://media.licdn.com/dms/image/C5603AQEEWksFh4Rcrw/profile-displayphoto-shrink_800_800/0?e=1534377600&v=beta&t=A4ijUEOU5tO-ixE8hkOMXB8yb7D8pCNrFHLOjKUqxmk">
+        </div>
+        <div class="team-member-name">
+          Xiaozhou Jia
+        </div>
+        <div class="contact-info">
+          <div class="contact-method">
+            <i class="fab fa-github"></i>
+            <a href="https://github.com/xzjia">xzjia</a>
+          </div>
+          <div class="contact-method">
+            <i class="fab fa-linkedin"></i>
+            <a href="https://www.linkedin.com/in/xzjia/">xzjia</a>
+          </div>
+        </div>
+        <div class="description">
+          Jia is a guy who devs ops in fun places. He likes to write python scripts and blow up databases. Jia is a guy who devs ops
+          in places. He likes to write python scripts and blow up databases. Jia is a guy who devs ops in fun places. He
+          likes to write python scripts and blow up databases. Jia is a guy who devs ops in fun places. He likes to do cool
+          stuff and then make spaghetti. Jia is a guy who devs ops in fun places. He likes to write python scripts and blow
+          up databases.
+        </div>
       </div>
-    </div>
-  </section>
-</body>
+    </section>
+  </body>
 
 </html>
