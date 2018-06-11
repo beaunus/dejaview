@@ -70,7 +70,8 @@ const getRawEvents = async (beginningDate, endingDate) => {
       "event.link",
       "label.name as label"
     )
-    .whereBetween("timestamp", [beginningDate, endingDate])
+    .where("timestamp", ">=", beginningDate)
+    .andWhere("timestamp", "<", endingDate)
     .join("label", "label.id", "=", "event.label_id");
 };
 
@@ -97,8 +98,9 @@ const getIndexedEvents = (rawEvents, granularity) => {
   const indexedEvents = {};
   for (const event of rawEvents) {
     const date = normalizeDate(new Date(event.timestamp), granularity);
-    const dateString = `${date.getFullYear()}-${date.getMonth() +
-      1}-${date.getDate()}`;
+    const dateString = moment(date)
+      .utc()
+      .format("YYYY-MM-DD");
     if (!indexedEvents.hasOwnProperty(dateString)) {
       indexedEvents[dateString] = {};
     }
