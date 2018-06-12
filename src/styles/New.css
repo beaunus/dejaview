@@ -5,7 +5,7 @@
 /* Set a background color */
 
 body {
-  background-color: #474e5d;
+  background-color: #666;
   font-family: Helvetica, sans-serif;
   font-size: 10pt;
   padding: 10px 0 0 0;
@@ -48,8 +48,8 @@ body {
   width: 14px;
   height: 14px;
   right: -9px;
-  background-color: white;
-  border: 2px solid #ff9f55;
+  background-color: black;
+  border: 2px solid #eee;
   top: 22px;
   border-radius: 50%;
   z-index: 1;
@@ -110,11 +110,17 @@ body {
   background-color: white;
   position: relative;
   border-radius: 6px;
-  box-shadow: 1px 1px 10px red;
+  box-shadow: 1px 1px 5px #000;
 }
 
 /* Custom classes */
 /* The way things look, rather than where they appear. */
+
+.header {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: white;
+  margin-bottom: 5px;
+}
 
 a {
   color: inherit;
