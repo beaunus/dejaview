@@ -1,9 +1,77 @@
 <html>
 
+<head>
+  <style>
+    :root {
+      --color-light: #e39774;
+      --color-medium: #5c9ead;
+      --color-dark: #326273;
+      --color-highlight: #eee;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--color-dark);
+      font-family: Helvetica, sans-serif;
+      font-size: 10pt;
+      padding: 10px 0 0 0;
+    }
+
+    .header {
+      color: white;
+      text-align: center;
+      font-size: 4rem;
+      font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      margin-bottom: 5px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    #login-button-area {
+      display: flex;
+      justify-content: center;
+      white-space: nowrap;
+    }
+
+    .facebook-login {
+      align-items: center;
+      background: #395ca9;
+      border: solid white 1px;
+      border-radius: 5px;
+      color: white;
+      display: flex;
+      font-family: Graphik LCG Web, Graphik Arabic Web Regular, -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, Lucida Grande, Sans-Serif;
+      font-size: 18pt;
+      padding: 3px 15px;
+    }
+
+    .fa-facebook-square {
+      font-size: 150%;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+  crossorigin="anonymous">
+
+
+
 <body>
-  <a href="/auth/facebook">
-    <img src="images/FacebookLogin.png" />
-  </a>
+  <div class="header">Lifeline</div>
+  <div id="login-button-area">
+    <a href="/auth/facebook">
+      <div class="facebook-login">
+        <i class="fab fa-facebook-square"></i>
+        <div>Log In</div>
+      </div>
+    </a>
+  </div>
 </body>
 
 </html>
