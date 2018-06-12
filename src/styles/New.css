@@ -132,9 +132,10 @@ a {
 
 .pub-date {
   color: rgb(0, 0, 102);
-  display: flex;
   font-weight: bold;
+  font-size: 90%;
   margin-bottom: 5px;
+  text-align: right;
 }
 
 .headline {
