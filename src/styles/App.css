@@ -1,21 +1,24 @@
+:root {
+  --color-light: #e39774;
+  --color-medium: #5c9ead;
+  --color-dark: #326273;
+  --color-highlight: #eee;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  background-color: #666;
+  background-color: var(--color-dark);
   font-family: Helvetica, sans-serif;
   font-size: 10pt;
   padding: 10px 0 0 0;
 }
 
-h1 {
-  font-size: 2.5rem;
-}
-
 .header {
   text-align: center;
-  font-size: 30px;
+  font-size: 4rem;
 }
 
 .filter-container {
