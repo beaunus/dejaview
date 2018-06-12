@@ -125,6 +125,11 @@ a {
   margin-bottom: 0;
 }
 
+.event:not(:nth-child(2)) {
+  border-top: 1px solid #ddd;
+  padding-top: 5px;
+}
+
 .pub-date {
   color: rgb(0, 0, 102);
   display: flex;
@@ -134,8 +139,13 @@ a {
 
 .headline {
   align-items: center;
-  display: flex;
-  font-style: italic;
+  background: #eee;
+  border: solid white 1px;
+  border-bottom-color: #ddd;
+  border-right-color: #ddd;
+  display: inline-flex;
+  padding: 1px;
+  padding-right: 5px;
 }
 
 .label-logo {
@@ -144,6 +154,7 @@ a {
 }
 
 p {
+  color: #444;
   margin: 5px 0;
 }
 

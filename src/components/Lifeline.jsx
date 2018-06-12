@@ -23,7 +23,7 @@ function Lifeline(props) {
                 </div>
                 {Object.keys(props.events[key]).map((subKey, index2) => {
                   return (
-                    <div key={subKey}>
+                    <div key={subKey} className="event">
                       <div className="headline">
                         <img
                           className="label-logo"
