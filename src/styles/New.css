@@ -132,7 +132,7 @@ a {
 }
 
 .event:not(:nth-child(2)) {
-  border-top: 1px solid #ddd;
+  /* border-top: 1px solid #ddd; */
   padding-top: 5px;
 }
 
@@ -155,6 +155,15 @@ a {
   padding-right: 5px;
 }
 
+.event input {
+  margin-left: 10px;
+}
+
+.more {
+  text-transform: uppercase;
+  font-size: 75%;
+}
+
 .label-logo {
   height: 20px;
   margin-right: 5px;
@@ -163,6 +172,11 @@ a {
 p {
   color: #444;
   margin: 5px 0;
+  max-height: 1000px;
+}
+
+.hidden {
+  display: none;
 }
 
 /* Media queries - Responsive lifeline on screens less than 600px wide */

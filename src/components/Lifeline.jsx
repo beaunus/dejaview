@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/New.css";
 import moment from "moment";
 import logoMap from "./logoMap";
+import { toggleHidden } from "../scripts/Lifeline.js";
 
 function Lifeline(props) {
   return (
@@ -43,9 +44,11 @@ function Lifeline(props) {
                             `${props.events[key][subKey][0].title}`
                           )}
                         </div>
+                        <input type="checkbox" onClick={toggleHidden} />
+                        <div className="more">more</div>
                       </div>
                       <p
-                        className="event-text"
+                        className="event-text hidden"
                         dangerouslySetInnerHTML={{
                           __html: props.events[key][subKey][0].text.replace(
                             "li>",
