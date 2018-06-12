@@ -105,7 +105,11 @@
 
 a {
   color: inherit;
-  text-decoration: none;
+  text-decoration: #aaa dashed underline;
+}
+
+a:hover {
+  text-decoration: black solid underline;
 }
 
 .header {
