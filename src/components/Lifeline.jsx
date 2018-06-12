@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/New.css";
+import "../styles/Lifeline.css";
 import moment from "moment";
 import logoMap from "./logoMap";
 import { toggleHidden } from "../scripts/Lifeline.js";
