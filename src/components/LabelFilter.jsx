@@ -15,7 +15,7 @@ function LabelFilter(props) {
         src={logoMap[props.labelName]}
         alt={props.labelName}
       />
-      <div>{props.labelName}</div>
+      <div>{props.labelName.replace(/-/g, " ")}</div>
     </div>
   );
 }
