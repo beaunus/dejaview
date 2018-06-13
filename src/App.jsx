@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./styles/App.css";
 import Lifeline from "./components/Lifeline.jsx";
 import DatePicker from "./components/DatePicker.jsx";
+import GranularitySelector from "./components/GranularitySelector.jsx";
 import axios from "axios";
 import LabelFilter from "./components/LabelFilter";
 import moment from "moment";
@@ -84,6 +85,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="header">Lifeline</div>
+        <GranularitySelector />
         <DatePicker
           selectedDate={this.state.selectedDate}
           changeDate={this.changeDate}
