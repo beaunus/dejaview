@@ -112,12 +112,6 @@ a:hover {
   text-decoration: black solid underline;
 }
 
-.header {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  color: white;
-  margin-bottom: 5px;
-}
-
 /* Don't pad the last paragraph. */
 .content > *:last-child > p:last-child {
   margin-bottom: 0;
