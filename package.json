@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "devc": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
     "serve": "node -r dotenv/config server/index.js",
+    "start": "yarn build && yarn serve",
+    "devc": "react-scripts start",
     "devs": "nodemon -r dotenv/config server/index.js",
-    "start": "yarn build && yarn serve"
+    "test": "yarn build", 
+    "eject": "react-scripts eject",
+    "testorig": "react-scripts test --env=jsdom"
   },
   "dependencies": {
     "axios": "^0.18.0",
