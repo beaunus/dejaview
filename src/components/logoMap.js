@@ -1,5 +1,5 @@
 const logoMap = {
-  "New York Times": "/images/nyt.png",
+  "New-York-Times": "/images/nyt.png",
   Wikipedia: "/images/wikipedia.svg",
   Billboard: "/images/billboard.jpg"
 };
