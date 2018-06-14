@@ -12,7 +12,6 @@ class App extends Component {
     super(props);
     this.state = {
       events: {},
-      filteredEvents: {},
       granularity: "day",
       labels: {},
       selectedDate: moment().format("YYYY-MM-DD")
