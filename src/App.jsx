@@ -22,34 +22,36 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    await this.getEvents(this.state.selectedDate);
-    this.setState({ filteredEvents: this.state.events });
+    await this.updateEvents(this.state.selectedDate);
+    this.updateLabels();
+  }
+
+  updateLabels() {
+    const labels = { ...this.state.labels };
+    for (const eventDate in this.state.events) {
+      const labelKeys = this.state.events[eventDate];
+      for (const labelKey in labelKeys) {
+        if (!labels.hasOwnProperty(labelKey)) {
+          labels[labelKey] = true;
+        }
+      }
+    }
+    this.setState({ labels });
   }
 
   async changeDate(selectedDate) {
-    this.setState({ selectedDate });
-    await this.getEvents(selectedDate);
-    this.filterEvents();
+    await this.setState({ selectedDate });
+    await this.updateEvents();
   }
 
-  async getEvents() {
+  async updateEvents() {
     try {
       const events = (await axios.get(
         `/api/v1/${this.state.selectedDate}/?granularity=${
           this.state.granularity
         }s&num=7`
       )).data;
-      const labels = {};
-      const dateKeys = Object.keys(events);
-      dateKeys.forEach(dateKey => {
-        const labelKeys = Object.keys(events[dateKey]);
-        labelKeys.forEach(labelKey => {
-          if (!labels.hasOwnProperty(labelKey)) {
-            labels[labelKey] = true;
-          }
-        });
-      });
-      this.setState({ events, labels });
+      this.setState({ events });
     } catch (error) {
       console.log("Error getting data from API call.");
     }
@@ -65,7 +67,6 @@ class App extends Component {
       div.classList.remove("label-fade");
     }
     this.setState({ labels });
-    this.filterEvents();
   }
 
   async changeGranularity(granularity) {
