@@ -10,6 +10,11 @@ function LabelFilter(props) {
       onClick={e => {
         props.toggleLabel(props.labelName, e.target);
       }}
+      onKeyPress={e => {
+        props.toggleLabel(props.labelName, e.target);
+      }}
+      role="button"
+      tabIndex="0"
     >
       <img
         className="label-logo"
