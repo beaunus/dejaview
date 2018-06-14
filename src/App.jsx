@@ -117,7 +117,7 @@ class App extends Component {
             );
           })}
         </div>
-        <Lifeline events={this.state.filteredEvents} />
+        <Lifeline events={this.state.events} labels={this.state.labels} />
       </div>
     );
   }

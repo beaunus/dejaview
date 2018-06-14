@@ -45,35 +45,60 @@ const Card = props => {
   } else {
     classNames.push("right");
   }
-  return (
-    <div className={classNames.join(" ")}>
-      <div className="content">
-        <div className="pub-date">
-          {moment(new Date(props.date)).format("MMMM D, YYYY")}
+  const events = Object.keys(props.events)
+    .map(label => {
+      if (props.labels[label]) {
+        return props.events[label].map((event, eventIndex) => (
+          <Event key={`${label}_${eventIndex}`} label={label} event={event} />
+        ));
+      }
+      return null;
+    })
+    .filter(event => event);
+  console.log("events", events);
+  if (events.length > 0) {
+    return (
+      <div className={classNames.join(" ")}>
+        <div className="content">
+          <div className="pub-date">
+            {moment(new Date(props.date)).format("MMMM D, YYYY")}
+          </div>
+          {Object.keys(props.events).map(label => {
+            if (props.labels[label]) {
+              return props.events[label].map((event, eventIndex) => (
+                <Event
+                  key={`${label}_${eventIndex}`}
+                  label={label}
+                  event={event}
+                />
+              ));
+            }
+            return null;
+          })}
         </div>
-        {Object.keys(props.events).map(label =>
-          props.events[label].map((event, eventIndex) => (
-            <Event key={`${label}_${eventIndex}`} label={label} event={event} />
-          ))
-        )}
       </div>
+    );
+  }
+  return null;
+};
+
+const Lifeline = props => {
+  console.log(props);
+  return (
+    <div className="lifeline">
+      {Object.keys(props.events)
+        .sort((a, b) => moment(new Date(b)) > moment(new Date(a)))
+        .map((date, index) => (
+          <Card
+            events={props.events[date]}
+            date={date}
+            key={index}
+            isEven={index % 2 === 0}
+            labels={props.labels}
+          />
+        ))}
     </div>
   );
 };
-
-const Lifeline = props => (
-  <div className="lifeline">
-    {Object.keys(props.events)
-      .sort((a, b) => moment(new Date(b)) > moment(new Date(a)))
-      .map((date, index) => (
-        <Card
-          events={props.events[date]}
-          date={date}
-          key={index}
-          isEven={index % 2 === 0}
-        />
-      ))}
-  </div>
-);
 
 export default Lifeline;
