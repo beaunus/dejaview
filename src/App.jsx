@@ -11,13 +11,15 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedDate: moment().format("YYYY-MM-DD"),
       events: {},
       filteredEvents: {},
-      labels: {}
+      granularity: "month",
+      labels: {},
+      selectedDate: moment().format("YYYY-MM-DD")
     };
     this.changeDate = this.changeDate.bind(this);
     this.toggleLabel = this.toggleLabel.bind(this);
+    this.changeGranularity = this.changeGranularity.bind(this);
   }
 
   async componentDidMount() {
@@ -26,13 +28,18 @@ class App extends Component {
   }
 
   async changeDate(selectedDate) {
+    this.setState({ selectedDate });
     await this.getEvents(selectedDate);
     this.filterEvents();
   }
 
-  async getEvents(selectedDate) {
+  async getEvents() {
     try {
-      const events = (await axios.get(`/api/v1/${selectedDate}/?num=7`)).data;
+      const events = (await axios.get(
+        `/api/v1/${this.state.selectedDate}/?granularity=${
+          this.state.granularity
+        }s&num=7`
+      )).data;
       const labels = {};
       const dateKeys = Object.keys(events);
       dateKeys.forEach(dateKey => {
@@ -43,7 +50,7 @@ class App extends Component {
           }
         });
       });
-      this.setState({ selectedDate, events, labels });
+      this.setState({ events, labels });
     } catch (error) {
       console.log("Error getting data from API call.");
     }
@@ -81,11 +88,19 @@ class App extends Component {
     this.setState({ filteredEvents });
   }
 
+  async changeGranularity(granularity) {
+    await this.setState({ granularity });
+    await this.changeDate(this.state.selectedDate);
+  }
+
   render() {
     return (
       <div className="App">
         <div className="header">Lifeline</div>
-        <GranularitySelector />
+        <GranularitySelector
+          granularity={this.state.granularity}
+          changeGranularity={this.changeGranularity}
+        />
         <DatePicker
           selectedDate={this.state.selectedDate}
           changeDate={this.changeDate}
