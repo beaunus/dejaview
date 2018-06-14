@@ -1,85 +1,50 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600");
+/* The component itself. */
 #granularity-selector {
-  margin: 0 0 1rem;
-  /* padding: 2rem; */
   display: flex;
   justify-content: center;
-  /* border: none; */
-  /* border: solid 1px #ccc; */
-  /* min-width: 0; */
-  /* background-color: #fff; */
-}
-#granularity-selector > * {
-  /* border: solid red 1px; */
+  margin: 0 0 1rem;
 }
 
-fieldset legend {
-  /* margin: 0 0 1.5rem; */
-  /* padding: 0; */
-  /* width: 100%; */
-  /* float: left; */
-  /* display: table; */
-  font-size: 1.5rem;
-  line-height: 140%;
-  /* font-weight: 100; */
-  color: #333;
-}
-/* fieldset legend + * {
-  clear: both;
-} */
-/* body:not(:-moz-handler-blocked) fieldset {
-  display: table-cell;
-} */
-/* TOGGLE STYLING */
+/* Hide the checkboxes. */
 #granularity-selector input {
   display: none;
-  /* width: 0;
-  height: 0;
-  position: absolute;
-  left: -9999px; */
 }
+
+/* The text that is written on the buttons. */
 #granularity-selector input + .label {
+  background-color: #fff;
+  border: solid 1px #ddd;
+  box-shadow: 1px 1px 5px #000;
+  display: inline-flex;
+  font-weight: 400;
   margin: 0;
   padding: 0.75rem 1rem;
-  /* box-sizing: border-box; */
-  /* position: relative; */
-  display: inline-flex;
-  border: solid 1px #ddd;
-  background-color: #fff;
-  /* font-size: 1rem; */
-  /* line-height: 140%; */
-  font-weight: 400;
   text-align: center;
-  box-shadow: 1px 1px 5px #000;
   transition: border-color 0.15s ease-out, color 0.25s ease-out,
     background-color 0.15s ease-out, box-shadow 0.15s ease-out;
-  /* ADD THESE PROPERTIES TO SWITCH FROM AUTO WIDTH TO FULL WIDTH */
-  /*flex: 0 0 50%; display: flex; justify-content: center; align-items: center;*/
-  /* ----- */
 }
+
+/* Round the borders of the first and last button. */
 #granularity-selector label:first-of-type input + .label {
   border-radius: 6px 0 0 6px;
-  /* border-right: none; */
 }
 #granularity-selector label:last-of-type input + .label {
   border-radius: 0 6px 6px 0;
-  /* border-left: none; */
 }
+
+/* The hovered button. */
 #granularity-selector input:hover + .label {
-  /* border-color: #213140; */
-  /* border: solid red 1px; */
   background: var(--color-light);
-  /* z-index: 0; */
 }
+
+/* The checked button. */
 #granularity-selector input:checked + .label {
   background-color: #4b9dea;
-  color: #fff;
-  /* box-shadow: 0 0 10px var(--color-medium); */
-  text-shadow: black 0 0 3px;
   border-color: var(--color-medium);
-  /* font-weight: 100; */
-  /* z-index: 1; */
+  color: #fff;
+  text-shadow: black 0 0 3px;
 }
+
 #granularity-selector input:focus + .label {
   outline: dotted 1px #ccc;
   outline-offset: 0.45rem;
