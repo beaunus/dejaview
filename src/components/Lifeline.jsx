@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Card from "./Card";
 import "../styles/Lifeline.css";
 import moment from "moment";
@@ -19,6 +20,11 @@ const Lifeline = props => {
         ))}
     </div>
   );
+};
+
+Lifeline.propTypes = {
+  events: PropTypes.object.isRequired,
+  labels: PropTypes.object.isRequired
 };
 
 export default Lifeline;

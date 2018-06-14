@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import logoMap from "./logoMap";
 import "../styles/LabelFilter.css";
 
@@ -19,5 +20,9 @@ function LabelFilter(props) {
     </div>
   );
 }
+
+LabelFilter.propTypes = {
+  labelName: PropTypes.string.isRequired
+};
 
 export default LabelFilter;

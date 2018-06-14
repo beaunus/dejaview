@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import logoMap from "./logoMap";
 import { toggleHidden } from "../scripts/Lifeline.js";
 
@@ -35,5 +36,10 @@ const Event = props => (
     />
   </div>
 );
+
+Event.propTypes = {
+  label: PropTypes.string.isRequired,
+  event: PropTypes.object.isRequired
+};
 
 export default Event;

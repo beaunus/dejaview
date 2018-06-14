@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Event from "./Event";
 import moment from "moment";
 
@@ -43,6 +44,13 @@ const Card = props => {
     );
   }
   return null;
+};
+
+Card.propTypes = {
+  events: PropTypes.object.isRequired,
+  date: PropTypes.string.isRequired,
+  isEven: PropTypes.bool.isRequired,
+  labels: PropTypes.object.isRequired
 };
 
 export default Card;
