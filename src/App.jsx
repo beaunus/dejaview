@@ -69,25 +69,6 @@ class App extends Component {
     this.filterEvents();
   }
 
-  filterEvents() {
-    const filteredEvents = {};
-    const eventDateKeys = Object.keys(this.state.events);
-    eventDateKeys.forEach(dateKey => {
-      const event = {};
-      const eventDateLabelKeys = Object.keys(this.state.events[dateKey]);
-      eventDateLabelKeys.forEach(labelKey => {
-        if (
-          this.state.labels.hasOwnProperty(labelKey) &&
-          this.state.labels[labelKey] === true
-        ) {
-          event[labelKey] = this.state.events[dateKey][labelKey];
-        }
-      });
-      filteredEvents[dateKey] = event;
-    });
-    this.setState({ filteredEvents });
-  }
-
   async changeGranularity(granularity) {
     await this.setState({ granularity });
     await this.changeDate(this.state.selectedDate);

@@ -55,7 +55,6 @@ const Card = props => {
       return null;
     })
     .filter(event => event);
-  console.log("events", events);
   if (events.length > 0) {
     return (
       <div className={classNames.join(" ")}>
@@ -83,7 +82,6 @@ const Card = props => {
 };
 
 const Lifeline = props => {
-  console.log(props);
   return (
     <div className="lifeline">
       {Object.keys(props.events)
