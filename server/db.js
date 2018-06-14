@@ -98,9 +98,7 @@ const getIndexedEvents = (rawEvents, granularity) => {
   const indexedEvents = {};
   for (const event of rawEvents) {
     const date = normalizeDate(new Date(event.timestamp), granularity);
-    const dateString = moment(date)
-      .utc()
-      .format("YYYY-MM-DD");
+    const dateString = moment(date).format("YYYY-MM-DD");
     if (!indexedEvents.hasOwnProperty(dateString)) {
       indexedEvents[dateString] = {};
     }
