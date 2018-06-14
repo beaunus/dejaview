@@ -13,7 +13,7 @@ class App extends Component {
     this.state = {
       events: {},
       filteredEvents: {},
-      granularity: "month",
+      granularity: "day",
       labels: {},
       selectedDate: moment().format("YYYY-MM-DD")
     };
