@@ -3,32 +3,45 @@ import "../styles/GranularitySelector.css";
 
 function GranularitySelector(props) {
   return (
-    <fieldset>
-      <legend>Is this toggle switch awesome?</legend>
-      <div className="toggle">
+    <div id="granularity-selector">
+      <label htmlFor="granularityDay">
         <input
           type="radio"
-          name="sizeBy"
-          value="weight"
-          id="sizeWeight"
+          name="granularity"
+          value="day"
+          id="granularityDay"
           defaultChecked="checked"
         />
-        <label htmlFor="sizeWeight">
-          It's pretty, pretty, pretty, pretty good
-        </label>
+        <div className="label">Day</div>
+      </label>
+      <label htmlFor="granularityWeek">
         <input
           type="radio"
-          name="sizeBy"
-          value="dimensions"
-          id="sizeDimensions"
+          name="granularity"
+          value="week"
+          id="granularityWeek"
         />
-        <label htmlFor="sizeDimensions">100% yes</label>
-      </div>
-      <p className="status">
-        Toggle is <span>auto width</span>
-        <span>full width</span>.
-      </p>
-    </fieldset>
+        <div className="label">Week</div>
+      </label>
+      <label htmlFor="granularityMonth">
+        <input
+          type="radio"
+          name="granularity"
+          value="month"
+          id="granularityMonth"
+        />
+        <div className="label">Month</div>
+      </label>
+      <label htmlFor="granularityYear">
+        <input
+          type="radio"
+          name="granularity"
+          value="year"
+          id="granularityYear"
+        />
+        <div className="label">Year</div>
+      </label>
+    </div>
   );
 }
 
