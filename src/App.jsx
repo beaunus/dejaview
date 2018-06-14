@@ -31,7 +31,7 @@ class App extends Component {
 
   async getEvents(selectedDate) {
     try {
-      const events = (await axios.get(`/api/v1/${selectedDate}/?num=7`)).data;
+      const events = (await axios.get(`/api/v1/${selectedDate}?num=7`)).data;
       const labels = {};
       const dateKeys = Object.keys(events);
       dateKeys.forEach(dateKey => {
@@ -42,9 +42,25 @@ class App extends Component {
           }
         });
       });
+      // const fbEvents = (await axios.get(
+      //   `/api/v1/fb/posts/${selectedDate}?num=7`
+      // )).data;
+      // if (fbEvents !== []) {
+      //   console.log(fbEvents);
+      //   labels["Facebook"] = true;
+      //   const fbDateKeys = Object.keys(fbEvents);
+      //   fbDateKeys.forEach(eventDate => {
+      //     if (!events.hasOwnProperty(eventDate)) {
+      //       events[eventDate] = fbEvents[eventDate];
+      //     } else {
+      //       events[eventDate]["Facebook"] = fbEvents[eventDate]["Facebook"];
+      //     }
+      //   });
+      // }
+      console.log(events);
       this.setState({ selectedDate, events, labels });
     } catch (error) {
-      console.log("Error getting data from API call.");
+      console.log("Error getting data from API call." + error);
     }
   }
 

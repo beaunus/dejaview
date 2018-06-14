@@ -42,10 +42,23 @@ passport.use(
       callbackURL: process.env.FACEBOOK_APP_CALLBACK_URL
     },
     function(accessToken, refreshToken, profile, done) {
-      done(null, profile);
+      const info = {
+        profile: profile,
+        accessToken: accessToken,
+        refreshToken: refreshToken
+      };
+      done(null, info);
     }
   )
 );
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
 
 // The following endpoints do not require authentication.
 
