@@ -1,4 +1,6 @@
 const moment = require("moment");
+const axios = require("axios");
+const fb = require("./fb");
 
 const db = require("knex")({
   client: "pg",
@@ -79,6 +81,22 @@ const getRawEvents = async (beginningDate, endingDate) => {
     .join("label", "label.id", "=", "event.label_id");
 };
 
+const getRawFBEvents = async (access_token, beginningDate, endingDate) => {
+  const fields =
+    "caption,message,permalink_url,picture,created_time,link,name,type,place,description,full_picture";
+  const since = moment(beginningDate).format("YYYY-MM-DD");
+  const until = moment(endingDate).format("YYYY-MM-DD");
+  const url = `https://graph.facebook.com/v3.0/me/posts?since=${since}&until=${until}&fields=${fields}&access_token=${access_token}&limit=500`;
+
+  try {
+    const fbPosts = (await axios.get(url)).data;
+    return fbPosts;
+  } catch (error) {
+    console.log(error);
+    res.status(400).send("There was an error calling the Facebook API");
+  }
+};
+
 /**
  * Return a dictionary of events from the given rawEvents and granularity.
  * The keys are date strings and the values are dictionaries whose keys are label strings and values are arrays of event objects.
@@ -98,7 +116,7 @@ const getRawEvents = async (beginningDate, endingDate) => {
  * @param {String} granularity
  * @returns {Object}
  */
-const getIndexedEvents = (rawEvents, granularity) => {
+const getIndexedEvents = (rawEvents, rawFBEvents, granularity) => {
   const indexedEvents = {};
   for (const event of rawEvents) {
     const date = normalizeDate(new Date(event.timestamp), granularity);
@@ -111,6 +129,25 @@ const getIndexedEvents = (rawEvents, granularity) => {
     }
     indexedEvents[dateString][event.label].push(event);
   }
+
+  for (const rawFBEvent of rawFBEvents["data"]) {
+    const event = fb.getIndexedEvent(rawFBEvent);
+    if (event) {
+      const date = normalizeDate(
+        new Date(rawFBEvent.created_time),
+        granularity
+      );
+      const dateString = moment(date).format("YYYY-MM-DD");
+      if (!indexedEvents.hasOwnProperty(dateString)) {
+        indexedEvents[dateString] = {};
+      }
+      if (!indexedEvents[dateString].hasOwnProperty("Facebook")) {
+        indexedEvents[dateString]["Facebook"] = [];
+      }
+      indexedEvents[dateString]["Facebook"].push(event);
+    }
+  }
+
   return indexedEvents;
 };
 
@@ -153,12 +190,17 @@ const getChampions = indexedEvents => {
  * @param {String} granularity
  * @param {Number} num
  */
-const getEvents = async (date, granularity = "days", num = 1) => {
+const getEvents = async (date, granularity = "days", num = 1, access_token) => {
   const normalizedDate = normalizeDate(date, granularity);
   const beginningDate = offsetDate(normalizedDate, granularity, -(num - 1));
   const endingDate = offsetDate(normalizedDate, granularity, 1);
   const rawEvents = await getRawEvents(beginningDate, endingDate);
-  const indexedEvents = getIndexedEvents(rawEvents, granularity);
+  const rawFBEvents = await getRawFBEvents(
+    access_token,
+    beginningDate,
+    endingDate
+  );
+  const indexedEvents = getIndexedEvents(rawEvents, rawFBEvents, granularity);
   return getChampions(indexedEvents);
 };
 
