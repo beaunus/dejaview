@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const db = require("./db");
+const axios = require("axios");
 
 /**
  * The main endpoint for the API server.
@@ -15,10 +16,13 @@ const db = require("./db");
  */
 router.get("/:date", async (req, res) => {
   const targetDate = new Date(req.params.date);
+  const access_token = req.user.accessToken;
   const granularity = req.query.granularity;
   const num = req.query.num;
   try {
-    res.status(200).send(await db.getEvents(targetDate, granularity, num));
+    res
+      .status(200)
+      .send(await db.getEvents(targetDate, granularity, num, access_token));
   } catch (error) {
     console.log(error);
     res.status(400).send("The date must be in YYYY-MM-DD format.");

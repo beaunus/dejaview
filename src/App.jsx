@@ -26,7 +26,7 @@ class App extends Component {
     this.updateLabels();
   }
 
-  updateLabels() {
+  async updateLabels() {
     const labels = { ...this.state.labels };
     for (const eventDate in this.state.events) {
       const labelKeys = this.state.events[eventDate];
@@ -36,12 +36,13 @@ class App extends Component {
         }
       }
     }
-    this.setState({ labels });
+    await this.setState({ labels });
   }
 
   async changeDate(selectedDate) {
     await this.setState({ selectedDate });
     await this.updateEvents();
+    await this.updateLabels();
   }
 
   async updateEvents() {
@@ -53,7 +54,7 @@ class App extends Component {
       )).data;
       this.setState({ events });
     } catch (error) {
-      console.log("Error getting data from API call.");
+      console.log("Error getting data from API call." + error);
     }
   }
 
