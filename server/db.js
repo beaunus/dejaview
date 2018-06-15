@@ -1,58 +1,10 @@
-const moment = require("moment");
+const { utc } = require("moment");
+const { normalizeDate, offsetDate } = require("../src/utilities");
 
 const db = require("knex")({
   client: "pg",
   connection: process.env.DATABASE_URL
 });
-
-/**
- * Return the date that that is the "first of the [granularity] that contains the given target date."
- * @param {Date} date
- * @param {String} granularity
- * @returns {Date}
- */
-const normalizeDate = (date, granularity) => {
-  const result = moment.utc(date);
-  switch (granularity) {
-    case "weeks":
-      result.day(0);
-      break;
-    case "months":
-      result.date(1);
-      break;
-    case "years":
-      result.month(0);
-      result.date(1);
-      break;
-  }
-  return result;
-};
-
-/**
- * Return the given date, offset by the given number of [granularity]
- * @param {Date} date
- * @param {String} granularity
- * @param {Number} num
- * @returns {Date}
- */
-const offsetDate = (date, granularity, num) => {
-  const result = new Date(date);
-  switch (granularity) {
-    case "days":
-      result.setDate(result.getDate() + num);
-      break;
-    case "weeks":
-      result.setDate(result.getDate() + 7 * num);
-      break;
-    case "months":
-      result.setMonth(result.getMonth() + num);
-      break;
-    case "years":
-      result.setFullYear(result.getFullYear() + num);
-      break;
-  }
-  return result;
-};
 
 /**
  * Return all events that are between the given beginningDate (inclusive) and endingDate (exclusive).
@@ -100,7 +52,7 @@ const getIndexedEvents = (rawEvents, granularity) => {
   const indexedEvents = {};
   for (const event of rawEvents) {
     const date = normalizeDate(new Date(event.timestamp), granularity);
-    const dateString = moment.utc(date).format("YYYY-MM-DD");
+    const dateString = utc(date).format("YYYY-MM-DD");
     if (!indexedEvents.hasOwnProperty(dateString)) {
       indexedEvents[dateString] = {};
     }
