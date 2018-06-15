@@ -9,9 +9,9 @@ const getCurrentSelectedGranularity = () => {
   }
 };
 
-const selectGranularity = (event, changeGranularity) => {
+const selectGranularity = (event, choice, changeGranularity) => {
   event.preventDefault();
-  event.target.parentNode.querySelector("input").checked = true;
+  document.getElementById(`granularity-${choice}`).checked = true;
   const selectedGranularity = getCurrentSelectedGranularity();
   changeGranularity(selectedGranularity);
 };
@@ -30,8 +30,12 @@ const GranularityButton = props => (
       id={`granularity-${props.choice}`}
       tabIndex="0"
       role="button"
-      onClick={event => selectGranularity(event, props.changeGranularity)}
-      onKeyPress={event => selectGranularity(event, props.changeGranularity)}
+      onClick={event =>
+        selectGranularity(event, props.choice, props.changeGranularity)
+      }
+      onKeyPress={event =>
+        selectGranularity(event, props.choice, props.changeGranularity)
+      }
     >
       {props.choice.toUpperCase()}
     </div>
