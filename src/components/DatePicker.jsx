@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "../styles/DatePicker.css";
 
 function DatePicker(props) {
@@ -14,5 +15,9 @@ function DatePicker(props) {
     </div>
   );
 }
+
+DatePicker.propTypes = {
+  selectedDate: PropTypes.string.isRequired
+};
 
 export default DatePicker;
