@@ -1,3 +1,18 @@
+#granularity-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+#granularity-navigator {
+  display: flex;
+  justify-content: center;
+}
+
+.granularity-navigator-button {
+  cursor: pointer;
+}
+
 /* The component itself. */
 #granularity-selector {
   display: flex;
@@ -11,7 +26,8 @@
 }
 
 /* The text that is written on the buttons. */
-#granularity-selector input + .label {
+#granularity-selector input + .label,
+.granularity-navigator-button {
   background-color: #fff;
   border: solid 1px #ddd;
   box-shadow: 1px 1px 5px #000;
@@ -25,20 +41,24 @@
 }
 
 /* Round the borders of the first and last button. */
-#granularity-selector label:first-of-type input + .label {
+#granularity-selector label:first-of-type input + .label,
+.granularity-navigator-button:first-of-type {
   border-radius: 6px 0 0 6px;
 }
-#granularity-selector label:last-of-type input + .label {
+#granularity-selector label:last-of-type input + .label,
+.granularity-navigator-button:last-of-type {
   border-radius: 0 6px 6px 0;
 }
 
 /* The hovered button. */
-#granularity-selector input:hover + .label {
+#granularity-selector input:hover + .label,
+.granularity-navigator-button:hover {
   background: var(--color-light);
 }
 
 /* The checked button. */
-#granularity-selector input:checked + .label {
+#granularity-selector input:checked + .label,
+.granularity-navigator-button:active {
   background-color: #4b9dea;
   border-color: var(--color-medium);
   color: #fff;

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./styles/App.css";
 import Lifeline from "./components/Lifeline.jsx";
 import DatePicker from "./components/DatePicker.jsx";
-import GranularitySelector from "./components/GranularitySelector.jsx";
+import Granularity from "./components/Granularity.jsx";
 import axios from "axios";
 import LabelFilter from "./components/LabelFilter";
 import moment from "moment";
@@ -19,6 +19,7 @@ class App extends Component {
     this.changeDate = this.changeDate.bind(this);
     this.toggleLabel = this.toggleLabel.bind(this);
     this.changeGranularity = this.changeGranularity.bind(this);
+    this.navigateByGranularity = this.navigateByGranularity.bind(this);
   }
 
   async componentDidMount() {
@@ -42,6 +43,12 @@ class App extends Component {
   async changeDate(selectedDate) {
     await this.setState({ selectedDate });
     await this.updateEvents();
+  }
+
+  navigateByGranularity(direction) {
+    console.log(direction);
+    this.setState({ selectedDate: moment().format("YYYY-MM-DD") });
+    this.updateEvents();
   }
 
   async updateEvents() {
@@ -78,9 +85,10 @@ class App extends Component {
     return (
       <div className="App">
         <div className="header">Lifeline</div>
-        <GranularitySelector
+        <Granularity
           granularity={this.state.granularity}
           changeGranularity={this.changeGranularity}
+          navigateByGranularity={this.navigateByGranularity}
         />
         <DatePicker
           selectedDate={this.state.selectedDate}

@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../styles/GranularitySelector.css";
 
 const getCurrentSelectedGranularity = () => {
   for (const radioButton of document.getElementsByName("granularity")) {
