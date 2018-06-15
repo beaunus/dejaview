@@ -3,8 +3,9 @@ import "./styles/App.css";
 import Lifeline from "./components/Lifeline.jsx";
 import DatePicker from "./components/DatePicker.jsx";
 import Granularity from "./components/Granularity.jsx";
-import axios from "axios";
 import LabelFilter from "./components/LabelFilter";
+import { offsetDate } from "../src/utilities";
+import axios from "axios";
 import moment from "moment";
 
 class App extends Component {
@@ -45,10 +46,13 @@ class App extends Component {
     await this.updateEvents();
   }
 
-  navigateByGranularity(direction) {
-    console.log(direction);
-    this.setState({ selectedDate: moment().format("YYYY-MM-DD") });
-    this.updateEvents();
+  async navigateByGranularity(direction, granularity) {
+    const num = direction === "left" ? -1 : 1;
+    const newDate = offsetDate(this.state.selectedDate, granularity, num);
+    const datePickerInput = document.getElementById("date-picker").children[0];
+    datePickerInput.value = moment(newDate).format("YYYY-MM-DD");
+    await this.setState({ selectedDate: moment(newDate).format("YYYY-MM-DD") });
+    await this.updateEvents();
   }
 
   async updateEvents() {
