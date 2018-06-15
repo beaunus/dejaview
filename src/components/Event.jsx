@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import logoMap from "./logoMap";
+import ReactPlayer from "react-player";
 import { toggleHidden } from "../utilities";
 
 const Event = props => (
@@ -28,12 +29,33 @@ const Event = props => (
       <input type="checkbox" onClick={toggleHidden} />
       <div className="more">more</div>
     </div>
-    <p
-      className="event-text hidden"
-      dangerouslySetInnerHTML={{
-        __html: props.event.text.replace("li>", "span>")
-      }}
-    />
+    <div className="event-more">
+      <p
+        className="event-more-text"
+        dangerouslySetInnerHTML={{
+          __html: props.event.text.replace("li>", "span>")
+        }}
+      />
+      {props.event.media_link !== null &&
+        props.event.media_link.length > 0 && (
+          <ReactPlayer
+            className="event-more-media"
+            url={props.event.media_link}
+            controls={true}
+            width="30%"
+            height="50%"
+          />
+        )}
+      {(props.event.media_link === null ||
+        props.event.media_link.length === 0) &&
+        (props.event.image_link && (
+          <img
+            className="event-more-image"
+            src={props.event.image_link}
+            alt={props.event.title}
+          />
+        ))}
+    </div>
   </div>
 );
 
