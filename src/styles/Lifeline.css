@@ -159,6 +159,7 @@ a:hover {
 .event-more-image {
   order: 0;
   margin: 1em;
+  max-height: 10rem;
 }
 
 .event-more-text {
