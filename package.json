@@ -9,7 +9,8 @@
     "devc": "react-scripts start",
     "devs": "nodemon -r dotenv/config server/index.js",
     "lint": "eslint --fix --ext .js --ext .jsx .",
-    "precommit": "pretty-quick --staged && lint-staged",
+    "stylelint": "stylelint **/*.css",
+    "precommit": "pretty-quick --staged && lint-staged && yarn stylelint",
     "test": "yarn build",
     "eject": "react-scripts eject",
     "testorig": "react-scripts test --env=jsdom"
@@ -46,7 +47,8 @@
     "lint-staged": "^7.2.0",
     "nodemon": "^1.17.5",
     "prettier": "^1.13.5",
-    "pretty-quick": "^1.6.0"
+    "pretty-quick": "^1.6.0",
+    "stylelint": "^9.2.1"
   },
   "proxy": "http://localhost:3001"
 }
