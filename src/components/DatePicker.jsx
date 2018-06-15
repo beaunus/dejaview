@@ -4,7 +4,7 @@ import "../styles/DatePicker.css";
 
 function DatePicker(props) {
   return (
-    <div className="date-picker">
+    <div id="date-picker">
       <input
         type="date"
         defaultValue={props.selectedDate}
