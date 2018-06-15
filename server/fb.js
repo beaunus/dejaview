@@ -1,13 +1,3 @@
-/**
- *
- * status - regular
- * status - place
- * link
- * video
- * photo
- *
- *
- */
 const getIndexedEvent = rawEvent => {
   let title = "Facebook Post without a message";
   let text = "";

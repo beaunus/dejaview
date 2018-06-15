@@ -132,23 +132,6 @@ const getIndexedEvents = (rawEvents, rawFBEvents, granularity) => {
 
   for (const rawFBEvent of rawFBEvents["data"]) {
     const event = fb.getIndexedEvent(rawFBEvent);
-    // if (rawEvent.type === "status" || rawEvent.type === "photo") {
-    //   const title = rawEvent.message
-    //     ? rawEvent.message.slice(0, 200) + "..."
-    //     : rawEvent.description || "Facebook Post";
-    //   const text =
-    //     rawEvent.message + " " + rawEvent.picture
-    //       ? `<img src="${rawEvent.picture}" />`
-    //       : rawEvent.place["name"]
-    //         ? `<em>Checked In at ${rawEvent.place["name"]}</em>`
-    //         : "";
-
-    //   const link = rawEvent.permalink_url ? rawEvent.permalink_url : "";
-    //   const event = {
-    //     title,
-    //     text,
-    //     link
-    //   };
     if (event) {
       const date = normalizeDate(
         new Date(rawFBEvent.created_time),
