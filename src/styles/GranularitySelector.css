@@ -1,0 +1,51 @@
+/* The component itself. */
+#granularity-selector {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 1rem;
+}
+
+/* Hide the checkboxes. */
+#granularity-selector input {
+  display: none;
+}
+
+/* The text that is written on the buttons. */
+#granularity-selector input + .label {
+  background-color: #fff;
+  border: solid 1px #ddd;
+  box-shadow: 1px 1px 5px #000;
+  display: inline-flex;
+  font-weight: 400;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  transition: border-color 0.15s ease-out, color 0.25s ease-out,
+    background-color 0.15s ease-out, box-shadow 0.15s ease-out;
+}
+
+/* Round the borders of the first and last button. */
+#granularity-selector label:first-of-type input + .label {
+  border-radius: 6px 0 0 6px;
+}
+#granularity-selector label:last-of-type input + .label {
+  border-radius: 0 6px 6px 0;
+}
+
+/* The hovered button. */
+#granularity-selector input:hover + .label {
+  background: var(--color-light);
+}
+
+/* The checked button. */
+#granularity-selector input:checked + .label {
+  background-color: #4b9dea;
+  border-color: var(--color-medium);
+  color: #fff;
+  text-shadow: black 0 0 3px;
+}
+
+#granularity-selector input:focus + .label {
+  outline: dotted 1px #ccc;
+  outline-offset: 0.45rem;
+}

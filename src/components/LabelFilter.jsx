@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import logoMap from "./logoMap";
 import "../styles/LabelFilter.css";
 
@@ -9,6 +10,11 @@ function LabelFilter(props) {
       onClick={e => {
         props.toggleLabel(props.labelName, e.target);
       }}
+      onKeyPress={e => {
+        props.toggleLabel(props.labelName, e.target);
+      }}
+      role="button"
+      tabIndex="0"
     >
       <img
         className="label-logo"
@@ -19,5 +25,9 @@ function LabelFilter(props) {
     </div>
   );
 }
+
+LabelFilter.propTypes = {
+  labelName: PropTypes.string.isRequired
+};
 
 export default LabelFilter;

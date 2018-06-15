@@ -13,18 +13,17 @@ const db = require("knex")({
  * @returns {Date}
  */
 const normalizeDate = (date, granularity) => {
-  const result = new Date(date);
+  const result = moment.utc(date);
   switch (granularity) {
     case "weeks":
-      const numDaysAwayFromSunday = date.getDay();
-      result.setDate(result.getDate() - numDaysAwayFromSunday);
+      result.day(0);
       break;
     case "months":
-      result.setDate(1);
+      result.date(1);
       break;
     case "years":
-      result.setMonth(0);
-      result.setDate(1);
+      result.month(0);
+      result.date(1);
       break;
   }
   return result;
@@ -38,7 +37,7 @@ const normalizeDate = (date, granularity) => {
  * @returns {Date}
  */
 const offsetDate = (date, granularity, num) => {
-  let result = new Date(date);
+  const result = new Date(date);
   switch (granularity) {
     case "days":
       result.setDate(result.getDate() + num);
@@ -63,16 +62,19 @@ const offsetDate = (date, granularity, num) => {
  * @returns {[Object]}
  */
 const getRawEvents = async (beginningDate, endingDate) => {
-  return await db("event")
+  beginningDate = beginningDate.toISOString();
+  endingDate = endingDate.toISOString();
+  return db("event")
     .select(
-      "event.timestamp",
+      db.raw("event.timestamp AT TIME ZONE 'UTC' as timestamp"),
       "event.title",
       "event.text",
       "event.link",
       "label.name as label"
     )
-    .where("timestamp", ">=", beginningDate)
-    .andWhere("timestamp", "<", endingDate)
+    .whereRaw(
+      `timestamp  >= '${beginningDate}' AND timestamp < '${endingDate}'`
+    )
     .join("label", "label.id", "=", "event.label_id");
 };
 
@@ -115,9 +117,7 @@ const getIndexedEvents = (rawEvents, rawFBEvents, granularity) => {
   const indexedEvents = {};
   for (const event of rawEvents) {
     const date = normalizeDate(new Date(event.timestamp), granularity);
-    const dateString = moment(date)
-      .utc()
-      .format("YYYY-MM-DD");
+    const dateString = moment.utc(date).format("YYYY-MM-DD");
     if (!indexedEvents.hasOwnProperty(dateString)) {
       indexedEvents[dateString] = {};
     }

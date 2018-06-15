@@ -8,7 +8,9 @@
     "start": "yarn build && yarn serve",
     "devc": "react-scripts start",
     "devs": "nodemon -r dotenv/config server/index.js",
-    "test": "yarn build", 
+    "lint": "eslint --fix --ext .js --ext .jsx .",
+    "precommit": "pretty-quick --staged",
+    "test": "yarn build",
     "eject": "react-scripts eject",
     "testorig": "react-scripts test --env=jsdom"
   },
@@ -22,12 +24,22 @@
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
     "pg": "^7.4.3",
+    "prop-types": "^15.6.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-scripts": "1.1.4"
   },
   "devDependencies": {
-    "nodemon": "^1.17.5"
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-problems": "^0.1.1",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.9.1",
+    "husky": "^0.14.3",
+    "nodemon": "^1.17.5",
+    "prettier": "^1.13.5",
+    "pretty-quick": "^1.6.0"
   },
   "proxy": "http://localhost:3001"
 }
