@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import GranularityButton from "./GranularityButton";
 import "../styles/Granularity.css";
 
-const choices = ["day", "week", "month", "year"];
+const choices = ["year", "month", "week", "day"];
 
 const Granularity = props => (
   <div className="granularity">
@@ -14,6 +14,7 @@ const Granularity = props => (
           choice={choice}
           granularity={props.granularity}
           changeGranularity={props.changeGranularity}
+          navigateByGranularity={props.navigateByGranularity}
         />
       ))}
     </div>

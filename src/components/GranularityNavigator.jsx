@@ -8,11 +8,11 @@ const GranularityNavigator = props => {
         className="granularity-navigator-button"
         onClick={event => {
           event.preventDefault();
-          props.navigateByGranularity("left");
+          props.navigateByGranularity("left", "weeks");
         }}
         onKeyPress={event => {
           event.preventDefault();
-          props.navigateByGranularity("left");
+          props.navigateByGranularity("left", "weeks");
         }}
         role="button"
         tabIndex="0"
@@ -23,11 +23,11 @@ const GranularityNavigator = props => {
         className="granularity-navigator-button"
         onClick={event => {
           event.preventDefault();
-          props.navigateByGranularity("right");
+          props.navigateByGranularity("right", "weeks");
         }}
         onKeyPress={event => {
           event.preventDefault();
-          props.navigateByGranularity("right");
+          props.navigateByGranularity("right", "weeks");
         }}
         role="button"
         tabIndex="0"

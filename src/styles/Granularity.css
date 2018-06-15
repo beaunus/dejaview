@@ -1,3 +1,15 @@
+#granularity-nav-button-area {
+  display: flex;
+  margin: 0.1rem;
+}
+
+.granularity-nav-button {
+  flex-grow: 1;
+  border: solid pink 1px;
+  text-align: center;
+  padding: 0.2rem 0;
+}
+
 /* The component itself. */
 #granularity-selector {
   display: flex;
@@ -11,42 +23,51 @@
 }
 
 /* The text that is written on the buttons. */
-#granularity-selector input + .label {
+#granularity-selector input + div .label {
+  display: inline-flex;
+  padding: 0.75rem 1rem;
+}
+
+#granularity-selector input + div .label,
+.granularity-nav-button {
   background-color: #fff;
   border: solid 1px #ddd;
   box-shadow: 1px 1px 5px #000;
-  display: inline-flex;
   font-weight: 400;
   margin: 0;
-  padding: 0.75rem 1rem;
   text-align: center;
   transition: border-color 0.15s ease-out, color 0.25s ease-out,
     background-color 0.15s ease-out, box-shadow 0.15s ease-out;
 }
 
 /* Round the borders of the first and last button. */
-#granularity-selector label:first-of-type input + .label {
+#granularity-selector label:first-of-type input + div .label,
+.granularity-nav-button:first-of-type {
   border-radius: 6px 0 0 6px;
 }
 
-#granularity-selector label:last-of-type input + .label {
+#granularity-selector label:last-of-type input + div .label,
+.granularity-nav-button {
   border-radius: 0 6px 6px 0;
 }
 
 /* The hovered button. */
-#granularity-selector input:hover + .label {
+#granularity-selector input + div .label:hover,
+.granularity-nav-button:hover {
   background: var(--color-light);
 }
 
 /* The checked button. */
-#granularity-selector input:checked + .label {
+#granularity-selector input[type="radio"]:checked + div .label,
+.granularity-nav-button:active {
   background-color: #4b9dea;
   border-color: var(--color-medium);
   color: #fff;
   text-shadow: black 0 0 3px;
 }
 
-#granularity-selector input:focus + .label {
+#granularity-selector input:focus + div .label,
+.granularity-nav-button:focus {
   outline: dotted 1px #ccc;
   outline-offset: 0.45rem;
 }
