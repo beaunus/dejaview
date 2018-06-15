@@ -41,6 +41,7 @@ class App extends Component {
 
   async changeDate(selectedDate) {
     await this.setState({ selectedDate });
+    await this.updateLabels();
     await this.updateEvents();
   }
 
