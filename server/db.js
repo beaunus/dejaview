@@ -69,6 +69,8 @@ const getRawEvents = async (beginningDate, endingDate) => {
       "event.title",
       "event.text",
       "event.link",
+      "event.image_link",
+      "event.media_link",
       "label.name as label"
     )
     .whereRaw(
