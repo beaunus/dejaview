@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const db = require("./db");
-const axios = require("axios");
 
 /**
  * The main endpoint for the API server.

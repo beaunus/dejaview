@@ -51,22 +51,22 @@ passport.use(
       clientSecret: process.env.FACEBOOK_APP_SECRET,
       callbackURL: process.env.FACEBOOK_APP_CALLBACK_URL
     },
-    function(accessToken, refreshToken, profile, done) {
+    (accessToken, refreshToken, profile, done) => {
       const info = {
-        profile: profile,
-        accessToken: accessToken,
-        refreshToken: refreshToken
+        profile,
+        accessToken,
+        refreshToken
       };
       done(null, info);
     }
   )
 );
 
-passport.serializeUser(function(user, done) {
+passport.serializeUser((user, done) => {
   done(null, user);
 });
 
-passport.deserializeUser(function(user, done) {
+passport.deserializeUser((user, done) => {
   done(null, user);
 });
 

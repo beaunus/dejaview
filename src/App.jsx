@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import "./styles/App.css";
 import Lifeline from "./components/Lifeline.jsx";
 import DatePicker from "./components/DatePicker.jsx";
-import GranularitySelector from "./components/GranularitySelector.jsx";
-import axios from "axios";
+import Granularity from "./components/Granularity.jsx";
 import LabelFilter from "./components/LabelFilter";
+import { offsetDate } from "../src/utilities";
+import axios from "axios";
 import moment from "moment";
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
     this.changeDate = this.changeDate.bind(this);
     this.toggleLabel = this.toggleLabel.bind(this);
     this.changeGranularity = this.changeGranularity.bind(this);
+    this.navigateByGranularity = this.navigateByGranularity.bind(this);
   }
 
   async componentDidMount() {
@@ -45,6 +47,15 @@ class App extends Component {
     await this.updateLabels();
   }
 
+  async navigateByGranularity(direction, granularity) {
+    const num = direction === "left" ? -1 : 1;
+    const newDate = offsetDate(this.state.selectedDate, granularity, num);
+    const datePickerInput = document.getElementById("date-picker").children[0];
+    datePickerInput.value = moment(newDate).format("YYYY-MM-DD");
+    await this.setState({ selectedDate: moment(newDate).format("YYYY-MM-DD") });
+    await this.updateEvents();
+  }
+
   async updateEvents() {
     try {
       const events = (await axios.get(
@@ -54,7 +65,7 @@ class App extends Component {
       )).data;
       this.setState({ events });
     } catch (error) {
-      console.log("Error getting data from API call." + error);
+      console.log(`Error getting data from API call.${error}`);
     }
   }
 
@@ -79,9 +90,10 @@ class App extends Component {
     return (
       <div className="App">
         <div className="header">Lifeline</div>
-        <GranularitySelector
+        <Granularity
           granularity={this.state.granularity}
           changeGranularity={this.changeGranularity}
+          navigateByGranularity={this.navigateByGranularity}
         />
         <DatePicker
           selectedDate={this.state.selectedDate}

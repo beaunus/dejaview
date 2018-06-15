@@ -1,9 +1,9 @@
-.date-picker {
+#date-picker {
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
 }
 
-.date-picker input {
-  font-size: 18pt;
+#date-picker input {
+  font-size: 1.8em;
 }

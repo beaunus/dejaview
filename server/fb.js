@@ -1,20 +1,21 @@
 const getIndexedEvent = rawEvent => {
   let title = "Facebook Post without a message";
   let text = "";
-  let link = rawEvent.permalink_url;
+  const link = rawEvent.permalink_url;
   let image_link = "";
   let media_link = "";
+  let description;
   switch (rawEvent.type) {
     case "status":
       if (rawEvent.place) {
-        text = `<strong>${rawEvent.place["name"]}</strong>,
-            ${rawEvent.place["street"] || ""},
-            ${rawEvent.place["city"] || ""}`;
+        text = `<strong>${rawEvent.place.name}</strong>,
+            ${rawEvent.place.street || ""},
+            ${rawEvent.place.city || ""}`;
         if (rawEvent.message) {
           title = rawEvent.message;
         } else {
-          title = `Checked In at ${rawEvent.place["name"]}`;
-          text = title + ": " + text;
+          title = `Checked In at ${rawEvent.place.name}`;
+          text = `${title}: ${text}`;
         }
       } else {
         if (rawEvent.message) {
@@ -69,17 +70,15 @@ const getIndexedEvent = rawEvent => {
       media_link = rawEvent.link;
       break;
     default:
-    //
   }
 
-  event = {
+  return {
     title,
     text,
     link,
     image_link,
     media_link
   };
-  return event;
 };
 
 module.exports = { getIndexedEvent };
