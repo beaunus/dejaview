@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import logoMap from "./logoMap";
-import { toggleHidden } from "../scripts/Lifeline.js";
 import ReactPlayer from "react-player";
+import { toggleHidden } from "../utilities";
 
 const Event = props => (
   <div key={props.label} className="event">
