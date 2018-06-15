@@ -1,11 +1,11 @@
 const toggleHidden = event => {
-  const eventText = event.target.parentElement.parentElement.querySelector(
-    ".event-text"
+  const eventMore = event.target.parentElement.parentElement.querySelector(
+    ".event-more"
   );
-  if (eventText.classList.contains("hidden")) {
-    eventText.classList.remove("hidden");
+  if (eventMore.classList.contains("hidden")) {
+    eventMore.classList.remove("hidden");
   } else {
-    eventText.classList.add("hidden");
+    eventMore.classList.add("hidden");
   }
 };
 
