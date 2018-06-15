@@ -1,5 +1,6 @@
 const moment = require("moment");
 const axios = require("axios");
+const fb = require("./fb");
 
 const db = require("knex")({
   client: "pg",
@@ -80,7 +81,7 @@ const getRawEvents = async (beginningDate, endingDate) => {
 
 const getRawFBEvents = async (access_token, beginningDate, endingDate) => {
   const fields =
-    "caption,message,permalink_url,picture,created_time,link,name,type,place,description";
+    "caption,message,permalink_url,picture,created_time,link,name,type,place,description,full_picture";
   const since = moment(beginningDate).format("YYYY-MM-DD");
   const until = moment(endingDate).format("YYYY-MM-DD");
   const url = `https://graph.facebook.com/v3.0/me/posts?since=${since}&until=${until}&fields=${fields}&access_token=${access_token}&limit=500`;
@@ -127,25 +128,30 @@ const getIndexedEvents = (rawEvents, rawFBEvents, granularity) => {
     indexedEvents[dateString][event.label].push(event);
   }
 
-  for (const rawEvent of rawFBEvents["data"]) {
-    if (rawEvent.type === "status" || rawEvent.type === "photo") {
-      const title = rawEvent.message
-        ? rawEvent.message.slice(0, 200) + "..."
-        : rawEvent.description || "Facebook Post";
-      const text =
-        rawEvent.message + " " + rawEvent.picture
-          ? `<img src="${rawEvent.picture}" />`
-          : rawEvent.place["name"]
-            ? `<em>Checked In at ${rawEvent.place["name"]}</em>`
-            : "";
+  for (const rawFBEvent of rawFBEvents["data"]) {
+    const event = fb.getIndexedEvent(rawFBEvent);
+    // if (rawEvent.type === "status" || rawEvent.type === "photo") {
+    //   const title = rawEvent.message
+    //     ? rawEvent.message.slice(0, 200) + "..."
+    //     : rawEvent.description || "Facebook Post";
+    //   const text =
+    //     rawEvent.message + " " + rawEvent.picture
+    //       ? `<img src="${rawEvent.picture}" />`
+    //       : rawEvent.place["name"]
+    //         ? `<em>Checked In at ${rawEvent.place["name"]}</em>`
+    //         : "";
 
-      const link = rawEvent.permalink_url ? rawEvent.permalink_url : "";
-      const event = {
-        title,
-        text,
-        link
-      };
-      const date = normalizeDate(new Date(rawEvent.created_time), granularity);
+    //   const link = rawEvent.permalink_url ? rawEvent.permalink_url : "";
+    //   const event = {
+    //     title,
+    //     text,
+    //     link
+    //   };
+    if (event) {
+      const date = normalizeDate(
+        new Date(rawFBEvent.created_time),
+        granularity
+      );
       const dateString = moment(date).format("YYYY-MM-DD");
       if (!indexedEvents.hasOwnProperty(dateString)) {
         indexedEvents[dateString] = {};

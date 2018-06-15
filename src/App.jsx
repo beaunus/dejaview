@@ -26,7 +26,7 @@ class App extends Component {
     this.updateLabels();
   }
 
-  updateLabels() {
+  async updateLabels() {
     const labels = { ...this.state.labels };
     for (const eventDate in this.state.events) {
       const labelKeys = this.state.events[eventDate];
@@ -36,13 +36,13 @@ class App extends Component {
         }
       }
     }
-    this.setState({ labels });
+    await this.setState({ labels });
   }
 
   async changeDate(selectedDate) {
     await this.setState({ selectedDate });
-    await this.updateLabels();
     await this.updateEvents();
+    await this.updateLabels();
   }
 
   async updateEvents() {
