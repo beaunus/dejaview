@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../styles/GranularitySelector.css";
 
 const getCurrentSelectedGranularity = () => {
   for (const radioButton of document.getElementsByName("granularity")) {
@@ -10,9 +9,9 @@ const getCurrentSelectedGranularity = () => {
   }
 };
 
-const selectGranularity = (event, changeGranularity) => {
+const selectGranularity = (event, choice, changeGranularity) => {
   event.preventDefault();
-  event.target.parentNode.querySelector("input").checked = true;
+  document.getElementById(`granularity-${choice}`).checked = true;
   const selectedGranularity = getCurrentSelectedGranularity();
   changeGranularity(selectedGranularity);
 };
@@ -26,15 +25,53 @@ const GranularityButton = props => (
       value={props.choice}
       defaultChecked={props.granularity === props.choice}
     />
-    <div
-      className="label"
-      id={`granularity-${props.choice}`}
-      tabIndex="0"
-      role="button"
-      onClick={event => selectGranularity(event, props.changeGranularity)}
-      onKeyPress={event => selectGranularity(event, props.changeGranularity)}
-    >
-      {props.choice.toUpperCase()}
+    <div>
+      <div
+        className="label"
+        id={`granularity-${props.choice}`}
+        tabIndex="0"
+        role="button"
+        onClick={event =>
+          selectGranularity(event, props.choice, props.changeGranularity)
+        }
+        onKeyPress={event =>
+          selectGranularity(event, props.choice, props.changeGranularity)
+        }
+      >
+        {props.choice.toUpperCase()}
+      </div>
+      <div id="granularity-nav-button-area">
+        <div
+          className="granularity-nav-button"
+          onClick={event => {
+            event.preventDefault();
+            props.navigateByGranularity("left", `${props.choice}s`);
+          }}
+          onKeyPress={event => {
+            event.preventDefault();
+            props.navigateByGranularity("left", `${props.choice}s`);
+          }}
+          role="button"
+          tabIndex="0"
+        >
+          ←
+        </div>
+        <div
+          className="granularity-nav-button"
+          onClick={event => {
+            event.preventDefault();
+            props.navigateByGranularity("right", `${props.choice}s`);
+          }}
+          onKeyPress={event => {
+            event.preventDefault();
+            props.navigateByGranularity("right", `${props.choice}s`);
+          }}
+          role="button"
+          tabIndex="0"
+        >
+          →
+        </div>
+      </div>
     </div>
   </label>
 );
