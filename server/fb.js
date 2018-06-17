@@ -18,8 +18,8 @@ const getIndexedEvent = rawEvent => {
           rawEvent.caption ||
           rawEvent.description ||
           `<strong>${rawEvent.place.name}</strong>
-            ${`, ${rawEvent.place.street}` || ""}
-            ${`, ${rawEvent.place.city}` || ""}`;
+            ${rawEvent.place.street ? `, ${rawEvent.place.street}` : ""}
+            ${rawEvent.place.city ? `, ${rawEvent.place.city}` : ""}`;
       } else {
         title = "You posted a status update on Facebook";
         text =
