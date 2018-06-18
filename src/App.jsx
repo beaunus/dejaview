@@ -90,7 +90,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="header">Lifeline</div>
+        <div className="header">Déjà View</div>
         <Granularity
           granularity={this.state.granularity}
           changeGranularity={this.changeGranularity}
