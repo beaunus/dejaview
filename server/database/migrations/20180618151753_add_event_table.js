@@ -7,9 +7,10 @@ exports.up = function(knex) {
         table.text("title").notNull();
         table.text("text");
         table.text("link");
+        table.integer("label_id");
         table.text("image_link");
         table.text("media_link");
-        table.integer("label_id");
+
         table
           .foreign("label_id")
           .references("id")

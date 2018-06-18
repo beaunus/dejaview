@@ -3,7 +3,7 @@ exports.up = function(knex) {
     if (!exists) {
       return knex.schema.createTable("label", table => {
         table.increments().primary();
-        table.text("name");
+        table.text("name").notNull();
       });
     }
   });
