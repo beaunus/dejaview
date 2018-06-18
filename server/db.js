@@ -158,3 +158,40 @@ const getEvents = async (date, granularity = "days", num = 1, access_token) => {
 };
 
 module.exports = { getEvents };
+
+const getWordCounts = event => {
+  const words = event.text.split(" ");
+  for (const i in words) {
+    words[i] = words[i].toLowerCase().replace(/\.|?|,|('s)|(’s)|“|”/, "");
+  }
+  const wordCounts = {};
+  for (const word of words) {
+    if (!wordCounts.hasOwnProperty(word)) {
+      wordCounts[word] = 0;
+    }
+    ++wordCounts[word];
+  }
+  return wordCounts;
+};
+
+const main = async () => {
+  const rawEvents = await getRawEvents(
+    new Date("2018-06-01"),
+    new Date("2018-06-09")
+  );
+  const indexedEvents = getIndexedEvents(rawEvents, null, "years");
+  const nytEvents = indexedEvents["2018-01-01"]["New York Times"];
+  const totalWordCounts = {};
+  for (const rawEvent of nytEvents) {
+    rawEvent.wordCounts = getWordCounts(rawEvent);
+    for (const word in rawEvent.wordCounts) {
+      if (!totalWordCounts.hasOwnProperty(word)) {
+        totalWordCounts[word] = 0;
+      }
+      totalWordCounts[word] += rawEvent.wordCounts[word];
+    }
+  }
+  console.log(totalWordCounts);
+};
+
+main();
