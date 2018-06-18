@@ -1,8 +1,8 @@
-# Lifeline
+# Déjà View
 
-This app is hosted at https://lifeline-cc4.herokuapp.com/.
+This app is hosted at https://www.dejaview.cc/.
 
-_Lifeline_ is a way to look at the events in your life from a birds' eye view.
+_Déjà View_ is a way to look at the events in your life from a birds' eye view.
 
 This application is still under development, so some of the features are not yet in the codebase.
 
