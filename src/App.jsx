@@ -54,6 +54,7 @@ class App extends Component {
     datePickerInput.value = moment(newDate).format("YYYY-MM-DD");
     await this.setState({ selectedDate: moment(newDate).format("YYYY-MM-DD") });
     await this.updateEvents();
+    await this.updateLabels();
   }
 
   async updateEvents() {
