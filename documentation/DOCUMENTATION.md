@@ -1,4 +1,4 @@
-# Lifeline Documentation
+# Déjà View Documentation
 
 ## Front-end Architecture
 

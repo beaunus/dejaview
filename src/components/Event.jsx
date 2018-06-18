@@ -27,7 +27,7 @@ const Event = props => (
         )}
       </div>
       <input type="checkbox" onClick={toggleHidden} />
-      <div className="more">more</div>
+      <div className="more">less</div>
     </div>
     <div className="event-more">
       <p
