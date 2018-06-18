@@ -1,9 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "../styles/DatePicker.css";
 
 function DatePicker(props) {
   return (
-    <div className="date-picker">
+    <div id="date-picker">
       <input
         type="date"
         defaultValue={props.selectedDate}
@@ -14,5 +15,9 @@ function DatePicker(props) {
     </div>
   );
 }
+
+DatePicker.propTypes = {
+  selectedDate: PropTypes.string.isRequired
+};
 
 export default DatePicker;

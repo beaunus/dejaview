@@ -1,5 +1,5 @@
 {
-  "name": "lifeline",
+  "name": "deja-view",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,9 +8,18 @@
     "start": "yarn build && yarn serve",
     "devc": "react-scripts start",
     "devs": "nodemon -r dotenv/config server/index.js",
-    "test": "yarn build", 
+    "lint": "eslint --fix --ext .js --ext .jsx .",
+    "stylelint": "stylelint **/*.css",
+    "precommit": "pretty-quick --staged && lint-staged && yarn stylelint",
+    "test": "yarn build",
     "eject": "react-scripts eject",
     "testorig": "react-scripts test --env=jsdom"
+  },
+  "lint-staged": {
+    "*{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -22,12 +31,25 @@
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
     "pg": "^7.4.3",
+    "prop-types": "^15.6.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-player": "^1.6.4",
     "react-scripts": "1.1.4"
   },
   "devDependencies": {
-    "nodemon": "^1.17.5"
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-problems": "^0.1.1",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.9.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.0",
+    "nodemon": "^1.17.5",
+    "prettier": "^1.13.5",
+    "pretty-quick": "^1.6.0",
+    "stylelint": "^9.2.1"
   },
   "proxy": "http://localhost:3001"
 }

@@ -1,59 +1,13 @@
+const { utc } = require("moment");
+const { normalizeDate, offsetDate } = require("../src/utilities");
 const moment = require("moment");
+const axios = require("axios");
+const fb = require("./fb");
 
 const db = require("knex")({
   client: "pg",
   connection: process.env.DATABASE_URL
 });
-
-/**
- * Return the date that that is the "first of the [granularity] that contains the given target date."
- * @param {Date} date
- * @param {String} granularity
- * @returns {Date}
- */
-const normalizeDate = (date, granularity) => {
-  const result = new Date(date);
-  switch (granularity) {
-    case "weeks":
-      const numDaysAwayFromSunday = date.getDay();
-      result.setDate(result.getDate() - numDaysAwayFromSunday);
-      break;
-    case "months":
-      result.setDate(1);
-      break;
-    case "years":
-      result.setMonth(0);
-      result.setDate(1);
-      break;
-  }
-  return result;
-};
-
-/**
- * Return the given date, offset by the given number of [granularity]
- * @param {Date} date
- * @param {String} granularity
- * @param {Number} num
- * @returns {Date}
- */
-const offsetDate = (date, granularity, num) => {
-  let result = new Date(date);
-  switch (granularity) {
-    case "days":
-      result.setDate(result.getDate() + num);
-      break;
-    case "weeks":
-      result.setDate(result.getDate() + 7 * num);
-      break;
-    case "months":
-      result.setMonth(result.getMonth() + num);
-      break;
-    case "years":
-      result.setFullYear(result.getFullYear() + num);
-      break;
-  }
-  return result;
-};
 
 /**
  * Return all events that are between the given beginningDate (inclusive) and endingDate (exclusive).
@@ -62,17 +16,36 @@ const offsetDate = (date, granularity, num) => {
  * @returns {[Object]}
  */
 const getRawEvents = async (beginningDate, endingDate) => {
-  return await db("event")
+  beginningDate = beginningDate.toISOString();
+  endingDate = endingDate.toISOString();
+  return db("event")
     .select(
-      "event.timestamp",
+      db.raw("event.timestamp AT TIME ZONE 'UTC' as timestamp"),
       "event.title",
       "event.text",
       "event.link",
+      "event.image_link",
+      "event.media_link",
       "label.name as label"
     )
-    .where("timestamp", ">=", beginningDate)
-    .andWhere("timestamp", "<", endingDate)
+    .whereRaw(
+      `timestamp  >= '${beginningDate}' AND timestamp < '${endingDate}'`
+    )
     .join("label", "label.id", "=", "event.label_id");
+};
+
+const getRawFBEvents = async (access_token, beginningDate, endingDate) => {
+  const fields =
+    "caption,message,permalink_url,picture,created_time,link,name,type,place,description,full_picture";
+  const since = moment(beginningDate).format("YYYY-MM-DD");
+  const until = moment(endingDate).format("YYYY-MM-DD");
+  const url = `https://graph.facebook.com/v3.0/me/posts?since=${since}&until=${until}&fields=${fields}&access_token=${access_token}&limit=500`;
+
+  const fbResponse = await axios.get(url);
+  if (fbResponse.data) {
+    return fbResponse.data;
+  }
+  return null;
 };
 
 /**
@@ -94,13 +67,11 @@ const getRawEvents = async (beginningDate, endingDate) => {
  * @param {String} granularity
  * @returns {Object}
  */
-const getIndexedEvents = (rawEvents, granularity) => {
+const getIndexedEvents = (rawEvents, rawFBEvents, granularity) => {
   const indexedEvents = {};
   for (const event of rawEvents) {
     const date = normalizeDate(new Date(event.timestamp), granularity);
-    const dateString = moment(date)
-      .utc()
-      .format("YYYY-MM-DD");
+    const dateString = utc(date).format("YYYY-MM-DD");
     if (!indexedEvents.hasOwnProperty(dateString)) {
       indexedEvents[dateString] = {};
     }
@@ -109,6 +80,27 @@ const getIndexedEvents = (rawEvents, granularity) => {
     }
     indexedEvents[dateString][event.label].push(event);
   }
+
+  if (rawFBEvents) {
+    for (const rawFBEvent of rawFBEvents.data) {
+      const event = fb.getIndexedEvent(rawFBEvent);
+      if (event) {
+        const date = normalizeDate(
+          new Date(rawFBEvent.created_time),
+          granularity
+        );
+        const dateString = moment(date).format("YYYY-MM-DD");
+        if (!indexedEvents.hasOwnProperty(dateString)) {
+          indexedEvents[dateString] = {};
+        }
+        if (!indexedEvents[dateString].hasOwnProperty("Facebook")) {
+          indexedEvents[dateString].Facebook = [];
+        }
+        indexedEvents[dateString].Facebook.push(event);
+      }
+    }
+  }
+
   return indexedEvents;
 };
 
@@ -151,12 +143,17 @@ const getChampions = indexedEvents => {
  * @param {String} granularity
  * @param {Number} num
  */
-const getEvents = async (date, granularity = "days", num = 1) => {
+const getEvents = async (date, granularity = "days", num = 1, access_token) => {
   const normalizedDate = normalizeDate(date, granularity);
   const beginningDate = offsetDate(normalizedDate, granularity, -(num - 1));
   const endingDate = offsetDate(normalizedDate, granularity, 1);
   const rawEvents = await getRawEvents(beginningDate, endingDate);
-  const indexedEvents = getIndexedEvents(rawEvents, granularity);
+  const rawFBEvents = await getRawFBEvents(
+    access_token,
+    beginningDate,
+    endingDate
+  );
+  const indexedEvents = getIndexedEvents(rawEvents, rawFBEvents, granularity);
   return getChampions(indexedEvents);
 };
 
