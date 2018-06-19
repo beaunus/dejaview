@@ -29,22 +29,21 @@ class App extends Component {
   }
 
   async updateLabels() {
-    const labels = { ...this.state.labels };
-    for (const eventDate in this.state.events) {
-      const labelKeys = this.state.events[eventDate];
-      for (const labelKey in labelKeys) {
-        if (!labels.hasOwnProperty(labelKey)) {
-          labels[labelKey] = true;
-        }
-      }
+    try {
+      const labelNames = (await axios.get(`/api/v1/labels`)).data;
+      const labels = labelNames.reduce((acc, label) => {
+        acc[label] = true;
+        return acc;
+      }, {});
+      this.setState({ labels });
+    } catch (error) {
+      console.log(`Error getting data from API call.${error}`);
     }
-    await this.setState({ labels });
   }
 
   async changeDate(selectedDate) {
     await this.setState({ selectedDate });
     await this.updateEvents();
-    await this.updateLabels();
   }
 
   async navigateByGranularity(direction, granularity) {
@@ -54,7 +53,6 @@ class App extends Component {
     datePickerInput.value = moment(newDate).format("YYYY-MM-DD");
     await this.setState({ selectedDate: moment(newDate).format("YYYY-MM-DD") });
     await this.updateEvents();
-    await this.updateLabels();
   }
 
   async updateEvents() {
