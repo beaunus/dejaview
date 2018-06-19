@@ -20,8 +20,6 @@ const EventMore = props => {
             className="event-more-media"
             url={props.event.media_link}
             controls={true}
-            width="30%"
-            height="50%"
           />
         )}
       {(props.event.media_link === null ||
