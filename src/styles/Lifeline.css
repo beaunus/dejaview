@@ -93,7 +93,7 @@
 /* The actual content */
 
 .content {
-  padding: 10px;
+  padding: 1em;
   background-color: white;
   position: relative;
   border-radius: 6px;
@@ -155,7 +155,7 @@ a:hover {
 .event-more-image {
   order: 0;
   margin: 1em 1em 0 0;
-  max-height: 10rem;
+  max-height: 10em;
 }
 
 .event-more-text {
