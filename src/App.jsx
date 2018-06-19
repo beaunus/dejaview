@@ -29,10 +29,17 @@ class App extends Component {
         this.state.selectedDate,
         this.state.granularity
       ),
-      labels: await this.getLabels()
+      labels: await this.getInitialLabels()
     });
   }
 
+  /**
+   * Return a date-indexed object of all events with the given parameters.
+   * @param {String} date
+   * @param {String} granularity
+   * @param {Number} num
+   * @returns {Object}
+   */
   async getEvents(date, granularity, num = 7) {
     try {
       return (await axios.get(
@@ -43,7 +50,11 @@ class App extends Component {
     }
   }
 
-  async getLabels() {
+  /**
+   * Return an object with all the initial labels set to true.
+   * @returns {Object}
+   */
+  async getInitialLabels() {
     try {
       const labelNames = (await axios.get(`/api/v1/labels`)).data;
       return labelNames.reduce((acc, label) => {
@@ -55,6 +66,10 @@ class App extends Component {
     }
   }
 
+  /**
+   * Change the state to reflect the given selectedDate.
+   * @param {String} selectedDate
+   */
   async changeDate(selectedDate) {
     this.setState({
       events: await this.getEvents(selectedDate, this.state.granularity),
@@ -62,6 +77,22 @@ class App extends Component {
     });
   }
 
+  /**
+   * Change the state to reflect the given granularity.
+   * @param {String} granularity
+   */
+  async changeGranularity(granularity) {
+    this.setState({
+      events: await this.getEvents(this.state.selectedDate, granularity),
+      granularity
+    });
+  }
+
+  /**
+   * Change the state to reflect the given date adjustment.
+   * @param {String} direction "left" or "right"
+   * @param {String} granularity
+   */
   async navigateByGranularity(direction, granularity) {
     const num = direction === "left" ? -1 : 1;
     const newDate = offsetDate(this.state.selectedDate, granularity, num);
@@ -74,23 +105,18 @@ class App extends Component {
     });
   }
 
-  async toggleLabel(label, div) {
+  /**
+   * Toggle the selection of the given label filter.
+   * @param {String} label
+   */
+  async toggleLabel(label) {
     const labels = this.state.labels;
     if (labels[label]) {
       labels[label] = false;
-      div.classList.add("label-fade");
     } else {
       labels[label] = true;
-      div.classList.remove("label-fade");
     }
     this.setState({ labels });
-  }
-
-  async changeGranularity(granularity) {
-    this.setState({
-      events: await this.getEvents(this.state.selectedDate, granularity),
-      granularity
-    });
   }
 
   render() {
