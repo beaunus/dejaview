@@ -2,6 +2,21 @@ const router = require("express").Router();
 const db = require("./db");
 
 /**
+ * Respond with an array of strings of all labels that are in the system.
+ */
+router.get("/labels", async (req, res) => {
+  const labelsNotInDatabase = ["Facebook"];
+  try {
+    res
+      .status(200)
+      .send(labelsNotInDatabase.concat(await db.getLabels()).sort());
+  } catch (error) {
+    console.log(error);
+    res.status(400).send("There was an error getting the labels.");
+  }
+});
+
+/**
  * The main endpoint for the API server.
  *
  * A "champion" event is the "best" event for a given granularity.
