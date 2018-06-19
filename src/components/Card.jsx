@@ -46,7 +46,7 @@ const Card = props => {
     return (
       <div className={classNames.join(" ")}>
         <div className="content">
-          <div className="pub-date">{cardHeading}</div>
+          <div className="card-heading">{cardHeading}</div>
           {Object.keys(props.events).map(label => {
             if (props.labels[label]) {
               return props.events[label].map((event, eventIndex) => (
