@@ -109,7 +109,7 @@ class App extends Component {
    * Toggle the selection of the given label filter.
    * @param {String} label
    */
-  async toggleLabel(label) {
+  toggleLabel(label) {
     const labels = this.state.labels;
     if (labels[label]) {
       labels[label] = false;
