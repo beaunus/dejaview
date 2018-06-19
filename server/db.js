@@ -10,6 +10,16 @@ const db = require("knex")({
 });
 
 /**
+ * Return all labels that are in the database.
+ * Be aware that the labels themselves are not sanitized. In other words, some labels have hyphens, e.g. "New-York-Times".
+ * @returns {[String]}
+ */
+const getLabels = async () => {
+  const labelObjects = await db("label").select("name");
+  return labelObjects.map(label => label.name);
+};
+
+/**
  * Return all events that are between the given beginningDate (inclusive) and endingDate (exclusive).
  * @param {Date} beginningDate
  * @param {Date} endingDate
@@ -157,4 +167,4 @@ const getEvents = async (date, granularity = "days", num = 1, access_token) => {
   return getChampions(indexedEvents);
 };
 
-module.exports = { getEvents };
+module.exports = { getLabels, getEvents };

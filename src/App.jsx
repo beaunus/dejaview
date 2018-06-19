@@ -24,67 +24,99 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    await this.updateEvents(this.state.selectedDate);
-    this.updateLabels();
+    this.setState({
+      events: await this.getEvents(
+        this.state.selectedDate,
+        this.state.granularity
+      ),
+      labels: await this.getInitialLabels()
+    });
   }
 
-  async updateLabels() {
-    const labels = { ...this.state.labels };
-    for (const eventDate in this.state.events) {
-      const labelKeys = this.state.events[eventDate];
-      for (const labelKey in labelKeys) {
-        if (!labels.hasOwnProperty(labelKey)) {
-          labels[labelKey] = true;
-        }
-      }
-    }
-    await this.setState({ labels });
-  }
-
-  async changeDate(selectedDate) {
-    await this.setState({ selectedDate });
-    await this.updateEvents();
-    await this.updateLabels();
-  }
-
-  async navigateByGranularity(direction, granularity) {
-    const num = direction === "left" ? -1 : 1;
-    const newDate = offsetDate(this.state.selectedDate, granularity, num);
-    const datePickerInput = document.getElementById("date-picker").children[0];
-    datePickerInput.value = moment(newDate).format("YYYY-MM-DD");
-    await this.setState({ selectedDate: moment(newDate).format("YYYY-MM-DD") });
-    await this.updateEvents();
-    await this.updateLabels();
-  }
-
-  async updateEvents() {
+  /**
+   * Return a date-indexed object of all events with the given parameters.
+   * @param {String} date
+   * @param {String} granularity
+   * @param {Number} num
+   * @returns {Object}
+   */
+  async getEvents(date, granularity, num = 7) {
     try {
-      const events = (await axios.get(
-        `/api/v1/${this.state.selectedDate}/?granularity=${
-          this.state.granularity
-        }s&num=7`
+      return (await axios.get(
+        `/api/v1/${date}/?granularity=${granularity}s&num=${num}`
       )).data;
-      this.setState({ events });
     } catch (error) {
       console.log(`Error getting data from API call.${error}`);
     }
   }
 
-  async toggleLabel(label, div) {
+  /**
+   * Return an object with all the initial labels set to true.
+   * @returns {Object}
+   */
+  async getInitialLabels() {
+    try {
+      const labelNames = (await axios.get(`/api/v1/labels`)).data;
+      return labelNames.reduce((acc, label) => {
+        acc[label] = true;
+        return acc;
+      }, {});
+    } catch (error) {
+      console.log(`Error getting data from API call.${error}`);
+    }
+  }
+
+  /**
+   * Change the state to reflect the given selectedDate.
+   * @param {String} selectedDate
+   */
+  async changeDate(selectedDate) {
+    this.setState({
+      events: await this.getEvents(selectedDate, this.state.granularity),
+      selectedDate
+    });
+  }
+
+  /**
+   * Change the state to reflect the given granularity.
+   * @param {String} granularity
+   */
+  async changeGranularity(granularity) {
+    this.setState({
+      events: await this.getEvents(this.state.selectedDate, granularity),
+      granularity
+    });
+  }
+
+  /**
+   * Change the state to reflect the given date adjustment.
+   * @param {String} direction "left" or "right"
+   * @param {String} granularity
+   */
+  async navigateByGranularity(direction, granularity) {
+    const num = direction === "left" ? -1 : 1;
+    const newDate = offsetDate(this.state.selectedDate, granularity, num);
+    const newDateString = moment(newDate).format("YYYY-MM-DD");
+    const datePickerInput = document.getElementById("date-picker").children[0];
+    datePickerInput.value = newDateString;
+    this.setState({
+      events: await this.getEvents(newDateString, this.state.granularity),
+      selectedDate: newDateString
+    });
+  }
+
+  /**
+   * Toggle the selection of the given label filter.
+   * @param {String} label
+   */
+  toggleLabel(label) {
     const labels = this.state.labels;
     if (labels[label]) {
       labels[label] = false;
-      div.classList.add("label-fade");
     } else {
       labels[label] = true;
-      div.classList.remove("label-fade");
     }
     this.setState({ labels });
-  }
-
-  async changeGranularity(granularity) {
-    await this.setState({ granularity });
-    await this.changeDate(this.state.selectedDate);
   }
 
   render() {
@@ -112,7 +144,11 @@ class App extends Component {
             );
           })}
         </div>
-        <Lifeline events={this.state.events} labels={this.state.labels} />
+        <Lifeline
+          events={this.state.events}
+          granularity={this.state.granularity}
+          labels={this.state.labels}
+        />
       </div>
     );
   }

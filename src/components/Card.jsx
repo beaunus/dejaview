@@ -14,26 +14,47 @@ const Card = props => {
     .map(label => {
       if (props.labels[label]) {
         return props.events[label].map((event, eventIndex) => (
-          <Event key={`${label}_${eventIndex}`} label={label} event={event} />
+          <Event
+            event={event}
+            granularity={props.granularity}
+            key={`${label}_${eventIndex}`}
+            label={label}
+          />
         ));
       }
       return null;
     })
     .filter(event => event);
   if (events.length > 0) {
+    let cardHeading;
+    const dateMoment = moment(props.date);
+    switch (props.granularity) {
+      case "week":
+        cardHeading = `Week of ${dateMoment.format("LL")} - ${dateMoment
+          .add(6, "days")
+          .format("LL")}`;
+        break;
+      case "month":
+        cardHeading = `${dateMoment.format("MMMM YYYY")}`;
+        break;
+      case "year":
+        cardHeading = `${dateMoment.format("YYYY")}`;
+        break;
+      default:
+        cardHeading = dateMoment.format("LL");
+    }
     return (
       <div className={classNames.join(" ")}>
         <div className="content">
-          <div className="pub-date">
-            {moment(new Date(props.date)).format("MMMM D, YYYY")}
-          </div>
+          <div className="card-heading">{cardHeading}</div>
           {Object.keys(props.events).map(label => {
             if (props.labels[label]) {
               return props.events[label].map((event, eventIndex) => (
                 <Event
+                  event={event}
+                  granularity={props.granularity}
                   key={`${label}_${eventIndex}`}
                   label={label}
-                  event={event}
                 />
               ));
             }
@@ -47,8 +68,9 @@ const Card = props => {
 };
 
 Card.propTypes = {
-  events: PropTypes.object.isRequired,
   date: PropTypes.string.isRequired,
+  events: PropTypes.object.isRequired,
+  granularity: PropTypes.string.isRequired,
   isEven: PropTypes.bool.isRequired,
   labels: PropTypes.object.isRequired
 };

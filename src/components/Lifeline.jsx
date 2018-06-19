@@ -11,10 +11,11 @@ const Lifeline = props => {
         .sort((a, b) => moment(new Date(b)) > moment(new Date(a)))
         .map((date, index) => (
           <Card
-            events={props.events[date]}
             date={date}
-            key={index}
+            events={props.events[date]}
+            granularity={props.granularity}
             isEven={index % 2 === 0}
+            key={index}
             labels={props.labels}
           />
         ))}
@@ -24,6 +25,7 @@ const Lifeline = props => {
 
 Lifeline.propTypes = {
   events: PropTypes.object.isRequired,
+  granularity: PropTypes.string.isRequired,
   labels: PropTypes.object.isRequired
 };
 

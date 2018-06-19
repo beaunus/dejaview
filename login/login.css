@@ -12,14 +12,14 @@
 body {
   background-color: var(--color-dark);
   font-family: Helvetica, sans-serif;
-  font-size: 1rem;
+  font-size: 1em;
   padding: 10px 0 0 0;
 }
 
 .header {
   color: white;
   text-align: center;
-  font-size: 4rem;
+  font-size: 4em;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   margin-bottom: 5px;
 }
@@ -44,7 +44,7 @@ a {
   font-family: Graphik LCG Web, Graphik Arabic Web Regular, -apple-system,
     BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, Lucida Grande,
     Sans-Serif;
-  font-size: 1.8rem;
+  font-size: 1.8em;
   padding: 3px 15px;
 }
 
