@@ -13,7 +13,8 @@
     "precommit": "pretty-quick --staged && lint-staged && yarn stylelint",
     "test": "yarn build",
     "eject": "react-scripts eject",
-    "testorig": "react-scripts test --env=jsdom"
+    "testorig": "react-scripts test --env=jsdom",
+    "migrate": "yarn knex migrate:latest --knexfile server/database/knexfile.js"
   },
   "lint-staged": {
     "*{js,jsx}": [
