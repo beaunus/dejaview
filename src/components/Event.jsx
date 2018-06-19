@@ -28,7 +28,7 @@ const Event = props => (
       </div>
       {props.granularity !== "day" ? (
         <div className="event-date">
-          {moment(props.event.timestamp).format("MMMM D, YYYY")}
+          {moment(props.event.timestamp).format("MMMM D")}
         </div>
       ) : (
         ""

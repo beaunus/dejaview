@@ -30,9 +30,9 @@ const Card = props => {
     const dateMoment = moment(props.date);
     switch (props.granularity) {
       case "week":
-        cardHeading = `Week of ${dateMoment.format(
-          "MMMM D, YYYY"
-        )} - ${dateMoment.add(6, "days").format("MMMM D, YYYY")}`;
+        cardHeading = `Week of ${dateMoment.format("LL")} - ${dateMoment
+          .add(6, "days")
+          .format("LL")}`;
         break;
       case "month":
         cardHeading = `${dateMoment.format("MMMM YYYY")}`;
@@ -41,7 +41,7 @@ const Card = props => {
         cardHeading = `${dateMoment.format("YYYY")}`;
         break;
       default:
-        cardHeading = dateMoment.format("MMMM D, YYYY");
+        cardHeading = dateMoment.format("LL");
     }
     return (
       <div className={classNames.join(" ")}>

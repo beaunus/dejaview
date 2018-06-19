@@ -151,7 +151,10 @@ a:hover {
   padding: 0.2em 0.5em;
   font-style: italic;
   font-size: 0.8em;
-  border: ridge #aaa 1px;
+  border: solid #eee 1px;
+  border-bottom-color: #ccc;
+  border-right-color: #ccc;
+  /* border: ridge #aaa 1px; */
   white-space: nowrap;
 }
 
