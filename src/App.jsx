@@ -24,48 +24,54 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    await this.updateEvents(this.state.selectedDate);
-    this.updateLabels();
+    this.setState({
+      events: await this.getEvents(
+        this.state.selectedDate,
+        this.state.granularity
+      ),
+      labels: await this.getLabels()
+    });
   }
 
-  async updateLabels() {
+  async getEvents(date, granularity, num = 7) {
+    try {
+      return (await axios.get(
+        `/api/v1/${date}/?granularity=${granularity}s&num=${num}`
+      )).data;
+    } catch (error) {
+      console.log(`Error getting data from API call.${error}`);
+    }
+  }
+
+  async getLabels() {
     try {
       const labelNames = (await axios.get(`/api/v1/labels`)).data;
-      const labels = labelNames.reduce((acc, label) => {
+      return labelNames.reduce((acc, label) => {
         acc[label] = true;
         return acc;
       }, {});
-      this.setState({ labels });
     } catch (error) {
       console.log(`Error getting data from API call.${error}`);
     }
   }
 
   async changeDate(selectedDate) {
-    await this.setState({ selectedDate });
-    await this.updateEvents();
+    this.setState({
+      events: await this.getEvents(selectedDate, this.state.granularity),
+      selectedDate
+    });
   }
 
   async navigateByGranularity(direction, granularity) {
     const num = direction === "left" ? -1 : 1;
     const newDate = offsetDate(this.state.selectedDate, granularity, num);
+    const newDateString = moment(newDate).format("YYYY-MM-DD");
     const datePickerInput = document.getElementById("date-picker").children[0];
-    datePickerInput.value = moment(newDate).format("YYYY-MM-DD");
-    await this.setState({ selectedDate: moment(newDate).format("YYYY-MM-DD") });
-    await this.updateEvents();
-  }
-
-  async updateEvents() {
-    try {
-      const events = (await axios.get(
-        `/api/v1/${this.state.selectedDate}/?granularity=${
-          this.state.granularity
-        }s&num=7`
-      )).data;
-      this.setState({ events });
-    } catch (error) {
-      console.log(`Error getting data from API call.${error}`);
-    }
+    datePickerInput.value = newDateString;
+    this.setState({
+      events: await this.getEvents(newDateString, this.state.granularity),
+      selectedDate: newDateString
+    });
   }
 
   async toggleLabel(label, div) {
@@ -81,8 +87,10 @@ class App extends Component {
   }
 
   async changeGranularity(granularity) {
-    await this.setState({ granularity });
-    await this.changeDate(this.state.selectedDate);
+    this.setState({
+      events: await this.getEvents(this.state.selectedDate, granularity),
+      granularity
+    });
   }
 
   render() {
@@ -110,7 +118,11 @@ class App extends Component {
             );
           })}
         </div>
-        <Lifeline events={this.state.events} labels={this.state.labels} />
+        <Lifeline
+          events={this.state.events}
+          granularity={this.state.granularity}
+          labels={this.state.labels}
+        />
       </div>
     );
   }
