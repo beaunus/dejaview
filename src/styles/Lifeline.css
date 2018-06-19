@@ -145,6 +145,16 @@ a:hover {
   margin-left: 10px;
 }
 
+.event-date {
+  background: white;
+  margin-left: 1em;
+  padding: 0.2em 0.5em;
+  font-style: italic;
+  font-size: 0.8em;
+  border: ridge #aaa 1px;
+  white-space: nowrap;
+}
+
 .event-more {
   display: flex;
   flex-direction: row;
@@ -161,11 +171,6 @@ a:hover {
 .event-more-text {
   order: 1;
   margin: 1em 0 0;
-}
-
-.label-logo {
-  height: 20px;
-  margin-right: 5px;
 }
 
 p {

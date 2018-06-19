@@ -14,7 +14,12 @@ const Card = props => {
     .map(label => {
       if (props.labels[label]) {
         return props.events[label].map((event, eventIndex) => (
-          <Event key={`${label}_${eventIndex}`} label={label} event={event} />
+          <Event
+            event={event}
+            granularity={props.granularity}
+            key={`${label}_${eventIndex}`}
+            label={label}
+          />
         ));
       }
       return null;
@@ -46,9 +51,10 @@ const Card = props => {
             if (props.labels[label]) {
               return props.events[label].map((event, eventIndex) => (
                 <Event
+                  event={event}
+                  granularity={props.granularity}
                   key={`${label}_${eventIndex}`}
                   label={label}
-                  event={event}
                 />
               ));
             }

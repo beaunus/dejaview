@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import moment from "moment";
 import logoMap from "./logoMap";
 import EventMore from "./EventMore";
 
@@ -25,14 +26,22 @@ const Event = props => (
           `${props.event.title}`
         )}
       </div>
+      {props.granularity !== "day" ? (
+        <div className="event-date">
+          {moment(props.event.timestamp).format("MMMM D, YYYY")}
+        </div>
+      ) : (
+        ""
+      )}
     </div>
     <EventMore event={props.event} />
   </div>
 );
 
 Event.propTypes = {
-  label: PropTypes.string.isRequired,
-  event: PropTypes.object.isRequired
+  event: PropTypes.object.isRequired,
+  granularity: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired
 };
 
 export default Event;
