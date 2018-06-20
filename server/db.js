@@ -20,28 +20,29 @@ const getLabels = async () => {
 };
 
 /**
- * Return all events that are between the given beginningDate (inclusive) and endingDate (exclusive).
+ * Return a random event for each label that are between the given beginningDate (inclusive) and endingDate (exclusive).
  * @param {Date} beginningDate
  * @param {Date} endingDate
  * @returns {[Object]}
+ *
+ * e.g. This query would return a single event for each label in February
+ * select label_id,timestamp,title from
+ * (select *,row_number() over (partition by label_id order by random()) as rn
+ * from event
+ * where timestamp between '2017-01-01' and '2017-02-01') sub_event where rn = 1;
  */
-const getRawEvents = async (beginningDate, endingDate) => {
+const getRawEvents = async (beginningDate, endingDate, n = 1) => {
   beginningDate = beginningDate.toISOString();
   endingDate = endingDate.toISOString();
-  return db("event")
-    .select(
-      db.raw("event.timestamp AT TIME ZONE 'UTC' as timestamp"),
-      "event.title",
-      "event.text",
-      "event.link",
-      "event.image_link",
-      "event.media_link",
-      "label.name as label"
-    )
-    .whereRaw(
-      `timestamp  >= '${beginningDate}' AND timestamp < '${endingDate}'`
-    )
-    .join("label", "label.id", "=", "event.label_id");
+
+  const result = await db.raw(`select timestamp, title, text, link, image_link, media_link, label.name as label_name
+    from (select event.timestamp AT TIME ZONE 'UTC' as timestamp,event.title,event.text,
+    event.link,event.image_link,event.media_link,event.label_id,
+    row_number() over (partition by label_id order by random()) as rn 
+    from event where timestamp  >= '${beginningDate}' AND timestamp < '${endingDate}')
+     as random_sub inner join label on label.id = random_sub.label_id where rn <= ${n}`);
+  console.log(result.rows);
+  return result.rows;
 };
 
 const getRawFBEvents = async (access_token, beginningDate, endingDate) => {
