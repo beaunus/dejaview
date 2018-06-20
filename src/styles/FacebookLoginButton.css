@@ -1,0 +1,30 @@
+a,
+a:hover {
+  text-decoration: none;
+}
+
+#login-button-area {
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
+  margin-bottom: 1em;
+}
+
+.facebook-login {
+  align-items: center;
+  background: #395ca9;
+  border: solid white 1px;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  font-family: Graphik LCG Web, Graphik Arabic Web Regular, -apple-system,
+    BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, Lucida Grande,
+    Sans-Serif;
+  font-size: 1em;
+  padding: 0.3em 0.5em;
+}
+
+.fa-facebook-square {
+  font-size: 1.4em;
+  margin-right: 10px;
+}

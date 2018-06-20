@@ -7,6 +7,7 @@ import LabelFilter from "./components/LabelFilter";
 import { offsetDate } from "../src/utilities";
 import axios from "axios";
 import moment from "moment";
+import FacebookLoginButton from "./components/FacebookLoginButton";
 
 class App extends Component {
   constructor(props) {
@@ -123,6 +124,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="header">Déjà View</div>
+        <FacebookLoginButton />
         <Granularity
           granularity={this.state.granularity}
           changeGranularity={this.changeGranularity}

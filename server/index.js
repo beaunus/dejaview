@@ -70,8 +70,6 @@ passport.deserializeUser((user, done) => {
   done(null, user);
 });
 
-// The following endpoints do not require authentication.
-
 app.get("/auth/facebook", passport.authenticate("facebook"));
 
 app.get(
@@ -92,15 +90,13 @@ app.get("/about", (req, res) => {
   res.sendFile(path.join(__dirname, "../build/about.html"));
 });
 
-// The following endpoints require authentication.
+// function isAuthenticated(req, res, next) {
+//   if (req.isAuthenticated()) return next();
+//   res.redirect("/login");
+// }
 
-function isAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) return next();
-  res.redirect("/login");
-}
+app.use("/api/v1", api);
 
-app.use("/api/v1", isAuthenticated, api);
-
-app.use(isAuthenticated, express.static(path.join(__dirname, "../build")));
+app.use(express.static(path.join(__dirname, "../build")));
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

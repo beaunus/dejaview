@@ -30,7 +30,10 @@ router.get("/labels", async (req, res) => {
  */
 router.get("/:date", async (req, res) => {
   const targetDate = new Date(req.params.date);
-  const access_token = req.user.accessToken;
+  let access_token;
+  if (req.user) {
+    access_token = req.user.accessToken;
+  }
   const granularity = req.query.granularity;
   const num = req.query.num;
   try {
