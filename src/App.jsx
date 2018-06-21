@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./styles/App.css";
-import Header from "./components/Header.jsx";
+import Logo from "./components/Logo.jsx";
 import Lifeline from "./components/Lifeline.jsx";
 import DatePicker from "./components/DatePicker.jsx";
 import Granularity from "./components/Granularity.jsx";
@@ -127,7 +127,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
+        <Logo />
         {!this.state.isLoggedIn ? <FacebookLoginButton /> : ""}
         <Granularity
           granularity={this.state.granularity}

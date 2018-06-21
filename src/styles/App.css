@@ -16,14 +16,14 @@ body {
   padding: 10px 0 0 0;
 }
 
-.header {
+.logo {
   display: flex;
   justify-content: center;
   /* max-width: 400px; */
   margin-bottom: 1em;
 }
 
-.header img {
+.logo img {
   height: 8em;
   image-rendering: crisp-edges;
 }

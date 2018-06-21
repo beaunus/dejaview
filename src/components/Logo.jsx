@@ -1,11 +1,11 @@
 import React from "react";
 
-const Header = () => {
+const Logo = () => {
   return (
-    <div className="header">
+    <div className="logo">
       <img src="/images/DejaViewLogo-dark_background.png" alt="Déjà View" />
     </div>
   );
 };
 
-export default Header;
+export default Logo;
