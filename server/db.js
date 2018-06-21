@@ -53,6 +53,9 @@ const getRawEvents = async (beginningDate, endingDate, granularity, n = 1) => {
 };
 
 const getRawFBEvents = async (access_token, beginningDate, endingDate) => {
+  if (!access_token) {
+    return;
+  }
   const fields =
     "caption,message,permalink_url,picture,created_time,link,name,type,place,description,full_picture";
   const since = moment(beginningDate).format("YYYY-MM-DD");
