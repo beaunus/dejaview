@@ -107,7 +107,7 @@ const getIndexedEvents = (rawEvents, rawFBEvents, granularity) => {
           new Date(rawFBEvent.created_time),
           granularity
         );
-        const dateString = utc(date).format("YYYY-MM-DD");
+        const dateString = moment(date).format("YYYY-MM-DD");
         if (!indexedEvents.hasOwnProperty(dateString)) {
           indexedEvents[dateString] = {};
         }
