@@ -54,7 +54,7 @@ const getRawEvents = async (beginningDate, endingDate, granularity, n = 1) => {
 
 const getRawFBEvents = async (access_token, beginningDate, endingDate) => {
   const fields =
-    "caption,message,permalink_url,picture,created_time,link,name,type,place,description,full_picture,id";
+    "caption,message,permalink_url,picture,created_time,link,name,type,place,description,full_picture";
   const since = moment(beginningDate).format("YYYY-MM-DD");
   const until = moment(endingDate).format("YYYY-MM-DD");
   const url = `https://graph.facebook.com/v3.0/me/posts?since=${since}&until=${until}&fields=${fields}&access_token=${access_token}&limit=500`;
@@ -103,7 +103,10 @@ const getIndexedEvents = (rawEvents, rawFBEvents, granularity) => {
     for (const rawFBEvent of rawFBEvents.data) {
       const event = fb.getIndexedEvent(rawFBEvent);
       if (event) {
-        const date = normalizeDate(moment(event.timestamp), granularity);
+        const date = normalizeDate(
+          new Date(rawFBEvent.created_time),
+          granularity
+        );
         const dateString = utc(date).format("YYYY-MM-DD");
         if (!indexedEvents.hasOwnProperty(dateString)) {
           indexedEvents[dateString] = {};
