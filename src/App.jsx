@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./styles/App.css";
+import Logo from "./components/Logo.jsx";
 import Lifeline from "./components/Lifeline.jsx";
 import DatePicker from "./components/DatePicker.jsx";
 import Granularity from "./components/Granularity.jsx";
@@ -126,28 +127,32 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="header">Déjà View</div>
-        {!this.state.isLoggedIn ? <FacebookLoginButton /> : ""}
-        <Granularity
-          granularity={this.state.granularity}
-          changeGranularity={this.changeGranularity}
-          navigateByGranularity={this.navigateByGranularity}
-        />
-        <DatePicker
-          selectedDate={this.state.selectedDate}
-          changeDate={this.changeDate}
-        />
-        <div className="filter-container">
-          {Object.keys(this.state.labels).map((label, index) => {
-            return (
-              <LabelFilter
-                key={index}
-                labelName={label}
-                toggleLabel={this.toggleLabel}
-                filtered={!this.state.labels[label]}
-              />
-            );
-          })}
+        <div id="header">
+          <Logo />
+          <div id="date-area">
+            <DatePicker
+              selectedDate={this.state.selectedDate}
+              changeDate={this.changeDate}
+            />
+            <Granularity
+              granularity={this.state.granularity}
+              changeGranularity={this.changeGranularity}
+              navigateByGranularity={this.navigateByGranularity}
+            />
+          </div>
+          <div id="filter-container">
+            {Object.keys(this.state.labels).map((label, index) => {
+              return (
+                <LabelFilter
+                  key={index}
+                  labelName={label}
+                  toggleLabel={this.toggleLabel}
+                  filtered={!this.state.labels[label]}
+                />
+              );
+            })}
+            {!this.state.isLoggedIn ? <FacebookLoginButton /> : ""}
+          </div>
         </div>
         <Lifeline
           events={this.state.events}

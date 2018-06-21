@@ -8,22 +8,22 @@
 /* The actual lifeline (the vertical ruler) */
 
 .lifeline::after {
-  content: "";
-  position: absolute;
-  width: 2px;
   background-color: white;
-  top: 0;
   bottom: 0;
+  content: "";
   left: 50%;
   margin-left: -1px;
+  position: absolute;
+  top: 0;
+  width: 2px;
 }
 
 /* Container around content */
 
 .container {
+  background-color: inherit;
   padding: 10px 40px;
   position: relative;
-  background-color: inherit;
   width: 50%;
 }
 
@@ -36,7 +36,7 @@
   height: 14px;
   right: -9px;
   background-color: var(--color-medium);
-  border: 2px solid var(--color-highlight);
+  border: 2px solid white;
   top: 22px;
   border-radius: 50%;
   z-index: 1;
@@ -103,13 +103,18 @@
 /* Custom classes */
 /* The way things look, rather than where they appear. */
 
-a {
+.lifeline a {
+  border-bottom: solid var(--color-highlight) 1px;
+  box-shadow: inset 0 -1px 0 var(--color-highlight);
   color: inherit;
-  text-decoration: #666 dashed underline;
+  text-decoration: none;
+  transition: background 0.2s ease-in-out;
 }
 
-a:hover {
-  text-decoration: black solid underline;
+.lifeline a:hover {
+  background: var(--color-highlight);
+  text-decoration: none;
+  transition: background 0.2s ease-in-out;
 }
 
 /* Don't pad the last paragraph. */
@@ -141,6 +146,10 @@ a:hover {
   padding-right: 5px;
 }
 
+.headline + * {
+  margin-top: 1em;
+}
+
 .event input {
   margin-left: 10px;
 }
@@ -154,32 +163,34 @@ a:hover {
   border: solid #eee 1px;
   border-bottom-color: #ccc;
   border-right-color: #ccc;
-  /* border: ridge #aaa 1px; */
   white-space: nowrap;
 }
 
 .event-more {
   display: flex;
   flex-direction: row;
-  margin-left: 1em;
+  margin: 0.5em 0 0 1em;
 }
 
 .event-more-media,
-.event-more-image {
+.event-more-image img {
   order: 0;
-  margin: 1em 1em 0 0;
   max-height: 10em;
 }
 
-.event-more-text {
+.event-more-text:not(:first-child) {
   order: 1;
-  margin: 1em 0 0;
+  margin-left: 1em;
 }
 
 p {
   color: #444;
-  margin: 5px 0;
+  margin: 0;
   max-height: 1000px;
+}
+
+p:not(:first-child) {
+  margin-top: 0.5em;
 }
 
 .hidden {
@@ -218,5 +229,11 @@ p {
   /* Make all right containers behave like the left ones */
   .right {
     left: 0%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .event-more {
+    flex-wrap: wrap;
   }
 }

@@ -1,13 +1,14 @@
-a,
-a:hover {
+#login-button-area a,
+#login-button-area a:hover {
   text-decoration: none;
 }
 
 #login-button-area {
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px #000;
   display: flex;
   justify-content: center;
   white-space: nowrap;
-  margin-bottom: 1em;
 }
 
 .facebook-login {

@@ -2,7 +2,7 @@
   --color-light: #e39774;
   --color-medium: #5c9ead;
   --color-dark: #326273;
-  --color-highlight: #eee;
+  --color-highlight: hsla(19, 66%, 80%, 1);
 }
 
 * {
@@ -16,22 +16,56 @@ body {
   padding: 10px 0 0 0;
 }
 
-.header {
-  text-align: center;
-  font-size: 4em;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  color: white;
-  margin-bottom: 5px;
-  text-shadow: 1px 1px 5px #000;
+#date-area {
+  display: flex;
+  flex-direction: column;
 }
 
-.filter-container {
+#header {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#header > div {
+  padding: 0.5em;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.logo img {
+  height: 8em;
+  image-rendering: crisp-edges;
+}
+
+#filter-container {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  align-items: center;
 }
 
 .label-logo {
   height: 1.5em;
   margin-right: 5px;
+}
+
+.label-filter {
+  align-items: center;
+  background-color: #eee;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px #000;
+  display: flex;
+  margin: 0.2em;
+  padding: 0.3em;
+  transition: background 0.2s ease-in-out;
+}
+
+.filtered-label {
+  background-color: #aaa;
 }
