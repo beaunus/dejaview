@@ -8,12 +8,6 @@ const EventMore = props => {
   }
   return (
     <div className="event-more">
-      <p
-        className="event-more-text"
-        dangerouslySetInnerHTML={{
-          __html: props.event.text.replace("li>", "span>")
-        }}
-      />
       {props.event.media_link !== null &&
         props.event.media_link.length > 0 && (
           <ReactPlayer
@@ -37,6 +31,12 @@ const EventMore = props => {
             />
           </a>
         ))}
+      <p
+        className="event-more-text"
+        dangerouslySetInnerHTML={{
+          __html: props.event.text.replace("li>", "span>")
+        }}
+      />
     </div>
   );
 };

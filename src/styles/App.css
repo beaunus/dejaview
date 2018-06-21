@@ -2,7 +2,7 @@
   --color-light: #e39774;
   --color-medium: #5c9ead;
   --color-dark: #326273;
-  --color-highlight: #eee;
+  --color-highlight: hsla(19, 66%, 80%, 1);
 }
 
 * {
