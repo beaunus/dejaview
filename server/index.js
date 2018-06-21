@@ -76,11 +76,9 @@ app.get(
   "/auth/facebook/callback",
   passport.authenticate("facebook", {
     successRedirect: "/",
-    failureRedirect: "/login"
+    failureRedirect: "/"
   })
 );
-
-app.use("/login", express.static(path.join(__dirname, "../login")));
 
 app.get("/privacy", (req, res) => {
   res.sendFile(path.join(__dirname, "../build/privacy.html"));
@@ -89,11 +87,6 @@ app.get("/privacy", (req, res) => {
 app.get("/about", (req, res) => {
   res.sendFile(path.join(__dirname, "../build/about.html"));
 });
-
-// function isAuthenticated(req, res, next) {
-//   if (req.isAuthenticated()) return next();
-//   res.redirect("/login");
-// }
 
 app.use("/api/v1", api);
 

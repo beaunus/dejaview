@@ -5,7 +5,10 @@ const db = require("./db");
  * Respond with an array of strings of all labels that are in the system.
  */
 router.get("/labels", async (req, res) => {
-  const labelsNotInDatabase = ["Facebook"];
+  let labelsNotInDatabase = [];
+  if (req.isAuthenticated()) {
+    labelsNotInDatabase = ["Facebook"];
+  }
   try {
     res
       .status(200)
