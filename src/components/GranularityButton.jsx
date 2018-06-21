@@ -40,38 +40,6 @@ const GranularityButton = props => (
       >
         {props.choice.toUpperCase()}
       </div>
-      <div id="granularity-nav-button-area">
-        <div
-          className="granularity-nav-button"
-          onClick={event => {
-            event.preventDefault();
-            props.navigateByGranularity("left", `${props.choice}s`);
-          }}
-          onKeyPress={event => {
-            event.preventDefault();
-            props.navigateByGranularity("left", `${props.choice}s`);
-          }}
-          role="button"
-          tabIndex="0"
-        >
-          ←
-        </div>
-        <div
-          className="granularity-nav-button"
-          onClick={event => {
-            event.preventDefault();
-            props.navigateByGranularity("right", `${props.choice}s`);
-          }}
-          onKeyPress={event => {
-            event.preventDefault();
-            props.navigateByGranularity("right", `${props.choice}s`);
-          }}
-          role="button"
-          tabIndex="0"
-        >
-          →
-        </div>
-      </div>
     </div>
   </label>
 );
