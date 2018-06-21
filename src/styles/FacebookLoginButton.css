@@ -4,6 +4,8 @@
 }
 
 #login-button-area {
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px #000;
   display: flex;
   justify-content: center;
   white-space: nowrap;
