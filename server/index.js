@@ -74,6 +74,13 @@ app.get("/auth/facebook", passport.authenticate("facebook"));
 
 app.get(
   "/auth/facebook/callback",
+  (req, res, next) => {
+    if (req.isAuthenticated()) {
+      return next;
+    }
+    console.log("Facebook returned but didn't authenticate the user.");
+    res.redirect("/");
+  },
   passport.authenticate("facebook", {
     successRedirect: "/",
     failureRedirect: "/"
