@@ -173,7 +173,7 @@
 }
 
 .event-more-media,
-.event-more-image {
+.event-more-image img {
   order: 0;
   max-height: 10em;
 }
@@ -229,5 +229,11 @@ p:not(:first-child) {
   /* Make all right containers behave like the left ones */
   .right {
     left: 0%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .event-more {
+    flex-wrap: wrap;
   }
 }

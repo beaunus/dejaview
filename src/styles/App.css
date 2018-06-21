@@ -16,10 +16,25 @@ body {
   padding: 10px 0 0 0;
 }
 
+#date-area {
+  display: flex;
+  flex-direction: column;
+}
+
+#header {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#header > div {
+  padding: 0.5em;
+}
+
 .logo {
   display: flex;
   justify-content: center;
-  /* max-width: 400px; */
   margin-bottom: 1em;
 }
 
@@ -28,13 +43,28 @@ body {
   image-rendering: crisp-edges;
 }
 
-.filter-container {
+#filter-container {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  align-items: center;
 }
 
 .label-logo {
   height: 1.5em;
   margin-right: 5px;
+}
+
+.label-filter {
+  align-items: center;
+  background-color: #eee;
+  border-radius: 5px;
+  display: flex;
+  margin: 0.2em;
+  padding: 0.3em;
+  transition: background 0.2s ease-in-out;
+}
+
+.filtered-label {
+  background-color: #aaa;
 }

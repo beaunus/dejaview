@@ -20,15 +20,12 @@ const EventMore = props => {
         props.event.media_link.length === 0) &&
         (props.event.image_link && (
           <a
+            className="event-more-image"
             href={props.event.image_link}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
-              className="event-more-image"
-              src={props.event.image_link}
-              alt={props.event.title}
-            />
+            <img src={props.event.image_link} alt={props.event.title} />
           </a>
         ))}
       <p
