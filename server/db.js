@@ -20,28 +20,36 @@ const getLabels = async () => {
 };
 
 /**
- * Return all events that are between the given beginningDate (inclusive) and endingDate (exclusive).
+ * Return a random event for each label that are between the given beginningDate (inclusive) and endingDate (exclusive).
  * @param {Date} beginningDate
  * @param {Date} endingDate
  * @returns {[Object]}
+ *
  */
-const getRawEvents = async (beginningDate, endingDate) => {
+const getRawEvents = async (beginningDate, endingDate, granularity, n = 1) => {
   beginningDate = beginningDate.toISOString();
   endingDate = endingDate.toISOString();
-  return db("event")
-    .select(
-      db.raw("event.timestamp AT TIME ZONE 'UTC' as timestamp"),
-      "event.title",
-      "event.text",
-      "event.link",
-      "event.image_link",
-      "event.media_link",
-      "label.name as label"
-    )
-    .whereRaw(
-      `timestamp  >= '${beginningDate}' AND timestamp < '${endingDate}'`
-    )
-    .join("label", "label.id", "=", "event.label_id");
+  granularity = granularity.replace("s", "");
+
+  const query = `select timestamp,
+    title,
+    text, 
+    link, 
+    image_link, 
+    media_link, 
+    label.name as label
+    from (select event.timestamp AT TIME ZONE 'UTC' as timestamp,
+    event.title,
+    event.text,
+    event.link,
+    event.image_link,
+    event.media_link,
+    event.label_id,
+    row_number() over (partition by label_id,extract(${granularity} from timestamp) order by random()) as rn  
+    from event where timestamp >= '${beginningDate}' AND timestamp < '${endingDate}')as random_sub 
+    inner join label on label.id = random_sub.label_id where rn <= ${n}`;
+  const result = await db.raw(query);
+  return result.rows;
 };
 
 const getRawFBEvents = async (access_token, beginningDate, endingDate) => {
@@ -160,7 +168,7 @@ const getEvents = async (date, granularity = "days", num = 1, access_token) => {
   const normalizedDate = normalizeDate(date, granularity);
   const beginningDate = offsetDate(normalizedDate, granularity, -(num - 1));
   const endingDate = offsetDate(normalizedDate, granularity, 1);
-  const rawEvents = await getRawEvents(beginningDate, endingDate);
+  const rawEvents = await getRawEvents(beginningDate, endingDate, granularity);
   const rawFBEvents = await getRawFBEvents(
     access_token,
     beginningDate,
