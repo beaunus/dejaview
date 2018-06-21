@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="140cm"
+   height="140cm"
+   viewBox="0 0 1400 1400"
+   version="1.1"
+   id="svg6401"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   sodipodi:docname="DejaViewFaceLogoFontBigger.svg">
+  <defs
+     id="defs6395">
+    <filter
+       inkscape:label="In and Out"
+       inkscape:menu="Shadows and Glows"
+       inkscape:menu-tooltip="Inner colorized shadow, outer black shadow"
+       style="color-interpolation-filters:sRGB;"
+       id="filter7957">
+      <feGaussianBlur
+         result="result0"
+         in="SourceAlpha"
+         stdDeviation="4"
+         id="feGaussianBlur7951" />
+      <feOffset
+         dx="5"
+         dy="5"
+         result="result4"
+         id="feOffset7953" />
+      <feComposite
+         in="SourceGraphic"
+         in2="result4"
+         operator="xor"
+         result="result3"
+         id="feComposite7955" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.44086826"
+     inkscape:cx="1945.0991"
+     inkscape:cy="4469.8532"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1680"
+     inkscape:window-height="1005"
+     inkscape:window-x="0"
+     inkscape:window-y="1058"
+     inkscape:window-maximized="0"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     units="cm"
+     showguides="false"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       position="258.76251,1249.6271"
+       orientation="0,1"
+       id="guide7901"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="250.82501,1224.7563"
+       orientation="0,1"
+       id="guide7903"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata6398">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-48.758754,1289.1356)">
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect7959"
+       width="372.50906"
+       height="242.81114"
+       x="63.490925"
+       y="-1273.4486" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.09365423;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="ellipse7679"
+       cx="137.76558"
+       cy="-1222.5012"
+       rx="21.805826"
+       ry="29.239632" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:125%;font-family:Asap;-inkscape-font-specification:Asap;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="98.570969"
+       y="-1218.0934"
+       id="text7685"><tspan
+         sodipodi:role="line"
+         x="98.570969"
+         y="-1218.0934"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35.27777863px;line-height:125%;font-family:Abel;-inkscape-font-specification:Abel;fill:#ffffff;stroke-width:0.26458332px"
+         id="tspan7683">D<tspan
+   style="fill:#000000"
+   id="tspan7681">éjà</tspan> View</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.09780407px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.2524451px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="165.75684"
+       y="-1203.4702"
+       id="text7689"><tspan
+         sodipodi:role="line"
+         id="tspan7687"
+         x="165.75684"
+         y="-1203.4702"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666622px;font-family:Volkhov;-inkscape-font-specification:Volkhov;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;stroke-width:0.2524451px">Life at a glance.</tspan></text>
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 129.8218,-1208.174 c 3.25792,4.2262 9.25884,6.1376 14.33961,4.4479 0.84355,-0.3802 1.49799,-1.7147 2.538,-1.3068 -0.0622,0.947 -1.28119,1.2083 -1.97928,1.6524 -3.5469,1.9978 -7.8631,3.1739 -11.87881,2.0061 -1.91706,-0.5776 -3.91318,-1.662 -4.79955,-3.5429 -0.54224,-1.3328 0.0829,-3.3188 1.78003,-3.2567 z"
+       id="path7691"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect7693"
+       width="9.6714659"
+       height="4.6383562"
+       x="133.54373"
+       y="-1243.5093" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="186.34207"
+       y="-1091.4023"
+       id="text7963"><tspan
+         sodipodi:role="line"
+         x="186.34207"
+         y="-1082.0386"
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.26458332px"
+         id="tspan7971" /></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect8003"
+       width="343.88107"
+       height="123.02901"
+       x="81.766533"
+       y="-1176.4391" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot7987"
+       style="font-style:normal;font-weight:normal;font-size:26.66666794px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="matrix(0.26458333,0,0,0.26458333,-44.903747,-1351.0484)"><flowRegion
+         id="flowRegion7989"
+         style="fill:#000000"><rect
+           id="rect7991"
+           width="1216"
+           height="568"
+           x="514"
+           y="687.33838"
+           style="fill:#000000" /></flowRegion><flowPara
+         id="flowPara7993"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Helvetica;-inkscape-font-specification:Helvetica;fill:#000000">Contrary to popular belief, </flowPara><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica;-inkscape-font-specification:Helvetica;fill:#000000"
+         id="flowPara8005">Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of &quot;de Finibus Bonorum et Malorum&quot; (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, &quot;Lorem ipsum dolor sit amet..&quot;, comes from a line in section 1.10.32.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from &quot;de Finibus Bonorum et Malorum&quot; by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</flowPara><flowPara
+         id="flowPara7995"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica;-inkscape-font-specification:Helvetica;fill:#000000" /><flowPara
+         id="flowPara7997"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica;-inkscape-font-specification:Helvetica;fill:#000000" /><flowPara
+         id="flowPara7999"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica;-inkscape-font-specification:Helvetica;fill:#000000" /><flowPara
+         id="flowPara8001"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica;-inkscape-font-specification:Helvetica;fill:#000000" /></flowRoot>    <rect
+       y="-1271.6482"
+       x="497.99335"
+       height="242.81114"
+       width="372.50906"
+       id="rect8007"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <ellipse
+       ry="29.239632"
+       rx="21.805826"
+       cy="-1220.7008"
+       cx="572.26801"
+       id="ellipse8009"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.09365423;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text8015"
+       y="-1216.293"
+       x="533.07343"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:125%;font-family:Asap;-inkscape-font-specification:Asap;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan8013"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35.27777863px;line-height:125%;font-family:Abel;-inkscape-font-specification:Abel;fill:#ffffff;stroke-width:0.26458332px"
+         y="-1216.293"
+         x="533.07343"
+         sodipodi:role="line">D<tspan
+   id="tspan8011"
+   style="fill:#000000">éjà</tspan> View</tspan></text>
+    <text
+       id="text8019"
+       y="-1201.6698"
+       x="600.25928"
+       style="font-style:normal;font-weight:normal;font-size:10.09780407px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.2524451px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666622px;font-family:Volkhov;-inkscape-font-specification:Volkhov;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;stroke-width:0.2524451px"
+         y="-1201.6698"
+         x="600.25928"
+         id="tspan8017"
+         sodipodi:role="line">Life at a glance.</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path8021"
+       d="m 564.32423,-1206.3736 c 3.25792,4.2262 9.25884,6.1376 14.33961,4.4479 0.84355,-0.3802 1.49799,-1.7147 2.538,-1.3068 -0.0622,0.947 -1.28119,1.2083 -1.97928,1.6524 -3.5469,1.9978 -7.8631,3.1739 -11.87881,2.0061 -1.91706,-0.5776 -3.91318,-1.662 -4.79955,-3.5429 -0.54224,-1.3328 0.0829,-3.3188 1.78003,-3.2567 z"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <rect
+       y="-1241.7089"
+       x="568.04614"
+       height="4.6383562"
+       width="9.6714659"
+       id="rect8023"
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <rect
+       y="-1174.6387"
+       x="516.26898"
+       height="123.02901"
+       width="343.88107"
+       id="rect8025"
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <flowRoot
+       transform="matrix(0.26458333,0,0,0.26458333,389.59869,-1349.248)"
+       style="font-style:normal;font-weight:normal;font-size:26.66666794px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="flowRoot8043"
+       xml:space="preserve"><flowRegion
+         style="fill:#000000"
+         id="flowRegion8029"><rect
+           style="fill:#000000"
+           y="687.33838"
+           x="514"
+           height="568"
+           width="1216"
+           id="rect8027" /></flowRegion><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Helvetica;-inkscape-font-specification:Helvetica;fill:#000000"
+         id="flowPara8031">Contrary to popular belief, </flowPara><flowPara
+         id="flowPara8033"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica;-inkscape-font-specification:Helvetica;fill:#000000">Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of &quot;de Finibus Bonorum et Malorum&quot; (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, &quot;Lorem ipsum dolor sit amet..&quot;, comes from a line in section 1.10.32.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from &quot;de Finibus Bonorum et Malorum&quot; by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</flowPara><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica;-inkscape-font-specification:Helvetica;fill:#000000"
+         id="flowPara8035" /><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica;-inkscape-font-specification:Helvetica;fill:#000000"
+         id="flowPara8037" /><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica;-inkscape-font-specification:Helvetica;fill:#000000"
+         id="flowPara8039" /><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica;-inkscape-font-specification:Helvetica;fill:#000000"
+         id="flowPara8041" /></flowRoot>  </g>
+</svg>
