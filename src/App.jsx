@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./styles/App.css";
 import Lifeline from "./components/Lifeline.jsx";
 import DatePicker from "./components/DatePicker.jsx";
-import Granularity from "./components/Granularity.jsx";
+import Granularity from "./components/Granfdularity.jsx";
 import LabelFilter from "./components/LabelFilter";
 import { offsetDate } from "../src/utilities";
 import axios from "axios";
