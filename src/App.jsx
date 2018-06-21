@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import "./styles/App.css";
-import Logo from "./components/Logo.jsx";
-import Lifeline from "./components/Lifeline.jsx";
-import DatePicker from "./components/DatePicker.jsx";
-import Granularity from "./components/Granularity.jsx";
+import Logo from "./components/Logo";
+import Lifeline from "./components/Lifeline";
+import DatePicker from "./components/DatePicker";
+import Granularity from "./components/Granularity";
 import LabelFilter from "./components/LabelFilter";
+import NavArrows from "./components/NavArrows";
 import { offsetDate } from "../src/utilities";
 import axios from "axios";
 import moment from "moment";
@@ -129,17 +130,17 @@ class App extends Component {
       <div className="App">
         <div id="header">
           <Logo />
-          <div id="date-area">
-            <DatePicker
-              selectedDate={this.state.selectedDate}
-              changeDate={this.changeDate}
-            />
-            <Granularity
-              granularity={this.state.granularity}
-              changeGranularity={this.changeGranularity}
-              navigateByGranularity={this.navigateByGranularity}
-            />
-          </div>
+
+          <DatePicker
+            selectedDate={this.state.selectedDate}
+            changeDate={this.changeDate}
+          />
+          <Granularity
+            granularity={this.state.granularity}
+            changeGranularity={this.changeGranularity}
+            navigateByGranularity={this.navigateByGranularity}
+          />
+
           <div id="filter-container">
             {Object.keys(this.state.labels).map((label, index) => {
               return (
@@ -154,6 +155,7 @@ class App extends Component {
             {!this.state.isLoggedIn ? <FacebookLoginButton /> : ""}
           </div>
         </div>
+        <NavArrows granularity={this.state.granularity} />
         <Lifeline
           events={this.state.events}
           granularity={this.state.granularity}
