@@ -17,12 +17,15 @@ body {
 }
 
 .header {
-  text-align: center;
-  font-size: 4em;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  color: white;
-  margin-bottom: 5px;
-  text-shadow: 1px 1px 5px #000;
+  display: flex;
+  justify-content: center;
+  /* max-width: 400px; */
+  margin-bottom: 1em;
+}
+
+.header img {
+  height: 8em;
+  image-rendering: crisp-edges;
 }
 
 .filter-container {
