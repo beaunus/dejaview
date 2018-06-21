@@ -39,10 +39,20 @@ router.get("/:date", async (req, res) => {
   }
   const granularity = req.query.granularity;
   const num = req.query.num;
+  const data = {};
+  if (req.isAuthenticated()) {
+    data.isLoggedIn = true;
+  } else {
+    data.isLoggedIn = false;
+  }
   try {
-    res
-      .status(200)
-      .send(await db.getEvents(targetDate, granularity, num, access_token));
+    data.events = await db.getEvents(
+      targetDate,
+      granularity,
+      num,
+      access_token
+    );
+    res.status(200).send(data);
   } catch (error) {
     console.log(error);
     res.status(400).send("The date must be in YYYY-MM-DD format.");

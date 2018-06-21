@@ -15,6 +15,7 @@ class App extends Component {
     this.state = {
       events: {},
       granularity: "day",
+      isLoggedIn: false,
       labels: {},
       selectedDate: moment().format("YYYY-MM-DD")
     };
@@ -43,9 +44,11 @@ class App extends Component {
    */
   async getEvents(date, granularity, num = 7) {
     try {
-      return (await axios.get(
+      const data = (await axios.get(
         `/api/v1/${date}/?granularity=${granularity}s&num=${num}`
       )).data;
+      this.setState({ isLoggedIn: data.isLoggedIn });
+      return data.events;
     } catch (error) {
       console.log(`Error getting data from API call.${error}`);
     }
@@ -124,7 +127,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="header">Déjà View</div>
-        <FacebookLoginButton />
+        {!this.state.isLoggedIn ? <FacebookLoginButton /> : ""}
         <Granularity
           granularity={this.state.granularity}
           changeGranularity={this.changeGranularity}
