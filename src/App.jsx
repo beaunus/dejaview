@@ -6,7 +6,6 @@ import DatePicker from "./components/DatePicker";
 import Granularity from "./components/Granularity";
 import LabelFilter from "./components/LabelFilter";
 import NavArrows from "./components/NavArrows";
-import { offsetDate } from "../src/utilities";
 import axios from "axios";
 import moment from "moment";
 import FacebookLoginButton from "./components/FacebookLoginButton";
@@ -24,7 +23,6 @@ class App extends Component {
     this.changeDate = this.changeDate.bind(this);
     this.toggleLabel = this.toggleLabel.bind(this);
     this.changeGranularity = this.changeGranularity.bind(this);
-    this.navigateByGranularity = this.navigateByGranularity.bind(this);
   }
 
   async componentDidMount() {
@@ -81,6 +79,8 @@ class App extends Component {
       events: await this.getEvents(selectedDate, this.state.granularity),
       selectedDate
     });
+    const datePickerInput = document.getElementById("date-picker").children[0];
+    datePickerInput.value = this.state.selectedDate;
   }
 
   /**
@@ -91,23 +91,6 @@ class App extends Component {
     this.setState({
       events: await this.getEvents(this.state.selectedDate, granularity),
       granularity
-    });
-  }
-
-  /**
-   * Change the state to reflect the given date adjustment.
-   * @param {String} direction "left" or "right"
-   * @param {String} granularity
-   */
-  async navigateByGranularity(direction, granularity) {
-    const num = direction === "left" ? -1 : 1;
-    const newDate = offsetDate(this.state.selectedDate, granularity, num);
-    const newDateString = moment(newDate).format("YYYY-MM-DD");
-    const datePickerInput = document.getElementById("date-picker").children[0];
-    datePickerInput.value = newDateString;
-    this.setState({
-      events: await this.getEvents(newDateString, this.state.granularity),
-      selectedDate: newDateString
     });
   }
 
