@@ -70,7 +70,10 @@ passport.deserializeUser((user, done) => {
   done(null, user);
 });
 
-app.get("/auth/facebook", passport.authenticate("facebook"));
+app.get(
+  "/auth/facebook",
+  passport.authenticate("facebook", { scope: "user_posts" })
+);
 
 app.get(
   "/auth/facebook/callback",
