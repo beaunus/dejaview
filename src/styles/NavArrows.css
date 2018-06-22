@@ -1,0 +1,14 @@
+#nav-arrows {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.2em 1em;
+}
+
+#nav-arrows button {
+  border-radius: 8%;
+  box-shadow: 1px 1px 5px #000;
+}
+
+#btn-today {
+  font-size: 1.5em;
+}

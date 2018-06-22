@@ -17,7 +17,8 @@ function DatePicker(props) {
 }
 
 DatePicker.propTypes = {
-  selectedDate: PropTypes.string.isRequired
+  selectedDate: PropTypes.string.isRequired,
+  changeDate: PropTypes.func.isRequired
 };
 
 export default DatePicker;

@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "./styles/App.css";
-import Logo from "./components/Logo.jsx";
-import Lifeline from "./components/Lifeline.jsx";
-import DatePicker from "./components/DatePicker.jsx";
-import Granularity from "./components/Granularity.jsx";
+import Logo from "./components/Logo";
+import Lifeline from "./components/Lifeline";
+import DatePicker from "./components/DatePicker";
+import Granularity from "./components/Granularity";
 import LabelFilter from "./components/LabelFilter";
-import { offsetDate } from "../src/utilities";
+import NavArrows from "./components/NavArrows";
 import axios from "axios";
 import moment from "moment";
 import FacebookLoginButton from "./components/FacebookLoginButton";
@@ -23,7 +23,6 @@ class App extends Component {
     this.changeDate = this.changeDate.bind(this);
     this.toggleLabel = this.toggleLabel.bind(this);
     this.changeGranularity = this.changeGranularity.bind(this);
-    this.navigateByGranularity = this.navigateByGranularity.bind(this);
   }
 
   async componentDidMount() {
@@ -82,6 +81,9 @@ class App extends Component {
         events: await this.getEvents(selectedDate, this.state.granularity),
         selectedDate
       });
+      const datePickerInput = document.getElementById("date-picker")
+        .children[0];
+      datePickerInput.value = this.state.selectedDate;
     } catch (error) {
       console.log(error);
     }
@@ -95,23 +97,6 @@ class App extends Component {
     this.setState({
       events: await this.getEvents(this.state.selectedDate, granularity),
       granularity
-    });
-  }
-
-  /**
-   * Change the state to reflect the given date adjustment.
-   * @param {String} direction "left" or "right"
-   * @param {String} granularity
-   */
-  async navigateByGranularity(direction, granularity) {
-    const num = direction === "left" ? -1 : 1;
-    const newDate = offsetDate(this.state.selectedDate, granularity, num);
-    const newDateString = moment(newDate).format("YYYY-MM-DD");
-    const datePickerInput = document.getElementById("date-picker").children[0];
-    datePickerInput.value = newDateString;
-    this.setState({
-      events: await this.getEvents(newDateString, this.state.granularity),
-      selectedDate: newDateString
     });
   }
 
@@ -134,17 +119,17 @@ class App extends Component {
       <div className="App">
         <div id="header">
           <Logo />
-          <div id="date-area">
-            <DatePicker
-              selectedDate={this.state.selectedDate}
-              changeDate={this.changeDate}
-            />
-            <Granularity
-              granularity={this.state.granularity}
-              changeGranularity={this.changeGranularity}
-              navigateByGranularity={this.navigateByGranularity}
-            />
-          </div>
+
+          <DatePicker
+            selectedDate={this.state.selectedDate}
+            changeDate={this.changeDate}
+          />
+          <Granularity
+            granularity={this.state.granularity}
+            changeGranularity={this.changeGranularity}
+            navigateByGranularity={this.navigateByGranularity}
+          />
+
           <div id="filter-container">
             {Object.keys(this.state.labels).map((label, index) => {
               return (
@@ -159,6 +144,11 @@ class App extends Component {
             {!this.state.isLoggedIn ? <FacebookLoginButton /> : ""}
           </div>
         </div>
+        <NavArrows
+          changeDate={this.changeDate}
+          granularity={this.state.granularity}
+          selectedDate={this.state.selectedDate}
+        />
         <Lifeline
           events={this.state.events}
           granularity={this.state.granularity}
