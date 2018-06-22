@@ -13,7 +13,8 @@
     "precommit": "pretty-quick --staged && lint-staged && yarn stylelint",
     "test": "yarn build",
     "eject": "react-scripts eject",
-    "testorig": "react-scripts test --env=jsdom"
+    "testorig": "react-scripts test --env=jsdom",
+    "migrate": "yarn knex migrate:latest --knexfile server/database/knexfile.js"
   },
   "lint-staged": {
     "*{js,jsx}": [
@@ -22,6 +23,9 @@
     ]
   },
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
+    "@fortawesome/fontawesome-free-brands": "^5.0.13",
+    "@fortawesome/react-fontawesome": "^0.0.20",
     "axios": "^0.18.0",
     "cookie-parser": "^1.4.3",
     "express-session": "^1.15.6",

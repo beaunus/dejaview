@@ -2,6 +2,24 @@ const router = require("express").Router();
 const db = require("./db");
 
 /**
+ * Respond with an array of strings of all labels that are in the system.
+ */
+router.get("/labels", async (req, res) => {
+  let labelsNotInDatabase = [];
+  if (req.isAuthenticated()) {
+    labelsNotInDatabase = ["Facebook"];
+  }
+  try {
+    res
+      .status(200)
+      .send(labelsNotInDatabase.concat(await db.getLabels()).sort());
+  } catch (error) {
+    console.log(error);
+    res.status(400).send("There was an error getting the labels.");
+  }
+});
+
+/**
  * The main endpoint for the API server.
  *
  * A "champion" event is the "best" event for a given granularity.
@@ -15,13 +33,26 @@ const db = require("./db");
  */
 router.get("/:date", async (req, res) => {
   const targetDate = new Date(req.params.date);
-  const access_token = req.user.accessToken;
+  let access_token;
+  if (req.user) {
+    access_token = req.user.accessToken;
+  }
   const granularity = req.query.granularity;
   const num = req.query.num;
+  const data = {};
+  if (req.isAuthenticated()) {
+    data.isLoggedIn = true;
+  } else {
+    data.isLoggedIn = false;
+  }
   try {
-    res
-      .status(200)
-      .send(await db.getEvents(targetDate, granularity, num, access_token));
+    data.events = await db.getEvents(
+      targetDate,
+      granularity,
+      num,
+      access_token
+    );
+    res.status(200).send(data);
   } catch (error) {
     console.log(error);
     res.status(400).send("The date must be in YYYY-MM-DD format.");

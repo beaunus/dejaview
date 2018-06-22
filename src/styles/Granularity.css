@@ -1,20 +1,20 @@
 #granularity-nav-button-area {
   display: flex;
-  margin: 0.1rem;
+  margin: 0.1em;
 }
 
 .granularity-nav-button {
   flex-grow: 1;
   border: solid pink 1px;
   text-align: center;
-  padding: 0.2rem 0;
+  padding: 0.2em 0;
 }
 
 /* The component itself. */
 #granularity-selector {
   display: flex;
   justify-content: center;
-  margin: 0 0 1rem;
+  margin: 0 0 1em;
 }
 
 /* Hide the checkboxes. */
@@ -25,7 +25,7 @@
 /* The text that is written on the buttons. */
 #granularity-selector input + div .label {
   display: inline-flex;
-  padding: 0.75rem 1rem;
+  padding: 0.75em 1em;
 }
 
 #granularity-selector input + div .label,
@@ -69,5 +69,5 @@
 #granularity-selector input:focus + div .label,
 .granularity-nav-button:focus {
   outline: dotted 1px #ccc;
-  outline-offset: 0.45rem;
+  outline-offset: 0.45em;
 }

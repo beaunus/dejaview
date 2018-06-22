@@ -53,15 +53,4 @@ const offsetDate = (date, granularity, num) => {
   return result;
 };
 
-const toggleHidden = event => {
-  const eventMore = event.target.parentElement.parentElement.querySelector(
-    ".event-more"
-  );
-  if (eventMore.classList.contains("hidden")) {
-    eventMore.classList.remove("hidden");
-  } else {
-    eventMore.classList.add("hidden");
-  }
-};
-
-module.exports = { normalizeDate, offsetDate, toggleHidden };
+module.exports = { normalizeDate, offsetDate };
