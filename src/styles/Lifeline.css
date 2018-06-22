@@ -142,8 +142,10 @@
   border-bottom-color: #ddd;
   border-right-color: #ddd;
   display: inline-flex;
+  font-size: 1em;
+  font-weight: 500;
   padding: 1px;
-  padding-right: 5px;
+  padding-right: 0.5em;
 }
 
 .headline + * {
@@ -233,6 +235,10 @@ p:not(:first-child) {
 }
 
 @media screen and (max-width: 400px) {
+  .headline {
+    font-size: 1em;
+  }
+
   .event-more {
     flex-wrap: wrap;
   }
