@@ -155,7 +155,11 @@ class App extends Component {
             {!this.state.isLoggedIn ? <FacebookLoginButton /> : ""}
           </div>
         </div>
-        <NavArrows granularity={this.state.granularity} />
+        <NavArrows
+          changeDate={this.changeDate}
+          granularity={this.state.granularity}
+          selectedDate={this.state.selectedDate}
+        />
         <Lifeline
           events={this.state.events}
           granularity={this.state.granularity}
