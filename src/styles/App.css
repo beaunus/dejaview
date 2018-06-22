@@ -11,8 +11,8 @@
 
 body {
   background-color: var(--color-dark);
-  font-family: Helvetica, sans-serif;
-  font-size: 10pt;
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.9em;
   padding: 10px 0 0 0;
 }
 

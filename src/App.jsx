@@ -51,6 +51,7 @@ class App extends Component {
       return data.events;
     } catch (error) {
       console.log(`Error getting data from API call.${error}`);
+      throw error;
     }
   }
 
@@ -75,12 +76,17 @@ class App extends Component {
    * @param {String} selectedDate
    */
   async changeDate(selectedDate) {
-    this.setState({
-      events: await this.getEvents(selectedDate, this.state.granularity),
-      selectedDate
-    });
-    const datePickerInput = document.getElementById("date-picker").children[0];
-    datePickerInput.value = this.state.selectedDate;
+    try {
+      this.setState({
+        events: await this.getEvents(selectedDate, this.state.granularity),
+        selectedDate
+      });
+      const datePickerInput = document.getElementById("date-picker")
+        .children[0];
+      datePickerInput.value = this.state.selectedDate;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   /**
