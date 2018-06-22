@@ -14,7 +14,7 @@ function NavArrows(props) {
   const nextDate = moment(
     offsetDate(props.selectedDate, granularity, 7)
   ).format("YYYY-MM-DD");
-  const today = "2018-06-22";
+  const today = moment().format("YYYY-MM-DD");
 
   return (
     <div id="nav-arrows">
