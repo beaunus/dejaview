@@ -69,7 +69,7 @@ a:hover {
   display: flex;
   flex-grow: 1;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   text-align: center;
 }
 
