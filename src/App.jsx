@@ -18,12 +18,16 @@ class App extends Component {
       granularity: "day",
       isLoggedIn: false,
       labels: {},
-      selectedDate: moment().format("YYYY-MM-DD")
+      selectedDate: moment("2018-06-01").format("YYYY-MM-DD"),
+      prevDate: moment("2018-06-01")
+        .add(-7, "days")
+        .format("YYYY-MM-DD")
     };
     this.changeDate = this.changeDate.bind(this);
     this.toggleLabel = this.toggleLabel.bind(this);
     this.changeGranularity = this.changeGranularity.bind(this);
     this.navigateByGranularity = this.navigateByGranularity.bind(this);
+    this.loadMoreEvents = this.loadMoreEvents.bind(this);
   }
 
   async componentDidMount() {
@@ -129,6 +133,27 @@ class App extends Component {
     this.setState({ labels });
   }
 
+  async loadMoreEvents() {
+    console.log("loadMoreEvents");
+    try {
+      const data = (await axios.get(
+        `/api/v1/${this.state.prevDate}/?granularity=${
+          this.state.granularity
+        }s&num=7`
+      )).data;
+      const prevDate = moment(this.state.prevDate)
+        .add(-7, "days")
+        .format("YYYY-MM-DD");
+      this.setState({
+        events: { ...this.state.events, ...data.events },
+        prevDate
+      });
+    } catch (error) {
+      console.log(`Error getting data from API call.${error}`);
+      throw error;
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -163,6 +188,9 @@ class App extends Component {
           events={this.state.events}
           granularity={this.state.granularity}
           labels={this.state.labels}
+          selectedDate={this.state.selectedDate}
+          nextHref={this.state.nextHref}
+          loadMoreEvents={this.loadMoreEvents}
         />
       </div>
     );

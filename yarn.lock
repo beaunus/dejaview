@@ -6391,6 +6391,10 @@ postcss-svgo@^2.1.1:
     postcss-value-parser "^3.2.3"
     svgo "^0.7.0"
 
+postcss-syntax@^0.30.0:
+  version "0.30.0"
+  resolved "https://registry.yarnpkg.com/postcss-syntax/-/postcss-syntax-0.30.0.tgz#37080b021afebb51fe4b76c1634a12d20ebfcedd"
+
 postcss-syntax@^0.9.0:
   version "0.9.1"
   resolved "https://registry.yarnpkg.com/postcss-syntax/-/postcss-syntax-0.9.1.tgz#5dbd90af1631ab8805b8f594bef2c2e8002d3758"
@@ -6537,7 +6541,7 @@ prop-types@^15.5.10, prop-types@^15.5.6, prop-types@^15.6.0, prop-types@^15.6.1:
     loose-envify "^1.3.1"
     object-assign "^4.1.1"
 
-prop-types@^15.5.7:
+prop-types@^15.5.7, prop-types@^15.5.8:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
   dependencies:
@@ -6720,6 +6724,12 @@ react-dom@^16.4.0:
 react-error-overlay@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-4.0.0.tgz#d198408a85b4070937a98667f500c832f86bd5d4"
+
+react-infinite-scroller@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/react-infinite-scroller/-/react-infinite-scroller-1.1.4.tgz#176b1a9ca8fdff53eeb34f648c7b0d446459d61b"
+  dependencies:
+    prop-types "^15.5.8"
 
 react-player@^1.6.4:
   version "1.6.4"
