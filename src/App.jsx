@@ -13,14 +13,17 @@ import FacebookLoginButton from "./components/FacebookLoginButton";
 class App extends Component {
   constructor(props) {
     super(props);
+    const granularity = "day";
+    const numGrainsPerRequest = 7;
     this.state = {
       events: {},
-      granularity: "day",
+      granularity,
+      numGrainsPerRequest,
       isLoggedIn: false,
       labels: {},
-      selectedDate: moment("2018-06-01").format("YYYY-MM-DD"),
-      prevDate: moment("2018-06-01")
-        .add(-7, "days")
+      selectedDate: moment().format("YYYY-MM-DD"),
+      prevDate: moment()
+        .add(-7, `${granularity}s`)
         .format("YYYY-MM-DD")
     };
     this.changeDate = this.changeDate.bind(this);
@@ -142,7 +145,7 @@ class App extends Component {
         }s&num=7`
       )).data;
       const prevDate = moment(this.state.prevDate)
-        .add(-7, "days")
+        .add(-7, `${this.state.granularity}s`)
         .format("YYYY-MM-DD");
       this.setState({
         events: { ...this.state.events, ...data.events },
