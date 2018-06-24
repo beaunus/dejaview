@@ -86,7 +86,7 @@ body {
 }
 
 footer {
-  color: white;
+  background: white;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
