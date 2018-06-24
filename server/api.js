@@ -53,8 +53,8 @@ router.get("/:date", async (req, res) => {
       num,
       access_token
     );
-    const sortedKeys = Object.keys(data.events).sort(
-      (a, b) => moment(new Date(b)) > moment(new Date(a))
+    const sortedKeys = Object.keys(data.events).sort((a, b) =>
+      moment(b).isAfter(moment(a))
     );
     const sortedEvents = {};
     sortedKeys.forEach(key => (sortedEvents[key] = data.events[key]));
