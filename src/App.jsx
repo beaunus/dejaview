@@ -50,7 +50,7 @@ class App extends Component {
    * @param {Number} num
    * @returns {Object}
    */
-  async getEvents(date, granularity, num = 7) {
+  async getEvents(date, granularity, num = this.state.numGrainsPerRequest) {
     try {
       const data = (await axios.get(
         `/api/v1/${date}/?granularity=${granularity}s&num=${num}`
@@ -87,7 +87,13 @@ class App extends Component {
     try {
       this.setState({
         events: await this.getEvents(selectedDate, this.state.granularity),
-        selectedDate
+        selectedDate,
+        prevDate: moment(selectedDate)
+          .add(
+            -`${this.state.numGrainsPerRequest}`,
+            `${this.state.granularity}s`
+          )
+          .format("YYYY-MM-DD")
       });
     } catch (error) {
       console.log(error);
@@ -101,7 +107,10 @@ class App extends Component {
   async changeGranularity(granularity) {
     this.setState({
       events: await this.getEvents(this.state.selectedDate, granularity),
-      granularity
+      granularity,
+      prevDate: moment(this.state.selectedDate)
+        .add(-`${this.state.numGrainsPerRequest}`, `${this.state.granularity}s`)
+        .format("YYYY-MM-DD")
     });
   }
 
@@ -118,7 +127,10 @@ class App extends Component {
     datePickerInput.value = newDateString;
     this.setState({
       events: await this.getEvents(newDateString, this.state.granularity),
-      selectedDate: newDateString
+      selectedDate: newDateString,
+      prevDate: moment(newDateString)
+        .add(-`${this.state.numGrainsPerRequest}`, `${this.state.granularity}s`)
+        .format("YYYY-MM-DD")
     });
   }
 
