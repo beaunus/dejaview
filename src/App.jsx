@@ -22,9 +22,9 @@ class App extends Component {
       isLoggedIn: false,
       labels: {},
       selectedDate: moment().format("YYYY-MM-DD"),
-      prevDate: moment()
-        .add(-7, `${granularity}s`)
-        .format("YYYY-MM-DD")
+      prevDate: moment(
+        offsetDate(moment(), granularity, -numGrainsPerRequest)
+      ).format("YYYY-MM-DD")
     };
     this.changeDate = this.changeDate.bind(this);
     this.toggleLabel = this.toggleLabel.bind(this);
@@ -154,11 +154,15 @@ class App extends Component {
       const data = (await axios.get(
         `/api/v1/${this.state.prevDate}/?granularity=${
           this.state.granularity
-        }s&num=7`
+        }s&num=${this.state.numGrainsPerRequest}`
       )).data;
-      const prevDate = moment(this.state.prevDate)
-        .add(-7, `${this.state.granularity}s`)
-        .format("YYYY-MM-DD");
+      const prevDate = moment(
+        offsetDate(
+          this.state.prevDate,
+          `${this.state.granularity}s`,
+          -this.state.numGrainsPerRequest
+        )
+      ).format("YYYY-MM-DD");
       this.setState({
         events: { ...this.state.events, ...data.events },
         prevDate
