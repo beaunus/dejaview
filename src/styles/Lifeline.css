@@ -164,6 +164,7 @@
 .event-more-image img {
   order: 0;
   max-height: 10em;
+  max-width: 100%;
 }
 
 .event-more-text:not(:first-child) {
