@@ -111,12 +111,13 @@ class App extends Component {
           this.state.numGrainsPerRequest
         ),
         selectedDate,
-        prevDate: moment(selectedDate)
-          .add(
-            -`${this.state.numGrainsPerRequest}`,
-            `${this.state.granularity}s`
+        prevDate: moment(
+          offsetDate(
+            selectedDate,
+            this.state.granularity,
+            -this.state.numGrainsPerRequest
           )
-          .format("YYYY-MM-DD")
+        ).format("YYYY-MM-DD")
       });
     } catch (error) {
       console.log(error);
@@ -135,9 +136,13 @@ class App extends Component {
         this.state.numGrainsPerRequest
       ),
       granularity,
-      prevDate: moment(this.state.selectedDate)
-        .add(-`${this.state.numGrainsPerRequest}`, `${this.state.granularity}s`)
-        .format("YYYY-MM-DD")
+      prevDate: moment(
+        offsetDate(
+          this.state.selectedDate,
+          granularity,
+          -this.state.numGrainsPerRequest
+        )
+      ).format("YYYY-MM-DD")
     });
   }
 
@@ -155,9 +160,9 @@ class App extends Component {
     this.setState({
       events: await this.getEvents(newDateString, this.state.granularity),
       selectedDate: newDateString,
-      prevDate: moment(newDateString)
-        .add(-`${this.state.numGrainsPerRequest}`, `${this.state.granularity}s`)
-        .format("YYYY-MM-DD")
+      prevDate: moment(
+        offsetDate(newDateString, granularity, -this.state.numGrainsPerRequest)
+      ).format("YYYY-MM-DD")
     });
   }
 
