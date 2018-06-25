@@ -1,6 +1,6 @@
 # Déjà View
 
-This app is hosted at https://www.dejaview.cc/.
+This app is hosted at http://www.dejaview.cc/.
 
 The data scraping code for this app can be found at https://github.com/xzjia/dejaview-scraper.
 
