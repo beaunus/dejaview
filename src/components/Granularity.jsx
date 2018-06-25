@@ -14,7 +14,6 @@ const Granularity = props => (
           choice={choice}
           granularity={props.granularity}
           changeGranularity={props.changeGranularity}
-          navigateByGranularity={props.navigateByGranularity}
         />
       ))}
     </div>
@@ -23,8 +22,7 @@ const Granularity = props => (
 
 Granularity.propTypes = {
   granularity: PropTypes.string.isRequired,
-  changeGranularity: PropTypes.func.isRequired,
-  navigateByGranularity: PropTypes.func.isRequired
+  changeGranularity: PropTypes.func.isRequired
 };
 
 export default Granularity;

@@ -12,7 +12,6 @@ const Header = props => (
       selectedDate={props.selectedDate}
       changeGranularity={props.changeGranularity}
       granularity={props.granularity}
-      navigateByGranularity={props.navigateByGranularity}
     />
     <Filters
       isLoggedIn={props.isLoggedIn}
@@ -28,7 +27,6 @@ Header.propTypes = {
   selectedDate: PropTypes.string.isRequired,
   changeGranularity: PropTypes.func.isRequired,
   granularity: PropTypes.string.isRequired,
-  navigateByGranularity: PropTypes.func.isRequired,
   toggleLabel: PropTypes.func.isRequired
 };
 

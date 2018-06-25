@@ -12,7 +12,6 @@ const DateArea = props => (
     <Granularity
       changeGranularity={props.changeGranularity}
       granularity={props.granularity}
-      navigateByGranularity={props.navigateByGranularity}
     />
   </div>
 );
@@ -21,8 +20,7 @@ DateArea.propTypes = {
   changeDate: PropTypes.func.isRequired,
   selectedDate: PropTypes.string.isRequired,
   changeGranularity: PropTypes.func.isRequired,
-  granularity: PropTypes.string.isRequired,
-  navigateByGranularity: PropTypes.func.isRequired
+  granularity: PropTypes.string.isRequired
 };
 
 export default DateArea;

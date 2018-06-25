@@ -27,7 +27,6 @@ class App extends Component {
     this.changeDate = this.changeDate.bind(this);
     this.toggleLabel = this.toggleLabel.bind(this);
     this.changeGranularity = this.changeGranularity.bind(this);
-    this.navigateByGranularity = this.navigateByGranularity.bind(this);
     this.loadMoreEvents = this.loadMoreEvents.bind(this);
   }
 
@@ -135,26 +134,6 @@ class App extends Component {
   }
 
   /**
-   * Change the state to reflect the given date adjustment.
-   * @param {String} direction "left" or "right"
-   * @param {String} granularity
-   */
-  async navigateByGranularity(direction, granularity) {
-    const num = direction === "left" ? -1 : 1;
-    const newDate = offsetDate(this.state.selectedDate, granularity, num);
-    const newDateString = moment(newDate).format("YYYY-MM-DD");
-    const datePickerInput = document.getElementById("date-picker").children[0];
-    datePickerInput.value = newDateString;
-    this.setState({
-      events: await this.getEvents(newDateString, this.state.granularity),
-      selectedDate: newDateString,
-      prevDate: moment(
-        offsetDate(newDateString, granularity, -this.state.numGrainsPerRequest)
-      ).format("YYYY-MM-DD")
-    });
-  }
-
-  /**
    * Toggle the selection of the given label filter.
    * @param {String} label
    */
@@ -201,7 +180,6 @@ class App extends Component {
           granularity={this.state.granularity}
           isLoggedIn={this.state.isLoggedIn}
           labels={this.state.labels}
-          navigateByGranularity={this.navigateByGranularity}
           selectedDate={this.state.selectedDate}
           toggleLabel={this.toggleLabel}
         />
