@@ -9,12 +9,13 @@ const Lifeline = props => (
     <InfiniteScroll
       pageStart={0}
       loadMore={props.loadMoreEvents}
-      hasMore={true || false}
+      hasMore={props.hasMore}
       loader={
         <div className="loader" key={0}>
           Loading ...
         </div>
       }
+      initialLoad={false}
       threshold={1000}
     >
       {Object.keys(props.events).map((date, index) => (
@@ -34,6 +35,7 @@ const Lifeline = props => (
 Lifeline.propTypes = {
   events: PropTypes.object.isRequired,
   granularity: PropTypes.string.isRequired,
+  hasMore: PropTypes.bool.isRequired,
   labels: PropTypes.object.isRequired,
   loadMoreEvents: PropTypes.func.isRequired
 };

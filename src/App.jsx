@@ -19,6 +19,7 @@ class App extends Component {
     this.state = {
       events: {},
       granularity,
+      hasMore: true,
       numGrainsPerRequest,
       isLoggedIn: false,
       labels: {},
@@ -53,7 +54,11 @@ class App extends Component {
    * @param {Number} num
    * @returns {Object}
    */
-  async getEvents(date, granularity, num = this.state.numGrainsPerRequest) {
+  async getEvents(
+    date,
+    granularity = this.state.granularity,
+    num = this.state.numGrainsPerRequest
+  ) {
     try {
       const data = (await axios.get(
         `/api/v1/${date}/?granularity=${granularity}s&num=${num}`
@@ -173,11 +178,7 @@ class App extends Component {
 
   async loadMoreEvents() {
     try {
-      const newEvents = (await axios.get(
-        `/api/v1/${this.state.prevDate}/?granularity=${
-          this.state.granularity
-        }s&num=${this.state.numGrainsPerRequest}`
-      )).data;
+      const newEvents = await this.getEvents(this.state.prevDate);
       const prevDate = moment(
         offsetDate(
           this.state.prevDate,
@@ -187,7 +188,8 @@ class App extends Component {
       ).format("YYYY-MM-DD");
       this.setState({
         events: { ...this.state.events, ...newEvents },
-        prevDate
+        prevDate,
+        hasMore: moment(prevDate).isAfter(moment("1000-01-01"))
       });
     } catch (error) {
       console.log(`Error getting data from API call.${error}`);
@@ -228,6 +230,7 @@ class App extends Component {
         <Lifeline
           events={this.state.events}
           granularity={this.state.granularity}
+          hasMore={this.state.hasMore}
           labels={this.state.labels}
           selectedDate={this.state.selectedDate}
           nextHref={this.state.nextHref}
