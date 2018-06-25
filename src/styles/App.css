@@ -36,8 +36,8 @@ body {
 }
 
 #header {
-  align-items: center;
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -70,11 +70,11 @@ body {
 }
 
 .label-filter {
+  display: flex;
   align-items: center;
   background-color: #eee;
   border-radius: 5px;
   box-shadow: 1px 1px 5px #000;
-  display: flex;
   margin: 0.2em;
   cursor: pointer;
   padding: 0.3em;
@@ -86,10 +86,16 @@ body {
 }
 
 footer {
-  background: white;
   display: flex;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  background: white;
+  border-top: solid var(--color-dark) 2px;
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-around;
   padding: 0.5em;
+  width: 100%;
+  z-index: 1;
 }

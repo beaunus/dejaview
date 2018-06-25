@@ -237,7 +237,6 @@ class App extends Component {
           loadMoreEvents={this.loadMoreEvents}
         />
         {Object.keys(this.state.events).length > 0 ? <Footer /> : ""}
-        {/* <Footer /> */}
       </div>
     );
   }
