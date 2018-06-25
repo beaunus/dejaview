@@ -105,11 +105,7 @@ class App extends Component {
   async changeDate(selectedDate) {
     try {
       this.setState({
-        events: await this.getEvents(
-          selectedDate,
-          this.state.granularity,
-          this.state.numGrainsPerRequest
-        ),
+        events: await this.getEvents(selectedDate),
         selectedDate,
         prevDate: moment(
           offsetDate(
@@ -130,11 +126,7 @@ class App extends Component {
    */
   async changeGranularity(granularity) {
     this.setState({
-      events: await this.getEvents(
-        this.state.selectedDate,
-        granularity,
-        this.state.numGrainsPerRequest
-      ),
+      events: await this.getEvents(this.state.selectedDate, granularity),
       granularity,
       prevDate: moment(
         offsetDate(
