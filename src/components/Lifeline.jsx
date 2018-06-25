@@ -11,7 +11,7 @@ const Lifeline = props => (
       pageStart={0}
       loadMore={props.loadMoreEvents}
       hasMore={props.hasMore}
-      loader={<Loader />}
+      loader={<Loader key={0} />}
       initialLoad={false}
       threshold={1000}
     >
