@@ -91,7 +91,7 @@ footer {
   bottom: 0px;
   left: 0px;
   background: white;
-  border-top: solid var(--color-dark) 2px;
+  box-shadow: 0 0 1em var(--color-dark);
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-around;
