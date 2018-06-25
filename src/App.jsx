@@ -172,6 +172,9 @@ class App extends Component {
     this.setState({ labels });
   }
 
+  /**
+   * Load more events onto the bottom of the Lifeline.
+   */
   async loadMoreEvents() {
     try {
       const newEvents = await this.getEvents(this.state.prevDate);
@@ -200,12 +203,12 @@ class App extends Component {
           <Logo />
           <div id="date-area">
             <DatePicker
-              selectedDate={this.state.selectedDate}
               changeDate={this.changeDate}
+              selectedDate={this.state.selectedDate}
             />
             <Granularity
-              granularity={this.state.granularity}
               changeGranularity={this.changeGranularity}
+              granularity={this.state.granularity}
               navigateByGranularity={this.navigateByGranularity}
             />
           </div>
@@ -213,10 +216,10 @@ class App extends Component {
             {Object.keys(this.state.labels).map((label, index) => {
               return (
                 <LabelFilter
+                  filtered={!this.state.labels[label]}
                   key={index}
                   labelName={label}
                   toggleLabel={this.toggleLabel}
-                  filtered={!this.state.labels[label]}
                 />
               );
             })}
@@ -228,9 +231,9 @@ class App extends Component {
           granularity={this.state.granularity}
           hasMore={this.state.hasMore}
           labels={this.state.labels}
-          selectedDate={this.state.selectedDate}
-          nextHref={this.state.nextHref}
           loadMoreEvents={this.loadMoreEvents}
+          nextHref={this.state.nextHref}
+          selectedDate={this.state.selectedDate}
         />
         {Object.keys(this.state.events).length > 0 ? <Footer /> : ""}
       </div>

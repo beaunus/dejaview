@@ -8,11 +8,11 @@ import "../styles/Lifeline.css";
 const Lifeline = props => (
   <div className="lifeline">
     <InfiniteScroll
-      pageStart={0}
-      loadMore={props.loadMoreEvents}
       hasMore={props.hasMore}
-      loader={<Loader key={0} />}
       initialLoad={false}
+      loader={<Loader key={0} />}
+      loadMore={props.loadMoreEvents}
+      pageStart={0}
       threshold={1000}
     >
       {Object.keys(props.events).map((date, index) => (
