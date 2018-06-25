@@ -47,6 +47,15 @@ body {
   justify-content: center;
 }
 
+#fixed-header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+  background-color: #326273;
+  width: 100%;
+}
+
 #header > div {
   padding: 0.5em;
 }
@@ -54,7 +63,6 @@ body {
 .logo {
   display: flex;
   justify-content: center;
-  margin-bottom: 1em;
 }
 
 .logo img {
@@ -102,5 +110,5 @@ footer {
   justify-content: space-around;
   padding: 0.5em;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
 }

@@ -174,15 +174,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header
-          changeDate={this.changeDate}
-          changeGranularity={this.changeGranularity}
-          granularity={this.state.granularity}
-          isLoggedIn={this.state.isLoggedIn}
-          labels={this.state.labels}
-          selectedDate={this.state.selectedDate}
-          toggleLabel={this.toggleLabel}
-        />
+        <div id="fixed-header">
+          <Header
+            changeDate={this.changeDate}
+            changeGranularity={this.changeGranularity}
+            granularity={this.state.granularity}
+            isLoggedIn={this.state.isLoggedIn}
+            labels={this.state.labels}
+            selectedDate={this.state.selectedDate}
+            toggleLabel={this.toggleLabel}
+          />
+        </div>
         <Lifeline
           events={this.state.events}
           granularity={this.state.granularity}
