@@ -1,25 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Logo from "./Logo.jsx";
-import DatePicker from "./DatePicker.jsx";
-import Granularity from "./Granularity.jsx";
+import DateArea from "./DateArea";
 import LabelFilter from "./LabelFilter";
 import FacebookLoginButton from "./FacebookLoginButton";
 
 const Header = props => (
   <div id="header">
     <Logo />
-    <div id="date-area">
-      <DatePicker
-        changeDate={props.changeDate}
-        selectedDate={props.selectedDate}
-      />
-      <Granularity
-        changeGranularity={props.changeGranularity}
-        granularity={props.granularity}
-        navigateByGranularity={props.navigateByGranularity}
-      />
-    </div>
+    <DateArea
+      changeDate={props.changeDate}
+      selectedDate={props.selectedDate}
+      changeGranularity={props.changeGranularity}
+      granularity={props.granularity}
+      navigateByGranularity={props.navigateByGranularity}
+    />
     <div id="filter-container">
       {Object.keys(props.labels).map((label, index) => {
         return (
@@ -37,9 +32,12 @@ const Header = props => (
 );
 
 Header.propTypes = {
-  event: PropTypes.object.isRequired,
+  changeDate: PropTypes.func.isRequired,
+  selectedDate: PropTypes.string.isRequired,
+  changeGranularity: PropTypes.func.isRequired,
   granularity: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired
+  navigateByGranularity: PropTypes.func.isRequired,
+  toggleLabel: PropTypes.func.isRequired
 };
 
 export default Header;
