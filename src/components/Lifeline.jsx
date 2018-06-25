@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Card from "./Card";
+import Loader from "./Loader";
 import InfiniteScroll from "react-infinite-scroller";
 import "../styles/Lifeline.css";
 
@@ -10,11 +11,7 @@ const Lifeline = props => (
       pageStart={0}
       loadMore={props.loadMoreEvents}
       hasMore={props.hasMore}
-      loader={
-        <div className="loader" key={0}>
-          Loading ...
-        </div>
-      }
+      loader={<Loader />}
       initialLoad={false}
       threshold={1000}
     >
