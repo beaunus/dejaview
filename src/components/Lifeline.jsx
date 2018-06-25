@@ -15,6 +15,7 @@ const Lifeline = props => (
           Loading ...
         </div>
       }
+      threshold={1000}
     >
       {Object.keys(props.events).map((date, index) => (
         <Card

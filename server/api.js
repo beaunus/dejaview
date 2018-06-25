@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const db = require("./db");
-const moment = require("moment");
 
 /**
  * Respond with an array of strings of all labels that are in the system.
@@ -53,12 +52,6 @@ router.get("/:date", async (req, res) => {
       num,
       access_token
     );
-    const sortedKeys = Object.keys(data.events).sort((a, b) =>
-      moment(b).isAfter(moment(a))
-    );
-    const sortedEvents = {};
-    sortedKeys.forEach(key => (sortedEvents[key] = data.events[key]));
-    data.events = sortedEvents;
     res.status(200).send(data);
   } catch (error) {
     console.log(error);
