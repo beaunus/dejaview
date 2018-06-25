@@ -7,6 +7,15 @@
   z-index: 1;
 }
 
+#felix {
+  position: absolute;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 12em;
+  z-index: 1;
+  height: 400px;
+}
+
 /* The actual lifeline (the vertical ruler) */
 
 .lifeline::after {

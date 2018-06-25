@@ -14,10 +14,12 @@ const Lifeline = props => {
 
   if (Object.keys(props.labels).length > 0 && !someLabelsAreSelected) {
     return (
-      <Felix
-        quote="I&apos;m gonna need you to go ahead and not un-select all of the data
+      <div id="felix">
+        <Felix
+          quote="I&apos;m gonna need you to go ahead and not un-select all of the data
     source filters."
-      />
+        />
+      </div>
     );
   }
   return (
