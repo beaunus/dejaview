@@ -32,12 +32,17 @@ body {
 
 #date-area {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#date-area > div {
+  margin: 0.25em;
 }
 
 #header {
-  align-items: center;
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -70,11 +75,11 @@ body {
 }
 
 .label-filter {
+  display: flex;
   align-items: center;
   background-color: #eee;
   border-radius: 5px;
   box-shadow: 1px 1px 5px #000;
-  display: flex;
   margin: 0.2em;
   cursor: pointer;
   padding: 0.3em;
@@ -86,10 +91,16 @@ body {
 }
 
 footer {
-  background: white;
   display: flex;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  background: white;
+  box-shadow: 0 0 1em var(--color-dark);
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-around;
   padding: 0.5em;
+  width: 100%;
+  z-index: 1;
 }

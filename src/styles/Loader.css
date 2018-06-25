@@ -1,0 +1,80 @@
+.loader {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3em;
+}
+
+.trinity-rings-spinner,
+.trinity-rings-spinner * {
+  box-sizing: border-box;
+}
+
+.trinity-rings-spinner {
+  display: flex;
+  position: relative;
+  height: 10em;
+  width: 10em;
+  padding: 3px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.trinity-rings-spinner .circle {
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid var(--color-light);
+  opacity: 1;
+}
+
+.trinity-rings-spinner .circle:nth-child(1) {
+  height: 8em;
+  width: 8em;
+  animation: trinity-rings-spinner-circle1-animation 1.5s infinite linear;
+  border-width: 3px;
+}
+
+.trinity-rings-spinner .circle:nth-child(2) {
+  height: calc(8em * 0.65);
+  width: calc(8em * 0.65);
+  animation: trinity-rings-spinner-circle2-animation 1.5s infinite linear;
+  border-width: 2px;
+}
+
+.trinity-rings-spinner .circle:nth-child(3) {
+  height: calc(8em * 0.1);
+  width: calc(8em * 0.1);
+  animation: trinity-rings-spinner-circle3-animation 1.5s infinite linear;
+  border-width: 1px;
+}
+
+@keyframes trinity-rings-spinner-circle1-animation {
+  0% {
+    transform: rotateZ(20deg) rotateY(0deg);
+  }
+
+  100% {
+    transform: rotateZ(100deg) rotateY(360deg);
+  }
+}
+@keyframes trinity-rings-spinner-circle2-animation {
+  0% {
+    transform: rotateZ(100deg) rotateX(0deg);
+  }
+
+  100% {
+    transform: rotateZ(0deg) rotateX(360deg);
+  }
+}
+@keyframes trinity-rings-spinner-circle3-animation {
+  0% {
+    transform: rotateZ(100deg) rotateX(-360deg);
+  }
+
+  100% {
+    transform: rotateZ(-360deg) rotateX(360deg);
+  }
+}

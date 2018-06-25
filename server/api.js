@@ -20,6 +20,13 @@ router.get("/labels", async (req, res) => {
 });
 
 /**
+ * Respond with an array of strings of all labels that are in the system.
+ */
+router.get("/isLoggedIn", async (req, res) => {
+  res.status(200).send(req.isAuthenticated());
+});
+
+/**
  * The main endpoint for the API server.
  *
  * A "champion" event is the "best" event for a given granularity.
@@ -39,19 +46,8 @@ router.get("/:date", async (req, res) => {
   }
   const granularity = req.query.granularity;
   const num = req.query.num;
-  const data = {};
-  if (req.isAuthenticated()) {
-    data.isLoggedIn = true;
-  } else {
-    data.isLoggedIn = false;
-  }
   try {
-    data.events = await db.getEvents(
-      targetDate,
-      granularity,
-      num,
-      access_token
-    );
+    const data = await db.getEvents(targetDate, granularity, num, access_token);
     res.status(200).send(data);
   } catch (error) {
     console.log(error);

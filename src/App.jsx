@@ -1,37 +1,42 @@
 import React, { Component } from "react";
 import "./styles/App.css";
-import Logo from "./components/Logo.jsx";
+import Header from "./components/Header.jsx";
 import Lifeline from "./components/Lifeline.jsx";
-import DatePicker from "./components/DatePicker.jsx";
-import Granularity from "./components/Granularity.jsx";
-import LabelFilter from "./components/LabelFilter";
 import Footer from "./components/Footer";
 import { offsetDate } from "../src/utilities";
 import axios from "axios";
 import moment from "moment";
-import FacebookLoginButton from "./components/FacebookLoginButton";
 
 class App extends Component {
   constructor(props) {
     super(props);
+    const granularity = "day";
+    const numGrainsPerRequest = 20;
     this.state = {
       events: {},
-      granularity: "day",
+      granularity,
+      hasMore: true,
+      numGrainsPerRequest,
       isLoggedIn: false,
       labels: {},
-      selectedDate: moment().format("YYYY-MM-DD")
+      selectedDate: moment().format("YYYY-MM-DD"),
+      prevDate: moment(
+        offsetDate(moment(), granularity, -numGrainsPerRequest)
+      ).format("YYYY-MM-DD")
     };
     this.changeDate = this.changeDate.bind(this);
     this.toggleLabel = this.toggleLabel.bind(this);
     this.changeGranularity = this.changeGranularity.bind(this);
-    this.navigateByGranularity = this.navigateByGranularity.bind(this);
+    this.loadMoreEvents = this.loadMoreEvents.bind(this);
   }
 
   async componentDidMount() {
     this.setState({
+      isLoggedIn: await this.isLoggedIn(),
       events: await this.getEvents(
         this.state.selectedDate,
-        this.state.granularity
+        this.state.granularity,
+        this.state.numGrainsPerRequest
       ),
       labels: await this.getInitialLabels()
     });
@@ -44,13 +49,15 @@ class App extends Component {
    * @param {Number} num
    * @returns {Object}
    */
-  async getEvents(date, granularity, num = 7) {
+  async getEvents(
+    date,
+    granularity = this.state.granularity,
+    num = this.state.numGrainsPerRequest
+  ) {
     try {
-      const data = (await axios.get(
+      return (await axios.get(
         `/api/v1/${date}/?granularity=${granularity}s&num=${num}`
       )).data;
-      this.setState({ isLoggedIn: data.isLoggedIn });
-      return data.events;
     } catch (error) {
       console.log(`Error getting data from API call.${error}`);
       throw error;
@@ -74,14 +81,34 @@ class App extends Component {
   }
 
   /**
+   * Return whether or not the user is currently logged in.
+   *
+   * @returns {Boolean}
+   */
+  async isLoggedIn() {
+    try {
+      return (await axios.get(`/api/v1/isLoggedIn`)).data;
+    } catch (error) {
+      console.log(`Error getting data from API call.${error}`);
+    }
+  }
+
+  /**
    * Change the state to reflect the given selectedDate.
    * @param {String} selectedDate
    */
   async changeDate(selectedDate) {
     try {
       this.setState({
-        events: await this.getEvents(selectedDate, this.state.granularity),
-        selectedDate
+        events: await this.getEvents(selectedDate),
+        selectedDate,
+        prevDate: moment(
+          offsetDate(
+            selectedDate,
+            this.state.granularity,
+            -this.state.numGrainsPerRequest
+          )
+        ).format("YYYY-MM-DD")
       });
     } catch (error) {
       console.log(error);
@@ -95,24 +122,14 @@ class App extends Component {
   async changeGranularity(granularity) {
     this.setState({
       events: await this.getEvents(this.state.selectedDate, granularity),
-      granularity
-    });
-  }
-
-  /**
-   * Change the state to reflect the given date adjustment.
-   * @param {String} direction "left" or "right"
-   * @param {String} granularity
-   */
-  async navigateByGranularity(direction, granularity) {
-    const num = direction === "left" ? -1 : 1;
-    const newDate = offsetDate(this.state.selectedDate, granularity, num);
-    const newDateString = moment(newDate).format("YYYY-MM-DD");
-    const datePickerInput = document.getElementById("date-picker").children[0];
-    datePickerInput.value = newDateString;
-    this.setState({
-      events: await this.getEvents(newDateString, this.state.granularity),
-      selectedDate: newDateString
+      granularity,
+      prevDate: moment(
+        offsetDate(
+          this.state.selectedDate,
+          granularity,
+          -this.state.numGrainsPerRequest
+        )
+      ).format("YYYY-MM-DD")
     });
   }
 
@@ -130,43 +147,52 @@ class App extends Component {
     this.setState({ labels });
   }
 
+  /**
+   * Load more events onto the bottom of the Lifeline.
+   */
+  async loadMoreEvents() {
+    try {
+      const newEvents = await this.getEvents(this.state.prevDate);
+      const prevDate = moment(
+        offsetDate(
+          this.state.prevDate,
+          `${this.state.granularity}s`,
+          -this.state.numGrainsPerRequest
+        )
+      ).format("YYYY-MM-DD");
+      this.setState({
+        events: { ...this.state.events, ...newEvents },
+        prevDate,
+        hasMore: moment(prevDate).isAfter(moment("1000-01-01"))
+      });
+    } catch (error) {
+      console.log(`Error getting data from API call.${error}`);
+      throw error;
+    }
+  }
+
   render() {
     return (
       <div className="App">
-        <div id="header">
-          <Logo />
-          <div id="date-area">
-            <DatePicker
-              selectedDate={this.state.selectedDate}
-              changeDate={this.changeDate}
-            />
-            <Granularity
-              granularity={this.state.granularity}
-              changeGranularity={this.changeGranularity}
-              navigateByGranularity={this.navigateByGranularity}
-            />
-          </div>
-          <div id="filter-container">
-            {Object.keys(this.state.labels).map((label, index) => {
-              return (
-                <LabelFilter
-                  key={index}
-                  labelName={label}
-                  toggleLabel={this.toggleLabel}
-                  filtered={!this.state.labels[label]}
-                />
-              );
-            })}
-            {!this.state.isLoggedIn ? <FacebookLoginButton /> : ""}
-          </div>
-        </div>
+        <Header
+          changeDate={this.changeDate}
+          changeGranularity={this.changeGranularity}
+          granularity={this.state.granularity}
+          isLoggedIn={this.state.isLoggedIn}
+          labels={this.state.labels}
+          selectedDate={this.state.selectedDate}
+          toggleLabel={this.toggleLabel}
+        />
         <Lifeline
           events={this.state.events}
           granularity={this.state.granularity}
+          hasMore={this.state.hasMore}
           labels={this.state.labels}
+          loadMoreEvents={this.loadMoreEvents}
+          nextHref={this.state.nextHref}
+          selectedDate={this.state.selectedDate}
         />
         {Object.keys(this.state.events).length > 0 ? <Footer /> : ""}
-        {/* <Footer /> */}
       </div>
     );
   }
