@@ -1,0 +1,466 @@
+{
+  "isLoggedIn": false,
+  "events": {
+    "2001-06-07": {
+      "New-York-Times": [
+        {
+          "timestamp": "2001-06-07T00:00:00.000Z",
+          "title": "INSIDE",
+          "text":
+            "AIDS Help for Poor Nations  The Pfizer pharmaceutical company said it would offer 50 poor countries free supplies of a drug to fight fungal infections linked to AIDS.   PAGE A3    Smoker Awarded $3 Billion  A jury awarded a longtime California smo...",
+          "link":
+            "https://www.nytimes.com/2001/06/07/nyregion/inside-685518.html",
+          "image_link": null,
+          "media_link": null,
+          "label": "New-York-Times"
+        }
+      ]
+    },
+    "2001-06-08": {
+      "New-York-Times": [
+        {
+          "timestamp": "2001-06-08T00:00:00.000Z",
+          "title": "Yo, Adrian, Do 76ers Really Have a Shot?",
+          "text":
+            "''Rocky'' is playing L.A. this week, rereleased by a bunch of woozy pugs from Broad Street.     Allen Iverson's elbow bursitis, bruised tailbone and general fatigue. Eric Snow's broken foot. Dikembe Mutombo's throbbing shoulder. George Lynch out u...",
+          "link":
+            "https://www.nytimes.com/2001/06/08/sports/pro-basketball-yo-adrian-do-76ers-really-have-a-shot.html",
+          "image_link": null,
+          "media_link": null,
+          "label": "New-York-Times"
+        }
+      ],
+      "Wikipedia": [
+        {
+          "timestamp": "2001-06-08T00:00:00.000Z",
+          "title":
+            "Mamoru Takuma kills eight and injures 15 in a mass stabbing at an elementary school in the Osaka Prefecture of Japan.",
+          "text":
+            "Learn more: <a href=\"https://en.wikipedia.org/wiki/Mamoru_Takuma\">Mamoru Takuma</a>, <a href=\"https://en.wikipedia.org/wiki/Osaka_school_massacre\">Osaka school massacre</a>, <a href=\"https://en.wikipedia.org/wiki/Osaka_Prefecture\">Osaka Prefecture</a>, <a href=\"https://en.wikipedia.org/wiki/Japan\">Japan</a>",
+          "link": "",
+          "image_link":
+            "https://upload.wikimedia.org/wikipedia/en/5/55/Mamoru_Takuma.jpg",
+          "media_link": "",
+          "label": "Wikipedia"
+        }
+      ],
+      "Movies": [
+        {
+          "timestamp": "2001-06-08T00:00:00.000Z",
+          "title": "#1 Movie: Swordfish",
+          "text": "Swordfish grossed a total of $27,053,729.",
+          "link": "https://www.imdb.com/find?q=Swordfish+2001",
+          "image_link": "https://i.ytimg.com/vi/lFwtY1bxlNc/hqdefault.jpg",
+          "media_link": "https://www.youtube.com/watch?v=lFwtY1bxlNc",
+          "label": "Movies"
+        }
+      ]
+    },
+    "2001-06-09": {
+      "New-York-Times": [
+        {
+          "timestamp": "2001-06-09T00:00:00.000Z",
+          "title": "Labor Prevails (Along With Geniality)",
+          "text":
+            "NORMALLY, an event like the British elections would be a distant concern, but something about this round struck a chord.    For a while, it was hard to figure out why. But the reason came into focus with a curtain-raising article a few days before...",
+          "link":
+            "https://www.nytimes.com/2001/06/09/nyregion/nyc-labor-prevails-along-with-geniality.html",
+          "image_link": null,
+          "media_link": null,
+          "label": "New-York-Times"
+        }
+      ],
+      "Billboard": [
+        {
+          "timestamp": "2001-06-09T00:00:00.000Z",
+          "title":
+            "Billboard Hot 100 #1 Song: Lady Marmalade by Christina Aguilera, Lil' Kim, Mya & P!nk",
+          "text": "Lady Marmalade was on the Billboard charts for 9 weeks.",
+          "link":
+            "https://www.youtube.com/results?search_query=Lady+Marmalade+Christina+Aguilera,+Lil'+Kim,+Mya+&+P!nk",
+          "image_link": "https://i.ytimg.com/vi/RQa7SvVCdZk/default.jpg",
+          "media_link": "https://www.youtube.com/watch?v=RQa7SvVCdZk",
+          "label": "Billboard"
+        }
+      ]
+    },
+    "2001-06-10": {
+      "New-York-Times": [
+        {
+          "timestamp": "2001-06-10T00:00:00.000Z",
+          "title": "From the Streets to Suburbia: The Iverson and Bryant Game",
+          "text":
+            "They started jabbering at each another in the final seconds. The irascible Philly guard with the tattoos, heart and serrated edge, exchanging words with the ultracompetitive suburbanite who spent his formative years in Lower Merion, Pa.     Kobe B...",
+          "link":
+            "https://www.nytimes.com/2001/06/10/sports/on-pro-basketball-from-the-streets-to-suburbia-the-iverson-and-bryant-game.html",
+          "image_link": null,
+          "media_link": null,
+          "label": "New-York-Times"
+        }
+      ],
+      "Wikipedia": [
+        {
+          "timestamp": "2001-06-10T00:00:00.000Z",
+          "title":
+            "Pope John Paul II canonizes Lebanon's first female saint, Saint Rafqa.",
+          "text":
+            "Learn more: <a href=\"https://en.wikipedia.org/wiki/Pope_John_Paul_II\">Pope John Paul II</a>, <a href=\"https://en.wikipedia.org/wiki/Lebanon\">Lebanon</a>, <a href=\"https://en.wikipedia.org/wiki/Saint_Rafqa\">Saint Rafqa</a>",
+          "link": "",
+          "image_link":
+            "https://upload.wikimedia.org/wikipedia/commons/2/26/StJohnInUmmayad.jpg",
+          "media_link": "",
+          "label": "Wikipedia"
+        }
+      ]
+    },
+    "2001-06-11": {
+      "New-York-Times": [
+        {
+          "timestamp": "2001-06-11T00:00:00.000Z",
+          "title": "INSIDE",
+          "text":
+            "Rocky Mideast Talks  An American official met with Israelis and Palestinians against a backdrop of rancor from both sides and more violence.   PAGE A6    The Digital Smorgasbord  AOL Time Warner is preparing for the day when media services will be...",
+          "link":
+            "https://www.nytimes.com/2001/06/11/nyregion/inside-748277.html",
+          "image_link": null,
+          "media_link": null,
+          "label": "New-York-Times"
+        }
+      ],
+      "Wikipedia": [
+        {
+          "timestamp": "2001-06-11T00:00:00.000Z",
+          "title":
+            "Timothy McVeigh is executed for his role in the Oklahoma City bombing.",
+          "text":
+            "Learn more: <a href=\"https://en.wikipedia.org/wiki/Timothy_McVeigh\">Timothy McVeigh</a>, <a href=\"https://en.wikipedia.org/wiki/Oklahoma_City_bombing\">Oklahoma City bombing</a>",
+          "link": "",
+          "image_link":
+            "https://upload.wikimedia.org/wikipedia/commons/7/7c/McVeigh_mugshot.jpg",
+          "media_link": "",
+          "label": "Wikipedia"
+        }
+      ]
+    },
+    "2001-06-12": {
+      "New-York-Times": [
+        {
+          "timestamp": "2001-06-12T00:00:00.000Z",
+          "title":
+            "ARTS ABROAD: Toronto, That Familiar Screen Face; As Movie Production Booms, a New Vitality Is Tempered by Location Fatigue",
+          "text":
+            "Sylvester Stallone is working out in the health club at the Four Seasons Hotel. Down the street, the singer Bono is sipping cappuccino in an outdoor cafe. Sophia Loren is having a news conference at the Windsor Arms Hotel to talk about her newest ...",
+          "link":
+            "https://www.nytimes.com/2001/06/12/movies/arts-abroad-toronto-that-familiar-screen-face-movie-production-booms-new.html",
+          "image_link": null,
+          "media_link": null,
+          "label": "New-York-Times"
+        }
+      ]
+    },
+    "2001-06-13": {
+      "New-York-Times": [
+        {
+          "timestamp": "2001-06-13T00:00:00.000Z",
+          "title": "Vacation Offers For Councilman Are Scrutinized",
+          "text":
+            "An investigation by the Manhattan district attorney found that a consultant at the center of a building corruption inquiry regularly relied on Thomas V. Ognibene, the leader of the City Council's Republican delegation, for political clout at City ...",
+          "link":
+            "https://www.nytimes.com/2001/06/13/nyregion/vacation-offers-for-councilman-are-scrutinized.html",
+          "image_link": null,
+          "media_link": null,
+          "label": "New-York-Times"
+        }
+      ]
+    },
+    "2001-06-14": {
+      "New-York-Times": [
+        {
+          "timestamp": "2001-06-14T00:00:00.000Z",
+          "title": "Swiss Drug Maker Moves to the Brink of a Product Leap",
+          "text":
+            "With a 95-year history, global leadership in infertility treatments and the No. 1 spot among Europe's biotechnology companies, Serono International can be excused for a bit of frustration that it is not more widely known and esteemed. The company ...",
+          "link":
+            "https://www.nytimes.com/2001/06/14/business/swiss-drug-maker-moves-to-the-brink-of-a-product-leap.html",
+          "image_link": null,
+          "media_link": null,
+          "label": "New-York-Times"
+        }
+      ]
+    },
+    "2001-06-15": {
+      "New-York-Times": [
+        {
+          "timestamp": "2001-06-15T00:00:00.000Z",
+          "title": "The Big City; In 80's, Fear Spread Faster Than AIDS",
+          "text":
+            "IN July of 1988, at the height of the AIDS epidemic, the estimated number of cases in New York City suddenly plummeted. The city health commissioner soon needed police protection.    Until that July, the city had estimated that 400,000 New Yorkers...",
+          "link":
+            "https://www.nytimes.com/2001/06/15/nyregion/the-big-city-in-80-s-fear-spread-faster-than-aids.html",
+          "image_link": null,
+          "media_link": null,
+          "label": "New-York-Times"
+        }
+      ],
+      "Wikipedia": [
+        {
+          "timestamp": "2001-06-15T00:00:00.000Z",
+          "title":
+            "Leaders of the People's Republic of China, Russia, Kazakhstan, Kyrgyzstan, Tajikistan and Uzbekistan formed the Shanghai Cooperation Organisation.",
+          "text":
+            "Learn more: <a href=\"https://en.wikipedia.org/wiki/Shanghai_Cooperation_Organisation\">Shanghai Cooperation Organisation</a>",
+          "link": "",
+          "image_link":
+            "https://upload.wikimedia.org/wikipedia/commons/7/73/Shanghai_Five_Leaders_2.jpg",
+          "media_link": "",
+          "label": "Wikipedia"
+        }
+      ],
+      "Movies": [
+        {
+          "timestamp": "2001-06-15T00:00:00.000Z",
+          "title": "#1 Movie: Lara Croft: Tomb Raider",
+          "text": "Lara Croft: Tomb Raider grossed a total of $64,034,086.",
+          "link": "https://www.imdb.com/find?q=Lara+Croft+Tomb+Raider+2001",
+          "image_link": "https://i.ytimg.com/vi/cnNBqNb3taw/hqdefault.jpg",
+          "media_link": "https://www.youtube.com/watch?v=cnNBqNb3taw",
+          "label": "Movies"
+        }
+      ]
+    },
+    "2001-06-16": {
+      "New-York-Times": [
+        {
+          "timestamp": "2001-06-16T00:00:00.000Z",
+          "title": "EGYPT ON TRIAL",
+          "text":
+            "With the prominent Arab intellectual Saad Eddin Ibrahim in jail, the government of President Hosni Mubarak stands to come under international scrutiny. A report by Mary Anne Weaver in The Times Magazine....",
+          "link":
+            "https://www.nytimes.com/2001/06/16/nyregion/coming-on-sunday-egypt-on-trial.html",
+          "image_link": null,
+          "media_link": null,
+          "label": "New-York-Times"
+        }
+      ],
+      "Billboard": [
+        {
+          "timestamp": "2001-06-16T00:00:00.000Z",
+          "title":
+            "Billboard Hot 100 #1 Song: Lady Marmalade by Christina Aguilera, Lil' Kim, Mya & P!nk",
+          "text": "Lady Marmalade was on the Billboard charts for 10 weeks.",
+          "link":
+            "https://www.youtube.com/results?search_query=Lady+Marmalade+Christina+Aguilera,+Lil'+Kim,+Mya+&+P!nk",
+          "image_link": "https://i.ytimg.com/vi/RQa7SvVCdZk/default.jpg",
+          "media_link": "https://www.youtube.com/watch?v=RQa7SvVCdZk",
+          "label": "Billboard"
+        }
+      ]
+    },
+    "2001-06-17": {
+      "New-York-Times": [
+        {
+          "timestamp": "2001-06-17T00:00:00.000Z",
+          "title":
+            "An Exodus of Migrant Families Is Bleeding Mexico's Heartland",
+          "text":
+            "The quaint houses on Pancho Villa Street tell lies with their fresh coats of paint, rooftop satellite dishes and swing sets out back.    Almost no one lives here anymore....",
+          "link":
+            "https://www.nytimes.com/2001/06/17/world/an-exodus-of-migrant-families-is-bleeding-mexico-s-heartland.html",
+          "image_link": null,
+          "media_link": null,
+          "label": "New-York-Times"
+        }
+      ]
+    },
+    "2001-06-18": {
+      "New-York-Times": [
+        {
+          "timestamp": "2001-06-18T00:00:00.000Z",
+          "title": "Shining Future Of Fiber Optics Loses Glimmer",
+          "text":
+            "In the last two years, 100 million miles of optical fiber -- more than enough to reach the sun -- were laid around the world as companies spent $35 billion to build Internet-inspired communications networks. But after a string of corporate bankrup...",
+          "link":
+            "https://www.nytimes.com/2001/06/18/business/shining-future-of-fiber-optics-loses-glimmer.html",
+          "image_link": null,
+          "media_link": null,
+          "label": "New-York-Times"
+        }
+      ]
+    },
+    "2001-06-19": {
+      "New-York-Times": [
+        {
+          "timestamp": "2001-06-19T00:00:00.000Z",
+          "title":
+            "World Business Briefing | Europe: Switzerland: Sulzer Medica Profits",
+          "text":
+            "Sulzer Medica, Europe's largest maker of orthopedic products, said that additional costs for the recall of faulty hip joints the company supplied in the United States could hurt profits. More than 1,900 people have undergone surgery to replace the...",
+          "link":
+            "https://www.nytimes.com/2001/06/19/business/world-business-briefing-europe-switzerland-sulzer-medica-profits.html",
+          "image_link": null,
+          "media_link": null,
+          "label": "New-York-Times"
+        }
+      ]
+    },
+    "2001-06-20": {
+      "New-York-Times": [
+        {
+          "timestamp": "2001-06-20T00:00:00.000Z",
+          "title": "Five One-Acts Depicting The Lives of The Entitled",
+          "text":
+            "In Amanda Beesley's quietly riveting one-act play ''The Stolen Child'' a young married couple sit side by side in wooden chairs and, addressing each other and the audience, tell the story of their African honeymoon. The setup suggests they are spe...",
+          "link":
+            "https://www.nytimes.com/2001/06/20/theater/theater-review-five-one-acts-depicting-the-lives-of-the-entitled.html",
+          "image_link": null,
+          "media_link": null,
+          "label": "New-York-Times"
+        }
+      ]
+    },
+    "2001-06-21": {
+      "New-York-Times": [
+        {
+          "timestamp": "2001-06-21T00:00:00.000Z",
+          "title": "Checks by the Batch For 2 in Mayor Race",
+          "text":
+            "The campaigns of two of the four Democratic candidates for mayor are receiving large portions of cash through a practice called bundling, in which intermediaries deliver bundles of checks to a campaign. The total amount of the checks far exceeds t...",
+          "link":
+            "https://www.nytimes.com/2001/06/21/nyregion/checks-by-the-batch-for-2-in-mayor-race.html",
+          "image_link": null,
+          "media_link": null,
+          "label": "New-York-Times"
+        }
+      ],
+      "Wikipedia": [
+        {
+          "timestamp": "2001-06-21T00:00:00.000Z",
+          "title":
+            "A federal grand jury in Alexandria, Virginia, indicts 13 Saudis and a Lebanese in the 1996 bombing of the Khobar Towers in Saudi Arabia that killed 19 American servicemen.",
+          "text":
+            "Learn more: <a href=\"https://en.wikipedia.org/wiki/Alexandria,_Virginia\">Alexandria, Virginia</a>, <a href=\"https://en.wikipedia.org/wiki/Khobar_Towers\">Khobar Towers</a>, <a href=\"https://en.wikipedia.org/wiki/Saudi_Arabia\">Saudi Arabia</a>",
+          "link": "",
+          "image_link":
+            "https://upload.wikimedia.org/wikipedia/commons/a/a7/USA-Alexandria_Marina0.jpg",
+          "media_link": "",
+          "label": "Wikipedia"
+        }
+      ]
+    },
+    "2001-06-22": {
+      "New-York-Times": [
+        {
+          "timestamp": "2001-06-22T00:00:00.000Z",
+          "title": "Tobacco Producers Are Willing to Talk With Justice Dept.",
+          "text":
+            "Some of the nation's big tobacco companies said yesterday that they were willing to sit down with the Justice Department to discuss the possibility of ending the government's multibillion-dollar lawsuit against them.     Responding to overtures ma...",
+          "link":
+            "https://www.nytimes.com/2001/06/22/business/tobacco-producers-are-willing-to-talk-with-justice-dept.html",
+          "image_link": null,
+          "media_link": null,
+          "label": "New-York-Times"
+        }
+      ],
+      "Movies": [
+        {
+          "timestamp": "2001-06-22T00:00:00.000Z",
+          "title": "#1 Movie: The Fast and the Furious",
+          "text": "The Fast and the Furious grossed a total of $57,815,070.",
+          "link": "https://www.imdb.com/find?q=The+Fast+and+the+Furious+2001",
+          "image_link": "https://i.ytimg.com/vi/2TAOizOnNPo/hqdefault.jpg",
+          "media_link": "https://www.youtube.com/watch?v=2TAOizOnNPo",
+          "label": "Movies"
+        }
+      ]
+    },
+    "2001-06-23": {
+      "New-York-Times": [
+        {
+          "timestamp": "2001-06-23T00:00:00.000Z",
+          "title":
+            "Not Dodgers II, but It's Baseball; The Game Is Back in Brooklyn, on a Smaller Scale",
+          "text":
+            "The Slavin brothers, Irish boys from the neighborhood, were discussing the topic of the day at Farrell's tavern in Windsor Terrace.    ''It's the best thing that ever happened to Brooklyn,'' said John, 49. ''Now we have something to call our own. ...",
+          "link":
+            "https://www.nytimes.com/2001/06/23/nyregion/not-dodgers-ii-but-it-s-baseball-the-game-is-back-in-brooklyn-on-a-smaller-scale.html",
+          "image_link": null,
+          "media_link": null,
+          "label": "New-York-Times"
+        }
+      ],
+      "Wikipedia": [
+        {
+          "timestamp": "2001-06-23T00:00:00.000Z",
+          "title":
+            "The 8.4 Mw southern Peru earthquake shakes coastal Peru with a maximum Mercalli intensity of VIII (Severe). A destructive tsunami followed, leaving at least 74 people dead, and 2,687 injured.",
+          "text":
+            "Learn more: <a href=\"https://en.wikipedia.org/wiki/2001_southern_Peru_earthquake\">2001 southern Peru earthquake</a>, <a href=\"https://en.wikipedia.org/wiki/Mercalli_intensity_scale\">Mercalli intensity scale</a>",
+          "link": "",
+          "image_link":
+            "https://upload.wikimedia.org/wikipedia/commons/f/f8/Bullseye1.png",
+          "media_link": "",
+          "label": "Wikipedia"
+        }
+      ],
+      "Billboard": [
+        {
+          "timestamp": "2001-06-23T00:00:00.000Z",
+          "title":
+            "Billboard Hot 100 #1 Song: Lady Marmalade by Christina Aguilera, Lil' Kim, Mya & P!nk",
+          "text": "Lady Marmalade was on the Billboard charts for 11 weeks.",
+          "link":
+            "https://www.youtube.com/results?search_query=Lady+Marmalade+Christina+Aguilera,+Lil'+Kim,+Mya+&+P!nk",
+          "image_link": "https://i.ytimg.com/vi/RQa7SvVCdZk/default.jpg",
+          "media_link": "https://www.youtube.com/watch?v=RQa7SvVCdZk",
+          "label": "Billboard"
+        }
+      ]
+    },
+    "2001-06-24": {
+      "New-York-Times": [
+        {
+          "timestamp": "2001-06-24T00:00:00.000Z",
+          "title": "Singles Seeking Same in Big Bold Type",
+          "text":
+            "THE man, a ''C.E.O. in a major company,'' sought a ''petite Jewish woman, in her 30's, with a joie de vivre, caring heart and integrity, to marry and have children.'' The woman, an  ''owner of an international consulting firm,'' wanted a ''special...",
+          "link":
+            "https://www.nytimes.com/2001/06/24/nyregion/coping-singles-seeking-same-in-big-bold-type.html",
+          "image_link": null,
+          "media_link": null,
+          "label": "New-York-Times"
+        }
+      ]
+    },
+    "2001-06-25": {
+      "New-York-Times": [
+        {
+          "timestamp": "2001-06-25T00:00:00.000Z",
+          "title": "Though Smoking Bill Fails in Albany, Hopes for Ban Persist",
+          "text":
+            "To entertain the notion that Senate Republicans in Albany would get behind a bill to ban smoking in all New York restaurants was considered sheer hubris, even a couple of years ago.    But this year, just such a measure raced through the Legislatu...",
+          "link":
+            "https://www.nytimes.com/2001/06/25/nyregion/though-smoking-bill-fails-in-albany-hopes-for-ban-persist.html",
+          "image_link": null,
+          "media_link": null,
+          "label": "New-York-Times"
+        }
+      ]
+    },
+    "2001-06-26": {
+      "New-York-Times": [
+        {
+          "timestamp": "2001-06-26T00:00:00.000Z",
+          "title":
+            "Seen the Ads? Now, Take the Test; Armed With a No. 2 Pencil, and Ready to Join the Police",
+          "text":
+            "A bumper sticker on a tollbooth on the Triborough Bridge promised work. It read: (212) RECRUIT. The New York Police Department was looking for a few of New York's finest.    Why not? Could be a story. Could be a career. I called the number, and wa...",
+          "link":
+            "https://www.nytimes.com/2001/06/26/nyregion/seen-ads-now-take-test-armed-with-no-2-pencil-ready-join-police.html",
+          "image_link": null,
+          "media_link": null,
+          "label": "New-York-Times"
+        }
+      ]
+    }
+  }
+}
