@@ -11,6 +11,4 @@ const Loader = () => (
   </div>
 );
 
-Loader.propTypes = {};
-
 export default Loader;
