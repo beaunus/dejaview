@@ -1,15 +1,11 @@
 import React, { Component } from "react";
 import "./styles/App.css";
-import Logo from "./components/Logo.jsx";
+import Header from "./components/Header.jsx";
 import Lifeline from "./components/Lifeline.jsx";
-import DatePicker from "./components/DatePicker.jsx";
-import Granularity from "./components/Granularity.jsx";
-import LabelFilter from "./components/LabelFilter";
 import Footer from "./components/Footer";
 import { offsetDate } from "../src/utilities";
 import axios from "axios";
 import moment from "moment";
-import FacebookLoginButton from "./components/FacebookLoginButton";
 
 class App extends Component {
   constructor(props) {
@@ -199,33 +195,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div id="header">
-          <Logo />
-          <div id="date-area">
-            <DatePicker
-              changeDate={this.changeDate}
-              selectedDate={this.state.selectedDate}
-            />
-            <Granularity
-              changeGranularity={this.changeGranularity}
-              granularity={this.state.granularity}
-              navigateByGranularity={this.navigateByGranularity}
-            />
-          </div>
-          <div id="filter-container">
-            {Object.keys(this.state.labels).map((label, index) => {
-              return (
-                <LabelFilter
-                  filtered={!this.state.labels[label]}
-                  key={index}
-                  labelName={label}
-                  toggleLabel={this.toggleLabel}
-                />
-              );
-            })}
-            {!this.state.isLoggedIn ? <FacebookLoginButton /> : ""}
-          </div>
-        </div>
+        <Header
+          changeDate={this.changeDate}
+          changeGranularity={this.changeGranularity}
+          granularity={this.state.granularity}
+          isLoggedIn={this.state.isLoggedIn}
+          labels={this.state.labels}
+          navigateByGranularity={this.navigateByGranularity}
+          selectedDate={this.state.selectedDate}
+          toggleLabel={this.toggleLabel}
+        />
         <Lifeline
           events={this.state.events}
           granularity={this.state.granularity}
