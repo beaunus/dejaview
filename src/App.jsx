@@ -151,6 +151,13 @@ class App extends Component {
    * Load more events onto the bottom of the Lifeline.
    */
   async loadMoreEvents() {
+    let someLabelsAreSelected = false;
+    Object.keys(this.state.labels).map(
+      label => (someLabelsAreSelected |= this.state.labels[label])
+    );
+    if (Object.keys(this.state.labels).length < 1 || !someLabelsAreSelected) {
+      return;
+    }
     try {
       const newEvents = await this.getEvents(this.state.prevDate);
       const prevDate = moment(

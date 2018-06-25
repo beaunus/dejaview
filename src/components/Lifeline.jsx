@@ -10,7 +10,7 @@ const Lifeline = props => (
     <InfiniteScroll
       hasMore={props.hasMore}
       initialLoad={false}
-      loader={<Loader key={0} />}
+      loader={<Loader labels={props.labels} key={0} />}
       loadMore={props.loadMoreEvents}
       pageStart={0}
       threshold={1000}

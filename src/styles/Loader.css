@@ -2,6 +2,19 @@
   display: flex;
   justify-content: center;
   margin-bottom: 3em;
+  padding: 0.5em;
+}
+
+.loader img {
+  z-index: 1;
+}
+
+.loader p {
+  border-radius: 0.5em;
+  margin-left: 0.25em;
+  padding: 0.5em;
+  background: white;
+  z-index: 1;
 }
 
 .trinity-rings-spinner,
