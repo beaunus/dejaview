@@ -60,10 +60,9 @@ class App extends Component {
     num = this.state.numGrainsPerRequest
   ) {
     try {
-      const data = (await axios.get(
+      return (await axios.get(
         `/api/v1/${date}/?granularity=${granularity}s&num=${num}`
       )).data;
-      return data;
     } catch (error) {
       console.log(`Error getting data from API call.${error}`);
       throw error;
