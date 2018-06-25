@@ -1,12 +1,11 @@
 import React from "react";
+import FontAwesomeIcon from "@fortawesome/react-fontawesome";
+import { faCode, faHeart } from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => (
   <footer>
     <div>
-      Made with{" "}
-      <span role="img" aria-label="love">
-        ❤️
-      </span>{" "}
+      <FontAwesomeIcon icon={faCode} /> with <FontAwesomeIcon icon={faHeart} />{" "}
       by{" "}
       <a href="about.html" target="_blank">
         Déjà View Team
