@@ -47,15 +47,6 @@ body {
   justify-content: center;
 }
 
-#fixed-header {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  z-index: 2;
-  background-color: #326273;
-  width: 100%;
-}
-
 #header > div {
   padding: 0.5em;
 }
@@ -111,4 +102,19 @@ footer {
   padding: 0.5em;
   width: 100%;
   z-index: 2;
+}
+#fixed-header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+  background-color: #326273;
+  width: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+  #fixed-header {
+    position: absolute;
+    background-color: #326273;
+  }
 }
