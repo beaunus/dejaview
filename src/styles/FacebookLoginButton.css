@@ -11,6 +11,12 @@
   white-space: nowrap;
 }
 
+#login-button-area a {
+  border: 0px;
+  box-shadow: 0 0 0;
+  background: inherit;
+}
+
 .facebook-login {
   align-items: center;
   background: #395ca9;
@@ -18,9 +24,6 @@
   border-radius: 5px;
   color: white;
   display: flex;
-  font-family: Graphik LCG Web, Graphik Arabic Web Regular, -apple-system,
-    BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, Lucida Grande,
-    Sans-Serif;
   font-size: 1em;
   padding: 0.3em 0.5em;
 }

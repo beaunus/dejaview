@@ -25,7 +25,12 @@
 /* The text that is written on the buttons. */
 #granularity-selector input + div .label {
   display: inline-flex;
-  padding: 0.75em 1em;
+  padding: 0.25em 0.7em;
+  font-size: 0.9em;
+}
+
+.granularity-nav-button {
+  padding: 0;
 }
 
 #granularity-selector input + div .label,

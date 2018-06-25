@@ -1,0 +1,135 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous" />
+  <link rel="shortcut icon" href="./favicon.png" />
+  <meta charset="UTF-8" />
+  <title>Déjà View Data</title>
+</head>
+
+<body>
+  <div class="logo">
+    <img src="./images/DejaViewLogo-light_background.png" />
+  </div>
+  <section id="data-sources">
+    <h1>
+      Data Sources
+    </h1>
+    <p>
+      Data on
+      <b>Déjà View</b> comes from multiple sources. Each source has unique characteristics.
+      <div class="data-source">
+        <div class="data-source-title">
+          <img src="./images/BillboardLogo2013.svg" />
+        </div>
+        <div class="data-source-description">
+          <b>Billboard</b> publishes the
+          <i>Billboard Hot 100 list</i> at
+          <a href="https://www.billboard.com/charts/hot-100">www.billboard.com/charts/hot-100</a>. There is no API so we had to parse the HTML. Here's how we got what we needed
+          for a given week:
+          <ol>
+            <li>Send a request to the Billboard Hot 100 page.</li>
+            <li>
+              Store the
+              <i>artist</i>,
+              <i>song title</i>, and
+              <i>number of weeks on the chart</i> for the top 10 songs in a JSON file as a backup.
+            </li>
+            <li>
+              Lookup the video on YouTube.
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="data-source">
+        <div class="data-source-title">
+          <img src="./images/the-numbers-banner.png" />
+        </div>
+        <div class="data-source-description">
+          <b>The Numbers</b> publishes popular movies' gross box office sales at
+          <a href="https://www.the-numbers.com/box-office">www.the-numbers.com/box-office</a>. There is no API so we had to parse the HTML. Here's how we got what we needed
+          for a given week:
+          <ol>
+            <li>Send a request to The Numbers page. </li>
+            <ul>
+              <li>See if there is a listing for a given week. If so, use the
+                <i>weekly</i> chart.</li>
+              <li>
+                If not, see if there is a listing for the
+                <i>weekend</i>.
+              </li>
+            </ul>
+            <li>
+              Store the
+              <i>movie</i>, and
+              <i>gross sales</i> for all available movies in a JSON file as a backup.
+            </li>
+            <li>
+              Lookup the trailer on YouTube.
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="data-source">
+        <div class="data-source-title">
+          <img src="./images/NewYorkTimesLogo.svg" />
+        </div>
+        <div class="data-source-description">
+          <b>The New York Times</b> provides a public API at
+          <a href="https://developer.nytimes.com/" target="_blank">developer.nytimes.com</a>. Here's how we got what we needed for a given date:
+          <ol>
+            <li>Send a request to the
+              <b>Article Search API</b>.</li>
+            <li>
+              Store the raw data in a JSON file as a backup.
+            </li>
+            <li>
+              Use only the
+              <i>headline</i>,
+              <i>link</i>,
+              <i>snippet</i>, and
+              <i>multimedia</i> in our database.
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="data-source">
+        <div class="data-source-title">
+          <img src="./images/Wikipedia_wordmark.svg" />
+        </div>
+        <div class="data-source-description">
+          <b>Wikipedia</b> lists important events for every calendar day at links similar to
+          <a href="https://en.wikipedia.org/wiki/April_1" target="_blank">en.wikipedia.org/wiki/April_1</a>. We had to parse the HTML. Here's how we got what we needed for a given date:
+          <ol>
+            <li>Send a request to the Wikipedia page.</li>
+            <li>
+              Store the raw data in a JSON file as a backup.
+            </li>
+            <li>
+              Use only the
+              <i>events</i> and
+              <i>births</i> in our database.
+            </li>
+          </ol>
+        </div>
+      </div>
+  </section>
+  <section>
+    <h1>
+      Staying Up-to-Date
+    </h1>
+    <p>
+      In order to maintain current data, we scheduled an AWS Lambda function to run periodically to retrieve new data from the
+      sources that are updated regularly.
+
+    </p>
+    <p>
+      You can read more about it at
+      <a href="https://github.com/xzjia/dejaview-scraper" target="_blank">github.com/xzjia/dejaview-scraper</a>.
+    </p>
+  </section>
+</body>
+
+</html>

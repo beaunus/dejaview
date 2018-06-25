@@ -47,7 +47,8 @@ const getRawEvents = async (beginningDate, endingDate, granularity, n = 1) => {
     event.label_id,
     row_number() over (partition by label_id,extract(${granularity} from timestamp) order by random()) as rn  
     from event where timestamp >= '${beginningDate}' AND timestamp < '${endingDate}')as random_sub 
-    inner join label on label.id = random_sub.label_id where rn <= ${n}`;
+    inner join label on label.id = random_sub.label_id where rn <= ${n}
+    order by timestamp desc`;
   const result = await db.raw(query);
   return result.rows;
 };

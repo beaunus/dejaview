@@ -2,42 +2,42 @@
 
 .lifeline {
   position: relative;
-  margin: 0 auto;
+  margin: 0 auto 1.8em;
 }
 
 /* The actual lifeline (the vertical ruler) */
 
 .lifeline::after {
-  background-color: white;
-  bottom: 0;
-  content: "";
-  left: 50%;
-  margin-left: -1px;
   position: absolute;
   top: 0;
+  bottom: 0;
+  left: 50%;
+  background-color: white;
+  content: "";
+  margin-left: -1px;
   width: 2px;
 }
 
 /* Container around content */
 
 .container {
+  position: relative;
   background-color: inherit;
   padding: 10px 40px;
-  position: relative;
   width: 50%;
 }
 
 /* The circles on the lifeline */
 
 .container::after {
-  content: "";
   position: absolute;
+  top: 22px;
+  right: -9px;
+  content: "";
   width: 14px;
   height: 14px;
-  right: -9px;
   background-color: var(--color-medium);
   border: 2px solid white;
-  top: 22px;
   border-radius: 50%;
   z-index: 1;
 }
@@ -57,13 +57,13 @@
 /* Add arrows to the left container (pointing right) */
 
 .left::before {
-  content: " ";
-  height: 0;
   position: absolute;
   top: 22px;
+  right: 30px;
+  content: " ";
+  height: 0;
   width: 0;
   z-index: 1;
-  right: 30px;
   border: medium solid white;
   border-width: 10px 0 10px 10px;
   border-color: transparent transparent transparent white;
@@ -72,13 +72,13 @@
 /* Add arrows to the right container (pointing left) */
 
 .right::before {
-  content: " ";
-  height: 0;
   position: absolute;
   top: 22px;
+  left: 30px;
+  content: " ";
+  height: 0;
   width: 0;
   z-index: 1;
-  left: 30px;
   border: medium solid white;
   border-width: 10px 10px 10px 0;
   border-color: transparent white transparent transparent;
@@ -93,29 +93,15 @@
 /* The actual content */
 
 .content {
+  position: relative;
   padding: 1em;
   background-color: white;
-  position: relative;
   border-radius: 6px;
   box-shadow: 1px 1px 5px #000;
 }
 
 /* Custom classes */
 /* The way things look, rather than where they appear. */
-
-.lifeline a {
-  border-bottom: solid var(--color-highlight) 1px;
-  box-shadow: inset 0 -1px 0 var(--color-highlight);
-  color: inherit;
-  text-decoration: none;
-  transition: background 0.2s ease-in-out;
-}
-
-.lifeline a:hover {
-  background: var(--color-highlight);
-  text-decoration: none;
-  transition: background 0.2s ease-in-out;
-}
 
 /* Don't pad the last paragraph. */
 .content > *:last-child > p:last-child {
@@ -136,14 +122,16 @@
 }
 
 .headline {
+  display: inline-flex;
   align-items: center;
   background: #eee;
   border: solid white 1px;
   border-bottom-color: #ddd;
   border-right-color: #ddd;
-  display: inline-flex;
+  font-size: 1em;
+  font-weight: 500;
   padding: 1px;
-  padding-right: 5px;
+  padding-right: 0.5em;
 }
 
 .headline + * {
@@ -233,6 +221,10 @@ p:not(:first-child) {
 }
 
 @media screen and (max-width: 400px) {
+  .headline {
+    font-size: 1em;
+  }
+
   .event-more {
     flex-wrap: wrap;
   }

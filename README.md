@@ -1,17 +1,26 @@
 # Déjà View
 
-This app is hosted at https://www.dejaview.cc/.
+This app is hosted at http://www.dejaview.cc/.
 
-_Déjà View_ is a way to look at the events in your life from a birds' eye view.
+The data scraping code for this app can be found at https://github.com/xzjia/dejaview-scraper.
 
-This application is still under development, so some of the features are not yet in the codebase.
+## What is Déjà View?
 
-## How Does It Work
+_Déjà View_ is a way to look at the events in your life at a glance. It looks something like this:
 
-You need to login to our application using your preferred login method.
+<img width="560" alt="deja-view-screenshot" src="https://user-images.githubusercontent.com/535311/41805140-9559113e-76de-11e8-8700-7419f8e02bed.png">
 
-Once you are logged in, you can choose a date and see the most popular New York Times articles for the week leading up to that date. Alongside the news headlines, you can see what you were posting on social media, and where you were living at the time.
+## How to use it
 
-## What it should look like
-
-![screen shot 2018-06-05 at 9 56 28](https://user-images.githubusercontent.com/535311/40949017-d1e84b38-68a6-11e8-96ea-5b12f9e983a2.png)
+- Choose a date from the date selector.
+  - You will see a series of _cards_ from that date.
+- Choose a _granularity_ (YEAR, MONTH, WEEK, DAY).
+  - Each _card_ represents one YEAR, MONTH, WEEK, or DAY.
+- Navigate forward and backward.
+  - Use the date selector, or
+  - Use the arrow buttons under the _granularity_ selectors.
+- Choose what kind of events that you want to see.
+  - By default, events from all available data sources are shown.
+  - Click on the _data source filters_ (Billboard, Movies, etc.) to hide or show certain data sources.
+- Log in to Facebook to show your posts from Facebook.
+  - _We are currently in the process of getting approval from Facebook. If you would like to be a *tester* for this app, please [let us know](http://www.dejaview.cc/about)._
