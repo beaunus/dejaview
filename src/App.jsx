@@ -37,7 +37,8 @@ class App extends Component {
     this.setState({
       events: await this.getEvents(
         this.state.selectedDate,
-        this.state.granularity
+        this.state.granularity,
+        this.state.numGrainsPerRequest
       ),
       labels: await this.getInitialLabels()
     });
@@ -55,8 +56,7 @@ class App extends Component {
       const data = (await axios.get(
         `/api/v1/${date}/?granularity=${granularity}s&num=${num}`
       )).data;
-      this.setState({ isLoggedIn: data.isLoggedIn });
-      return data.events;
+      return data;
     } catch (error) {
       console.log(`Error getting data from API call.${error}`);
       throw error;
@@ -86,7 +86,11 @@ class App extends Component {
   async changeDate(selectedDate) {
     try {
       this.setState({
-        events: await this.getEvents(selectedDate, this.state.granularity),
+        events: await this.getEvents(
+          selectedDate,
+          this.state.granularity,
+          this.state.numGrainsPerRequest
+        ),
         selectedDate,
         prevDate: moment(selectedDate)
           .add(
@@ -106,7 +110,11 @@ class App extends Component {
    */
   async changeGranularity(granularity) {
     this.setState({
-      events: await this.getEvents(this.state.selectedDate, granularity),
+      events: await this.getEvents(
+        this.state.selectedDate,
+        granularity,
+        this.state.numGrainsPerRequest
+      ),
       granularity,
       prevDate: moment(this.state.selectedDate)
         .add(-`${this.state.numGrainsPerRequest}`, `${this.state.granularity}s`)
@@ -149,9 +157,8 @@ class App extends Component {
   }
 
   async loadMoreEvents() {
-    console.log("loadMoreEvents");
     try {
-      const data = (await axios.get(
+      const newEvents = (await axios.get(
         `/api/v1/${this.state.prevDate}/?granularity=${
           this.state.granularity
         }s&num=${this.state.numGrainsPerRequest}`
@@ -164,7 +171,7 @@ class App extends Component {
         )
       ).format("YYYY-MM-DD");
       this.setState({
-        events: { ...this.state.events, ...data.events },
+        events: { ...this.state.events, ...newEvents },
         prevDate
       });
     } catch (error) {
