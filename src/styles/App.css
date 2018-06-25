@@ -32,7 +32,12 @@ body {
 
 #date-area {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#date-area > div {
+  margin: 0.25em;
 }
 
 #header {
