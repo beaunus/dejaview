@@ -5,6 +5,7 @@ import Lifeline from "./components/Lifeline.jsx";
 import DatePicker from "./components/DatePicker.jsx";
 import Granularity from "./components/Granularity.jsx";
 import LabelFilter from "./components/LabelFilter";
+import Footer from "./components/Footer";
 import { offsetDate } from "../src/utilities";
 import axios from "axios";
 import moment from "moment";
@@ -164,6 +165,8 @@ class App extends Component {
           granularity={this.state.granularity}
           labels={this.state.labels}
         />
+        {Object.keys(this.state.events).length > 0 ? <Footer /> : ""}
+        {/* <Footer /> */}
       </div>
     );
   }

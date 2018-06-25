@@ -11,6 +11,12 @@
   white-space: nowrap;
 }
 
+#login-button-area a {
+  border: 0px;
+  box-shadow: 0 0 0;
+  background: inherit;
+}
+
 .facebook-login {
   align-items: center;
   background: #395ca9;
