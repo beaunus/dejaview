@@ -20,9 +20,7 @@ class App extends Component {
       isLoggedIn: false,
       labels: {},
       selectedDate: moment().format("YYYY-MM-DD"),
-      prevDate: moment(
-        offsetDate(moment(), granularity, -numGrainsPerRequest)
-      ).format("YYYY-MM-DD")
+      prevDate: moment().format("YYYY-MM-DD")
     };
     this.changeDate = this.changeDate.bind(this);
     this.toggleLabel = this.toggleLabel.bind(this);
@@ -98,17 +96,19 @@ class App extends Component {
    * @param {String} selectedDate
    */
   async changeDate(selectedDate) {
+    const prevDate = moment(
+      offsetDate(
+        selectedDate,
+        this.state.granularity,
+        -this.state.numGrainsPerRequest
+      )
+    ).format("YYYY-MM-DD");
     try {
       this.setState({
         events: await this.getEvents(selectedDate),
         selectedDate,
-        prevDate: moment(
-          offsetDate(
-            selectedDate,
-            this.state.granularity,
-            -this.state.numGrainsPerRequest
-          )
-        ).format("YYYY-MM-DD")
+        prevDate,
+        hasMore: moment(prevDate).isAfter(moment("1000-01-01"))
       });
     } catch (error) {
       console.log(error);
@@ -120,16 +120,18 @@ class App extends Component {
    * @param {String} granularity
    */
   async changeGranularity(granularity) {
+    const prevDate = moment(
+      offsetDate(
+        this.state.selectedDate,
+        granularity,
+        -this.state.numGrainsPerRequest
+      )
+    ).format("YYYY-MM-DD");
     this.setState({
       events: await this.getEvents(this.state.selectedDate, granularity),
       granularity,
-      prevDate: moment(
-        offsetDate(
-          this.state.selectedDate,
-          granularity,
-          -this.state.numGrainsPerRequest
-        )
-      ).format("YYYY-MM-DD")
+      prevDate,
+      hasMore: moment(prevDate).isAfter(moment("1000-01-01"))
     });
   }
 
