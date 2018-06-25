@@ -20,6 +20,13 @@ router.get("/labels", async (req, res) => {
 });
 
 /**
+ * Respond with an array of strings of all labels that are in the system.
+ */
+router.get("/isLoggedIn", async (req, res) => {
+  res.status(200).send(req.isAuthenticated());
+});
+
+/**
  * The main endpoint for the API server.
  *
  * A "champion" event is the "best" event for a given granularity.

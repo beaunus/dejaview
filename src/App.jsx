@@ -36,6 +36,7 @@ class App extends Component {
 
   async componentDidMount() {
     this.setState({
+      isLoggedIn: await this.isLoggedIn(),
       events: await this.getEvents(
         this.state.selectedDate,
         this.state.granularity,
@@ -75,6 +76,19 @@ class App extends Component {
         acc[label] = true;
         return acc;
       }, {});
+    } catch (error) {
+      console.log(`Error getting data from API call.${error}`);
+    }
+  }
+
+  /**
+   * Return whether or not the user is currently logged in.
+   *
+   * @returns {Boolean}
+   */
+  async isLoggedIn() {
+    try {
+      return (await axios.get(`/api/v1/isLoggedIn`)).data;
     } catch (error) {
       console.log(`Error getting data from API call.${error}`);
     }
