@@ -11,7 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     const granularity = "day";
-    const numGrainsPerRequest = 12;
+    const numGrainsPerRequest = 20;
     this.state = {
       events: {},
       granularity,
