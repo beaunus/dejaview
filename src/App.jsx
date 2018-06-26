@@ -31,11 +31,6 @@ class App extends Component {
   async componentDidMount() {
     this.setState({
       isLoggedIn: await this.isLoggedIn(),
-      events: await this.getEvents(
-        this.state.selectedDate,
-        this.state.granularity,
-        this.state.numGrainsPerRequest
-      ),
       labels: await this.getInitialLabels()
     });
   }
@@ -105,7 +100,7 @@ class App extends Component {
     ).format("YYYY-MM-DD");
     try {
       this.setState({
-        events: await this.getEvents(selectedDate),
+        events: {},
         selectedDate,
         prevDate,
         hasMore: moment(prevDate).isAfter(moment("1000-01-01"))
@@ -128,7 +123,7 @@ class App extends Component {
       )
     ).format("YYYY-MM-DD");
     this.setState({
-      events: await this.getEvents(this.state.selectedDate, granularity),
+      events: {},
       granularity,
       prevDate,
       hasMore: moment(prevDate).isAfter(moment("1000-01-01"))
