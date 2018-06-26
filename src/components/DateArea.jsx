@@ -12,6 +12,7 @@ const DateArea = props => (
     <Granularity
       changeGranularity={props.changeGranularity}
       granularity={props.granularity}
+      changeDate={props.changeDate}
     />
   </div>
 );

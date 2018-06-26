@@ -110,6 +110,10 @@ class App extends Component {
         prevDate,
         hasMore: moment(prevDate).isAfter(moment("1000-01-01"))
       });
+      const datePickerInput = document.getElementById("date-picker")
+        .children[0];
+      datePickerInput.value = this.state.selectedDate;
+      window.scrollTo(0, 0);
     } catch (error) {
       console.log(error);
     }
@@ -133,6 +137,7 @@ class App extends Component {
       prevDate,
       hasMore: moment(prevDate).isAfter(moment("1000-01-01"))
     });
+    window.scrollTo(0, 0);
   }
 
   /**
@@ -183,15 +188,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header
-          changeDate={this.changeDate}
-          changeGranularity={this.changeGranularity}
-          granularity={this.state.granularity}
-          isLoggedIn={this.state.isLoggedIn}
-          labels={this.state.labels}
-          selectedDate={this.state.selectedDate}
-          toggleLabel={this.toggleLabel}
-        />
+        <div id="fixed-header">
+          <Header
+            changeDate={this.changeDate}
+            changeGranularity={this.changeGranularity}
+            granularity={this.state.granularity}
+            isLoggedIn={this.state.isLoggedIn}
+            labels={this.state.labels}
+            selectedDate={this.state.selectedDate}
+            toggleLabel={this.toggleLabel}
+          />
+        </div>
         <Lifeline
           events={this.state.events}
           granularity={this.state.granularity}
