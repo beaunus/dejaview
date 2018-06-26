@@ -7,12 +7,14 @@ import Filters from "./Filters";
 const Header = props => (
   <div id="header">
     <Logo />
-    <DateArea
-      changeDate={props.changeDate}
-      selectedDate={props.selectedDate}
-      changeGranularity={props.changeGranularity}
-      granularity={props.granularity}
-    />
+    <div className="center">
+      <DateArea
+        changeDate={props.changeDate}
+        selectedDate={props.selectedDate}
+        changeGranularity={props.changeGranularity}
+        granularity={props.granularity}
+      />
+    </div>
     <Filters
       isLoggedIn={props.isLoggedIn}
       labels={props.labels}
