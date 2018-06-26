@@ -31,11 +31,6 @@ class App extends Component {
   async componentDidMount() {
     this.setState({
       isLoggedIn: await this.isLoggedIn(),
-      events: await this.getEvents(
-        this.state.selectedDate,
-        this.state.granularity,
-        this.state.numGrainsPerRequest
-      ),
       labels: await this.getInitialLabels()
     });
   }
