@@ -3,17 +3,6 @@
 .lifeline {
   position: relative;
   margin: 0 auto 1.8em;
-  padding-top: 7.7em;
-  z-index: 1;
-}
-
-#felix {
-  position: absolute;
-  width: 100%;
-  margin: 0 auto;
-  padding-top: 12em;
-  z-index: 1;
-  height: 400px;
 }
 
 /* The actual lifeline (the vertical ruler) */
@@ -27,7 +16,6 @@
   content: "";
   margin-left: -1px;
   width: 2px;
-  z-index: 0;
 }
 
 /* Container around content */

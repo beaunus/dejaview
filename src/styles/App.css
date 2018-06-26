@@ -54,6 +54,7 @@ body {
 .logo {
   display: flex;
   justify-content: center;
+  margin-bottom: 1em;
 }
 
 .logo img {
@@ -101,5 +102,5 @@ footer {
   justify-content: space-around;
   padding: 0.5em;
   width: 100%;
-  z-index: 2;
+  z-index: 1;
 }

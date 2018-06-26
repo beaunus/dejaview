@@ -137,7 +137,6 @@ class App extends Component {
       prevDate,
       hasMore: moment(prevDate).isAfter(moment("1000-01-01"))
     });
-    window.scrollTo(0, 0);
   }
 
   /**
@@ -197,7 +196,6 @@ class App extends Component {
           selectedDate={this.state.selectedDate}
           toggleLabel={this.toggleLabel}
         />
-
         <Lifeline
           events={this.state.events}
           granularity={this.state.granularity}
