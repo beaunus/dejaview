@@ -1,4 +1,5 @@
 const getIndexedEvent = rawEvent => {
+  const timestamp = rawEvent.created_time;
   let title = "";
   let text = "";
   const link = rawEvent.permalink_url;
@@ -61,6 +62,7 @@ const getIndexedEvent = rawEvent => {
   }
 
   return {
+    timestamp,
     title,
     text,
     link,
