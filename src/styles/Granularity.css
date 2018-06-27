@@ -5,6 +5,10 @@
   margin: 0 0 1em;
 }
 
+#granularity-selector label {
+  cursor: pointer;
+}
+
 /* Hide the checkboxes. */
 #granularity-selector input {
   display: none;
