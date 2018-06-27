@@ -6,11 +6,11 @@ Deja View REST API
 
 ## GET /api/v1/:date
 
-Information returned always starts at the \*\*:date\*\* value.
+Information returned always starts at the **:date** value.
 
 The format of :date is **YYYY-MM-DD**
 
-Two parameters are **required** _granularity_ and _num_
+Two parameters are can be used to set the information returned: _granularity_ and _num_
 
 **num** equals the number of records returned for each label
 
@@ -34,7 +34,7 @@ http://localhost:3001/api/v1/2018-06-26/?granularity=days&num=20
 
 ### Data
 
-- API GEt returns an bject with Dates for keys grouping each card displayed on the front end
+- API GET returns an object with Dates for keys grouping each card displayed on the front end
   - Value for each Date key is an object with labels (NYT, Wikepdia, etc) as keys
   - Values for the label keys are an array of event objects
   - Event object contains timestamp, title, text, link, image_link, media_link, and label

@@ -11,7 +11,7 @@ The data scraping code for this app can be found at https://github.com/xzjia/dej
 Looking back over the events of our digital lives can be cumbersome. _Déjà View_ is a web application that allows you to see events during your life (and before) in a given time frame. By combining publicly available information and a users social media feed we created a unique experience not available anywhere else.
 
 <p align="center">
-<img  height="400" width="200" alt="deja-view-screenshot" src="https://user-images.githubusercontent.com/535311/41805140-9559113e-76de-11e8-8700-7419f8e02bed.png">
+<img   width="90%" alt="deja-view-screenshot" src="documentation/djv_screenshot.png">
 </p>
 ## How to use it
 
@@ -42,11 +42,11 @@ createdb dejaview
 
 #### Create a Facebook App
 
-You can [create a Facebook App](https://developers.facebook.com/docs/apps/register) for free. Once you've created an App, you'll need the app ID and app secret.
+You can [create a Facebook App](https://developers.facebook.com/docs/apps/register) for free. Once you've created an App, you'll need the app ID and app secret. If you want to use the application without facebook integration you can skip this step.
 
 #### Set the callback URL
 
-You'll need to set the URL that Facebook Login will come back to after successful login. This should be the root domain of the place where your app is running. For development localhost will work.
+You'll need to set the URL that Facebook Login will come back to after successful login. This should be the root domain of the place where your app is running. For development localhost will work. If you want to use the application without facebook integration you can skip this step.
 
 ### Environment Variables
 
@@ -74,7 +74,7 @@ knex migrate:latest
 knex seed:run
 ```
 
-See the schema for [dejaview](documentation/dbschema.png) for details on the database. Some sample records are loaded but for more information on how the data was loaded into the original application look at the [Deja View Scraper Project](https://github.com/xzjia/dejaview-scraper)
+See the [dejaview schema](documentation/dbschema.png) for details on the database. Some sample records are loaded when seeding the database, but for more information on how the data was loaded into the original application look at the [Deja View Scraper Project](https://github.com/xzjia/dejaview-scraper)
 
 Run yarn start to run the application on port 3001.
 
@@ -130,6 +130,7 @@ This project is licensed under the MIT License - see the [LICENSE](documentation
 
 ## Acknowledgments
 
-- Thank you to [Tim Urban](https://waitbutwhy.com/2014/05/life-weeks.html/) for the product inspiration.
+- Thank you to [Tim Urban](https://waitbutwhy.com/2014/05/life-weeks.html/) for the inspiration to look at the weeks of our lives.
 - Thank you to [Facebook](https://developers.facebook.com/docs/graph-api/) for their Graph API.
+- Thenk you to our public [data sources](http://www.dejaview.cc/data.html) (New York Times, Wikipedia, The-Numbers, and Billboard)
 - Thank you to [Code Chrysalis](https://www.codechrysalis.io/), without you this project wouldn't exist.
