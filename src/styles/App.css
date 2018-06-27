@@ -37,8 +37,9 @@ input {
 
 #date-area {
   display: flex;
+  flex-grow: 1;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 #date-area > div {
@@ -49,7 +50,8 @@ input {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
+  padding: 0 3em;
 }
 
 #header > div {
@@ -59,11 +61,11 @@ input {
 .logo {
   display: flex;
   justify-content: center;
-  margin-bottom: 1em;
+  align-items: center;
 }
 
 .logo img {
-  height: 8em;
+  height: 5em;
   image-rendering: crisp-edges;
 }
 
