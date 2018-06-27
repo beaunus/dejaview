@@ -29,7 +29,7 @@ The records returned always start with the _:date_ and then go backwards in time
 ### API call
 
 ```
-http://localhost:3001/api/v1/2018-06-26/?granularity=days&num=20
+http://localhost:3001/api/v1/2018-06-26?granularity=days&num=20
 ```
 
 ### Data
