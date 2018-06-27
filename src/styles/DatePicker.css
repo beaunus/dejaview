@@ -1,7 +1,7 @@
 #date-picker {
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
+  align-self: center;
 }
 
 #date-picker input {

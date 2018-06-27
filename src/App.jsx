@@ -105,6 +105,10 @@ class App extends Component {
         prevDate,
         hasMore: moment(prevDate).isAfter(moment("1000-01-01"))
       });
+      const datePickerInput = document.getElementById("date-picker")
+        .children[0];
+      datePickerInput.value = this.state.selectedDate;
+      window.scrollTo(0, 0);
     } catch (error) {
       console.log(error);
     }
