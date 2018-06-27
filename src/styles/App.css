@@ -37,8 +37,8 @@ input {
 
 #date-area {
   display: flex;
-  flex-wrap: wrap;
   flex-grow: 1;
+  flex-wrap: wrap;
   justify-content: space-evenly;
 }
 

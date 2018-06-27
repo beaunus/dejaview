@@ -2,7 +2,7 @@
 #granularity-selector {
   display: flex;
   justify-content: center;
-  margin: 0 0 1em;
+  /* margin: 0 0 1em; */
 }
 
 #granularity-selector label {
