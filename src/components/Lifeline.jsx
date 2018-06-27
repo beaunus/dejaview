@@ -1,15 +1,37 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Card from "./Card";
+import Felix from "./Felix";
+import Loader from "./Loader";
+import InfiniteScroll from "react-infinite-scroller";
 import "../styles/Lifeline.css";
-import moment from "moment";
 
 const Lifeline = props => {
+  let someLabelsAreSelected = false;
+  Object.keys(props.labels).map(
+    label => (someLabelsAreSelected |= props.labels[label])
+  );
+
+  if (Object.keys(props.labels).length > 0 && !someLabelsAreSelected) {
+    return (
+      <Felix
+        quote="I&apos;m gonna need you to go ahead and not un-select all of the data
+    source filters."
+      />
+    );
+  }
   return (
     <div className="lifeline">
-      {Object.keys(props.events)
-        .sort((a, b) => moment(new Date(b)) > moment(new Date(a)))
-        .map((date, index) => (
+      <InfiniteScroll
+        hasMore={props.hasMore}
+        loader={
+          <Loader hasMore={props.hasMore} labels={props.labels} key={0} />
+        }
+        loadMore={props.loadMoreEvents}
+        pageStart={0}
+        threshold={1000}
+      >
+        {Object.keys(props.events).map((date, index) => (
           <Card
             date={date}
             events={props.events[date]}
@@ -19,6 +41,7 @@ const Lifeline = props => {
             labels={props.labels}
           />
         ))}
+      </InfiniteScroll>
     </div>
   );
 };
@@ -26,7 +49,9 @@ const Lifeline = props => {
 Lifeline.propTypes = {
   events: PropTypes.object.isRequired,
   granularity: PropTypes.string.isRequired,
-  labels: PropTypes.object.isRequired
+  hasMore: PropTypes.bool.isRequired,
+  labels: PropTypes.object.isRequired,
+  loadMoreEvents: PropTypes.func.isRequired
 };
 
 export default Lifeline;
