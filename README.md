@@ -1,6 +1,6 @@
 # Déjà View
 
-This was created during our time as students at Code Chrysalis.
+This was created during our time as students at [Code Chrysalis](https://www.codechrysalis.io/).
 
 This app is hosted at http://www.dejaview.cc/.
 
@@ -8,7 +8,7 @@ The data scraping code for this app can be found at https://github.com/xzjia/dej
 
 ## What is Déjà View?
 
-Looking back over the events of our digital lives can be cumbersome. _Déjà View_ is a web application that allows you to see events during your life (and before) in a given time frame. By combining publicly available information and a users social media feed we created a unique experience not available anywhere else.
+Looking back over the events of our digital lives can be cumbersome. _Déjà View_ is a web application that allows you to see events during your life (and before) in a given time frame. By combining publicly available information and a user's social media feed we created a unique experience not available anywhere else.
 
 <p align="center">
 <img   width="90%" alt="deja-view-screenshot" src="documentation/djv_screenshot.png">
@@ -28,6 +28,8 @@ Looking back over the events of our digital lives can be cumbersome. _Déjà Vie
 
   - _We are currently in the process of getting approval from Facebook. If you would like to be a *tester* for this app, please [let us know](http://www.dejaview.cc/about)._
 
+#For Developers
+
 ## Getting Started
 
 ### Prerequisites
@@ -46,7 +48,7 @@ You can [create a Facebook App](https://developers.facebook.com/docs/apps/regist
 
 #### Set the callback URL
 
-You'll need to set the URL that Facebook Login will come back to after successful login. This should be the root domain of the place where your app is running. For development localhost will work. If you want to use the application without facebook integration you can skip this step.
+You'll need to set the URL that Facebook Login will come back to after a successful login. This should be the root domain of the place where your app is running. For development localhost will work. If you want to use the application without facebook integration you can skip this step.
 
 ### Environment Variables
 

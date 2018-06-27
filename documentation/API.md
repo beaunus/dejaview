@@ -20,11 +20,11 @@ There are four acceptable values:
 - days - returns one record for each label for each day , the number of days = _num_
 - weeks - returns one record for each label for each week , the number of weeks = _num_
 - months - returns one record for each label for each month , the number of months = _num_
-- weeks - returns one record for each label for each year , the number of year = _num_
+- weeks - returns one record for each label for each year , the number of years = _num_
 
 The records returned always start with the _:date_ and then go backwards in time.
 
-##Examples
+## Examples
 
 ### API call
 
