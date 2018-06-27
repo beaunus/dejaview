@@ -38,7 +38,8 @@ input {
 #date-area {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  flex-grow: 1;
+  justify-content: space-evenly;
 }
 
 #date-area > div {
@@ -49,7 +50,8 @@ input {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
+  padding: 0 3em;
 }
 
 #header > div {
