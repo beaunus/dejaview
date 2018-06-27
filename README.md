@@ -8,7 +8,7 @@ The data scraping code for this app can be found at https://github.com/xzjia/dej
 
 ## What is Déjà View?
 
-Looking back over the events of our digital lives can be cumbersome. _Déjà View_ is a web application that allows you to see events during your life (and before) in a given time. By combining publicly available information and a users social media feed we created a unique experience not available anywhere else.
+Looking back over the events of our digital lives can be cumbersome. _Déjà View_ is a web application that allows you to see events during your life (and before) in a given time frame. By combining publicly available information and a users social media feed we created a unique experience not available anywhere else.
 
 <p align="center">
 <img  height="400" width="200" alt="deja-view-screenshot" src="https://user-images.githubusercontent.com/535311/41805140-9559113e-76de-11e8-8700-7419f8e02bed.png">
@@ -28,7 +28,7 @@ Looking back over the events of our digital lives can be cumbersome. _Déjà Vie
 
   - _We are currently in the process of getting approval from Facebook. If you would like to be a *tester* for this app, please [let us know](http://www.dejaview.cc/about)._
 
-## Getting Starteds
+## Getting Started
 
 ### Prerequisites
 
