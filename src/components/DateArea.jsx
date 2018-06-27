@@ -4,7 +4,7 @@ import DatePicker from "./DatePicker.jsx";
 import Granularity from "./Granularity.jsx";
 
 const DateArea = props => (
-  <div id="date-area">
+  <div id="date-area" className="center">
     <DatePicker
       changeDate={props.changeDate}
       selectedDate={props.selectedDate}
