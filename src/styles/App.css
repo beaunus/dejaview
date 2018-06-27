@@ -30,10 +30,16 @@ body {
   padding: 10px 0 0 0;
 }
 
+button,
+input {
+  font-family: inherit;
+}
+
 #date-area {
   display: flex;
+  flex-grow: 1;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 #date-area > div {
@@ -44,7 +50,8 @@ body {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
+  padding: 0 3em;
 }
 
 #header > div {
@@ -54,11 +61,11 @@ body {
 .logo {
   display: flex;
   justify-content: center;
-  margin-bottom: 1em;
+  align-items: center;
 }
 
 .logo img {
-  height: 8em;
+  height: 5em;
   image-rendering: crisp-edges;
 }
 
@@ -103,4 +110,8 @@ footer {
   padding: 0.5em;
   width: 100%;
   z-index: 1;
+}
+
+.center {
+  display: flex;
 }

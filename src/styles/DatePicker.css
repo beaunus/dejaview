@@ -1,13 +1,15 @@
 #date-picker {
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
+  align-self: center;
 }
 
 #date-picker input {
   border: 0;
-  padding: 0.1em;
+  border-radius: 6px;
+  padding: 0.1em 0.5em;
   box-shadow: 1px 1px 5px #000;
-  font-size: 1.8em;
+  font-size: 1.5em;
   height: 1.8em;
+  width: 10em;
 }
