@@ -61,11 +61,11 @@ input {
 .logo {
   display: flex;
   justify-content: center;
-  margin-bottom: 1em;
+  align-items: center;
 }
 
 .logo img {
-  height: 8em;
+  height: 5em;
   image-rendering: crisp-edges;
 }
 
