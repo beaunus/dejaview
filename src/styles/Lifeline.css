@@ -116,12 +116,17 @@
   margin-left: 10px;
 }
 
+.event-headline {
+  display: flex;
+  align-items: center;
+}
+
 .event-date {
   background: white;
-  margin-left: 1em;
+  margin-right: 0.5em;
   padding: 0.2em 0.5em;
   font-style: italic;
-  font-size: 0.8em;
+  font-size: 1.3em;
   border: solid #eee 1px;
   border-bottom-color: #ccc;
   border-right-color: #ccc;

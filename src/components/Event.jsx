@@ -12,7 +12,14 @@ const Event = props => (
         src={logoMap[props.label]}
         alt={`${props.label} Logo`}
       />
-      <div>
+      <div className="event-headline">
+        {props.granularity !== "day" ? (
+          <div className="event-date">
+            {moment(props.event.timestamp).format("MMMM D")}
+          </div>
+        ) : (
+          ""
+        )}
         {props.event.link.length > 0 ? (
           <a
             href={props.event.link}
@@ -26,13 +33,6 @@ const Event = props => (
           `${props.event.title}`
         )}
       </div>
-      {props.granularity !== "day" ? (
-        <div className="event-date">
-          {moment(props.event.timestamp).format("MMMM D")}
-        </div>
-      ) : (
-        ""
-      )}
     </div>
     <EventMore event={props.event} />
   </div>
