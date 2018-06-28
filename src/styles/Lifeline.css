@@ -116,16 +116,23 @@
   margin-left: 10px;
 }
 
+.event-headline {
+  display: flex;
+  align-items: center;
+}
+
 .event-date {
-  background: white;
-  margin-left: 1em;
+  flex-shrink: 2;
   padding: 0.2em 0.5em;
   font-style: italic;
-  font-size: 0.8em;
-  border: solid #eee 1px;
-  border-bottom-color: #ccc;
-  border-right-color: #ccc;
+  font-size: 1.3em;
   white-space: nowrap;
+}
+
+.headline-text {
+  display: flex;
+  align-items: center;
+  margin: 0 0.5em;
 }
 
 .event-more {
@@ -164,8 +171,15 @@ p:not(:first-child) {
   .lifeline::after {
     left: 5%;
   }
+
   .container {
     width: 95%;
     left: 5%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .event-headline {
+    flex-wrap: wrap;
   }
 }
