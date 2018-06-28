@@ -14,7 +14,8 @@
     "test": "mocha './{,!(node_modules)/**/}*.spec.js' && yarn build",
     "eject": "react-scripts eject",
     "testorig": "react-scripts test --env=jsdom",
-    "migrate": "yarn knex migrate:latest --knexfile server/database/knexfile.js"
+    "migrate": "yarn knex migrate:latest --knexfile server/database/knexfile.js",
+    "seed": "yarn knex seed:run --knexfile server/database/knexfile.js"
   },
   "lint-staged": {
     "*{js,jsx}": [
