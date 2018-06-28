@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Logo from "./Logo.jsx";
 import DateArea from "./DateArea";
 import Filters from "./Filters";
+import FacebookLoginButton from "./FacebookLoginButton";
 
 const Header = props => (
   <div id="header">
@@ -18,6 +19,7 @@ const Header = props => (
       labels={props.labels}
       toggleLabel={props.toggleLabel}
     />
+    {!props.isLoggedIn ? <FacebookLoginButton /> : ""}
   </div>
 );
 
