@@ -1,6 +1,6 @@
 const expect = require("chai").expect;
 
-describe("database", () => {
+describe("nothing", () => {
   it("should pass", () => {
     expect(1).to.eql(1);
   });
