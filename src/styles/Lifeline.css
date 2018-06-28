@@ -122,15 +122,17 @@
 }
 
 .event-date {
-  background: white;
-  margin-right: 0.5em;
+  flex-shrink: 2;
   padding: 0.2em 0.5em;
   font-style: italic;
   font-size: 1.3em;
-  border: solid #eee 1px;
-  border-bottom-color: #ccc;
-  border-right-color: #ccc;
   white-space: nowrap;
+}
+
+.headline-text {
+  display: flex;
+  align-items: center;
+  margin: 0 0.5em;
 }
 
 .event-more {
@@ -169,8 +171,15 @@ p:not(:first-child) {
   .lifeline::after {
     left: 5%;
   }
+
   .container {
     width: 95%;
     left: 5%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .event-headline {
+    flex-wrap: wrap;
   }
 }

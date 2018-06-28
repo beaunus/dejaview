@@ -7,11 +7,6 @@ import EventMore from "./EventMore";
 const Event = props => (
   <div key={props.label} className="event">
     <div className="headline">
-      <img
-        className="label-logo"
-        src={logoMap[props.label]}
-        alt={`${props.label} Logo`}
-      />
       <div className="event-headline">
         {props.granularity !== "day" ? (
           <div className="event-date">
@@ -20,18 +15,25 @@ const Event = props => (
         ) : (
           ""
         )}
-        {props.event.link.length > 0 ? (
-          <a
-            href={props.event.link}
-            key={props.index}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {props.event.title}
-          </a>
-        ) : (
-          `${props.event.title}`
-        )}
+        <div className="headline-text">
+          <img
+            className="label-logo"
+            src={logoMap[props.label]}
+            alt={`${props.label} Logo`}
+          />
+          {props.event.link.length > 0 ? (
+            <a
+              href={props.event.link}
+              key={props.index}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {props.event.title}
+            </a>
+          ) : (
+            `${props.event.title}`
+          )}
+        </div>
       </div>
     </div>
     <EventMore event={props.event} />
