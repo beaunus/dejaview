@@ -69,11 +69,20 @@ input {
   image-rendering: crisp-edges;
 }
 
+fieldset {
+  border: solid white 1px;
+  border-radius: 6px;
+}
+
 #filter-container {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+}
+
+#filter-label-legend {
+  color: #ffffff;
 }
 
 .label-logo {
@@ -95,6 +104,10 @@ input {
   cursor: pointer;
   padding: 0.3em;
   transition: background 0.2s ease-in-out;
+}
+
+.label-filter:hover {
+  box-shadow: 1px 1px 5px var(--color-highlight);
 }
 
 .filtered-label {
