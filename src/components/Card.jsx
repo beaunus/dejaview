@@ -5,11 +5,6 @@ import moment from "moment";
 
 const Card = props => {
   const classNames = ["container"];
-  if (props.isEven) {
-    classNames.push("left");
-  } else {
-    classNames.push("right");
-  }
   const events = Object.keys(props.events)
     .map(label => {
       if (props.labels[label]) {
