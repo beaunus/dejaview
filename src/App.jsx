@@ -10,7 +10,7 @@ import moment from "moment";
 class App extends Component {
   constructor(props) {
     super(props);
-    const granularity = "day";
+    const granularity = "week";
     const numGrainsPerRequest = 20;
     this.state = {
       events: {},
