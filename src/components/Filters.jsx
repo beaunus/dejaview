@@ -1,22 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 import LabelFilter from "./LabelFilter";
-import FacebookLoginButton from "./FacebookLoginButton";
 
 const Filters = props => (
-  <div id="filter-container">
-    {Object.keys(props.labels).map((label, index) => {
-      return (
-        <LabelFilter
-          filtered={!props.labels[label]}
-          key={index}
-          labelName={label}
-          toggleLabel={props.toggleLabel}
-        />
-      );
-    })}
-    {!props.isLoggedIn ? <FacebookLoginButton /> : ""}
-  </div>
+  <fieldset>
+    <legend id="filter-label-legend">FILTERS</legend>
+    <div id="filter-container">
+      {Object.keys(props.labels).map((label, index) => {
+        return (
+          <LabelFilter
+            filtered={!props.labels[label]}
+            key={index}
+            labelName={label}
+            toggleLabel={props.toggleLabel}
+          />
+        );
+      })}
+    </div>
+  </fieldset>
 );
 
 Filters.propTypes = {
