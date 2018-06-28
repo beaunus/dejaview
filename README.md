@@ -13,6 +13,7 @@ Looking back over the events of our digital lives can be cumbersome. _Déjà Vie
 <p align="center">
 <img   width="90%" alt="deja-view-screenshot" src="documentation/djv_screenshot.png">
 </p>
+
 ## How to use it
 
 - Choose a date from the date selector.
@@ -28,7 +29,7 @@ Looking back over the events of our digital lives can be cumbersome. _Déjà Vie
 
   - _We are currently in the process of getting approval from Facebook. If you would like to be a *tester* for this app, please [let us know](http://www.dejaview.cc/about)._
 
-#For Developers
+# For Developers
 
 ## Getting Started
 
