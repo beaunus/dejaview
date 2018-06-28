@@ -28,17 +28,18 @@ const Card = props => {
       case "week":
         cardHeading = `Week of ${dateMoment.format("LL")} - ${dateMoment
           .add(6, "days")
-          .format("LL")}, ${fromNow}`;
+          .format("LL")}`;
         break;
       case "month":
-        cardHeading = `${dateMoment.format("MMMM YYYY")}, ${fromNow}`;
+        cardHeading = dateMoment.format("MMMM YYYY");
         break;
       case "year":
-        cardHeading = `${dateMoment.format("YYYY")}, ${fromNow}`;
+        cardHeading = dateMoment.format("YYYY");
         break;
       default:
-        cardHeading = `${dateMoment.format("LL")}, ${fromNow}`;
+        cardHeading = dateMoment.format("LL");
     }
+    cardHeading += `, ${fromNow}`;
     return (
       <div className={classNames.join(" ")}>
         <div className="content">
