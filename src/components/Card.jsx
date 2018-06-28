@@ -23,25 +23,21 @@ const Card = props => {
   if (events.length > 0) {
     let cardHeading;
     const dateMoment = moment(props.date);
-    const startDateClone = dateMoment.clone();
+    const fromNow = dateMoment.fromNow();
     switch (props.granularity) {
       case "week":
-        cardHeading = `Week of ${startDateClone.format(
-          "LL"
-        )} - ${dateMoment
+        cardHeading = `Week of ${dateMoment.format("LL")} - ${dateMoment
           .add(6, "days")
-          .format("LL")}, ${startDateClone.fromNow()}`;
+          .format("LL")}, ${fromNow}`;
         break;
       case "month":
-        cardHeading = `${dateMoment.format(
-          "MMMM YYYY"
-        )}, ${dateMoment.fromNow()}`;
+        cardHeading = `${dateMoment.format("MMMM YYYY")}, ${fromNow}`;
         break;
       case "year":
-        cardHeading = `${dateMoment.format("YYYY")}, ${dateMoment.fromNow()}`;
+        cardHeading = `${dateMoment.format("YYYY")}, ${fromNow}`;
         break;
       default:
-        cardHeading = `${dateMoment.format("LL")}, ${dateMoment.fromNow()}`;
+        cardHeading = `${dateMoment.format("LL")}, ${fromNow}`;
     }
     return (
       <div className={classNames.join(" ")}>
